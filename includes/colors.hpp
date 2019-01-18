@@ -1,16 +1,16 @@
 //  colors.hpp
 //  gpcu
 //
-//  Created by Evan Young on 2019-01-17.
+//  Created by Evan Elias Young on 2019-01-17.
 //  Copyright 2019 Evan Elias Young. All rights reserved.
 
 #ifndef GPCU_COLORS_HPP_  // include guard
 #define GPCU_COLORS_HPP_
 
 namespace gpcu {
-  std::string getEnvVar(std::string key) {
+  std::basic_string<char> getEnvVar(std::basic_string<char> key) {
     char const* val = std::getenv(key.c_str());
-    return val == NULL ? std::string() : std::string(val);
+    return val == NULL ? std::basic_string<char>() : std::basic_string<char>(val);
   }
 
   namespace colors {

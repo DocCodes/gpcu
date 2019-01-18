@@ -1,14 +1,14 @@
 //  join.hpp
 //  gpcu
 //
-//  Created by Evan Young on 2019-01-17.
+//  Created by Evan Elias Young on 2019-01-17.
 //  Copyright 2019 Evan Elias Young. All rights reserved.
 
 #ifndef GPCU_JOIN_HPP_  // include guard
 #define GPCU_JOIN_HPP_
 
 namespace gpcu {
-  std::string join(int a[], size_t size, std::string delim) {
+  std::basic_string<char> join(int a[], size_t size, std::basic_string<char> delim) {
     std::stringstream ss;
     size_t i = 0;
 

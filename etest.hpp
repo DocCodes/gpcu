@@ -1,7 +1,7 @@
 //  etest.hpp
 //  gpcu
 //
-//  Created by Evan Young on 2019-01-13.
+//  Created by Evan Elias Young on 2019-01-13.
 //  Copyright 2019 Evan Elias Young. All rights reserved.
 
 #ifndef ETEST_HPP_  // include guard
