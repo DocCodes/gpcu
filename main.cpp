@@ -4,12 +4,18 @@
 //  Created by Evan Young on 2019-01-13.
 //  Copyright 2019 Evan Elias Young. All rights reserved.
 
+
 #include <stdlib.h>
 
+#include <algorithm>
+#include <iomanip>
 #include <iostream>
+#include <sstream>
+#include <string>
+#include <regex>
 
 #include "etest.hpp"
-#include "gpcu.hpp"
+#include "includes/all.hpp"
 
 // <region> Color Tests
 void test_color_support() {
@@ -174,7 +180,40 @@ bool test_join(int* passingPtr, int* totalPtr) {
 }
 // </region>
 
-// <region> Average Tests
+// <region> String Test
+std::string test_string_upper() {
+  std::string test = "Day Tripper";
+  std::string* testPtr = &test;
+  gpcu::string::upper(testPtr);
+
+  return test;
+}
+
+std::string test_string_lower() {
+  std::string test = "Day Tripper";
+  std::string* testPtr = &test;
+  gpcu::string::lower(testPtr);
+
+  return test;
+}
+
+bool test_string(int* passingPtr, int* totalPtr) {
+  size_t localTotal = 2;
+  std::string testNames[localTotal] = {
+    "upper(string* s)",
+    "lower(string* s)"
+  };
+  std::string (*testFuncs[localTotal])() = {
+    test_string_upper,
+    test_string_lower
+  };
+  std::string testExps[localTotal] = {
+    "DAY TRIPPER",
+    "day tripper"
+  };
+
+  return etest::TEST_CATEGORY_EQ("String", localTotal, passingPtr, totalPtr, testNames, testFuncs, testExps);
+}
 // </region>
 
 int main(int argc, const char* argv[]) {
@@ -185,6 +224,7 @@ int main(int argc, const char* argv[]) {
 
   test_color(passingPtr, totalPtr);
   test_join(passingPtr, totalPtr);
+  test_string(passingPtr, totalPtr);
 
   std::cout << (*passingPtr) << "/" << (*totalPtr) << " total tests passing" << std::endl;
 
