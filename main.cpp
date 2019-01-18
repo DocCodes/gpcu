@@ -4,7 +4,7 @@
 //  Created by Evan Elias Young on 2019-01-13.
 //  Copyright 2019 Evan Elias Young. All rights reserved.
 
-
+#include <ctype.h>
 #include <stdlib.h>
 
 #include <algorithm>
@@ -19,11 +19,13 @@
 
 // <region> Color Tests
 void test_color_support() {
-  std::cout << "  + Colors Supported: " << gpcu::colors::getSupport() << std::endl;
+  std::cout << "  " << gpcu::colors::wrap::green("+") << " ";
+  std::cout << "Colors Supported: " << gpcu::colors::getSupport();
+  std::cout << std::endl;
 }
 
 void test_color_other() {
-  std::cout << "  + ";
+  std::cout << "  " << gpcu::colors::wrap::green("+") << " ";
   std::cout << gpcu::colors::wrap::bold("BBBBB") << "   ";
   std::cout << gpcu::colors::wrap::dim("DDDDD") << "   ";
   std::cout << gpcu::colors::wrap::italic("IIIII") << "   ";
@@ -35,7 +37,7 @@ void test_color_other() {
 }
 
 void test_color_color() {
-  std::cout << "  + ";
+  std::cout << "  " << gpcu::colors::wrap::green("+") << " ";
   std::cout << gpcu::colors::wrap::black("BBBBB") << "   ";
   std::cout << gpcu::colors::wrap::red("RRRRR") << "   ";
   std::cout << gpcu::colors::wrap::green("GGGGG") << "   ";
@@ -48,7 +50,7 @@ void test_color_color() {
 }
 
 void test_color_bright() {
-  std::cout << "  + ";
+  std::cout << "  " << gpcu::colors::wrap::green("+") << " ";
   std::cout << gpcu::colors::wrap::blackBright("BBBBB") << "   ";
   std::cout << gpcu::colors::wrap::redBright("RRRRR") << "   ";
   std::cout << gpcu::colors::wrap::greenBright("GGGGG") << "   ";
@@ -61,7 +63,7 @@ void test_color_bright() {
 }
 
 void test_color_bg() {
-  std::cout << "  + ";
+  std::cout << "  " << gpcu::colors::wrap::green("+") << " ";
   std::cout << gpcu::colors::wrap::bgBlack("BBBBB") << "   ";
   std::cout << gpcu::colors::wrap::bgRed("RRRRR") << "   ";
   std::cout << gpcu::colors::wrap::bgGreen("GGGGG") << "   ";
@@ -74,7 +76,7 @@ void test_color_bg() {
 }
 
 void test_color_bgbright() {
-  std::cout << "  + ";
+  std::cout << "  " << gpcu::colors::wrap::green("+") << " ";
   std::cout << gpcu::colors::wrap::bgBlackBright("BBBBB") << "   ";
   std::cout << gpcu::colors::wrap::bgRedBright("RRRRR") << "   ";
   std::cout << gpcu::colors::wrap::bgGreenBright("GGGGG") << "   ";

@@ -10,13 +10,15 @@
 #include <iostream>
 #include <string>
 
+#include "includes/all.hpp"
+
 namespace etest {
   bool EXPECT_EQ(std::string testName, std::string (*func)(), std::string exp) {
     std::string ind = "  ";
     std::string res = func();
     bool passed = res == exp;
 
-    std::cout << ind << (passed ? "+" : "-") << " " << testName << std::endl;
+    std::cout << ind << (passed ? gpcu::colors::wrap::green("+") : gpcu::colors::wrap::red("-")) << " " << gpcu::colors::wrap::dim(testName) << std::endl;
     if (!passed) {
       std::string temp = ind + ind + "- ";
       std::cout << temp << "received \"" << res << "\"" << std::endl;
