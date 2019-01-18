@@ -9,10 +9,10 @@
 
 namespace gpcu {
   namespace string {
-    void upper(std::string* s) {
+    void upper(std::basic_string<char>* s) {
       std::transform((*s).begin(), (*s).end(), (*s).begin(), ::toupper);
     }
-    void lower(std::string* s) {
+    void lower(std::basic_string<char>* s) {
       std::transform((*s).begin(), (*s).end(), (*s).begin(), ::tolower);
     }
   }  // namespace string

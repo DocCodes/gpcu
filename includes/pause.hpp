@@ -13,7 +13,7 @@ namespace gpcu {
     std::cin.get();
   }
 
-  void pause(std::string msg) {
+  void pause(std::basic_string<char> msg) {
     std::cout << msg << std::endl;
     std::cin.get();
   }

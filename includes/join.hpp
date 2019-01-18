@@ -20,7 +20,7 @@ namespace gpcu {
     return ss.str();
   }
 
-  std::string join(char a[], size_t size, std::string delim) {
+  std::basic_string<char> join(char a[], size_t size, std::basic_string<char> delim) {
     std::stringstream ss;
     size_t i = 0;
 
@@ -32,7 +32,7 @@ namespace gpcu {
     return ss.str();
   }
 
-  std::string join(bool a[], size_t size, std::string delim) {
+  std::basic_string<char> join(bool a[], size_t size, std::basic_string<char> delim) {
     std::stringstream ss;
     size_t i = 0;
 
@@ -45,7 +45,7 @@ namespace gpcu {
     return ss.str();
   }
 
-  std::string join(float a[], size_t size, std::string delim, int prec = 2) {
+  std::basic_string<char> join(float a[], size_t size, std::basic_string<char> delim, int prec = 2) {
     std::stringstream ss;
     size_t i = 0;
 
@@ -58,7 +58,7 @@ namespace gpcu {
     return ss.str();
   }
 
-  std::string join(double a[], size_t size, std::string delim, int prec = 2) {
+  std::basic_string<char> join(double a[], size_t size, std::basic_string<char> delim, int prec = 2) {
     std::stringstream ss;
     size_t i = 0;
 
@@ -71,7 +71,7 @@ namespace gpcu {
     return ss.str();
   }
 
-  std::string join(std::string a[], size_t size, std::string delim) {
+  std::basic_string<char> join(std::basic_string<char> a[], size_t size, std::basic_string<char> delim) {
     std::stringstream ss;
     size_t i = 0;
 
