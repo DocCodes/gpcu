@@ -12,14 +12,15 @@ files.remove('gpcu.hpp')
 filesCode = []
 code = ''
 
-includes = [
-    'algorithm',
-    'iomanip',
-    'iostream',
-    'sstream',
-    'string',
-    'regex'
-]
+includes = open('includes/all.hpp', 'r').read().split('\n')
+includes = [a for a in includes if a.startswith('#include <') ]
+includes.reverse()
+for i in includes:
+    if i.endswith('.h>'):
+        includes.insert(includes.index(i), '')
+        break
+includes.reverse()
+
 
 for fi in files:
     lcCode = open(f'includes/{fi}', 'r').read()
@@ -38,7 +39,7 @@ code = '\n'.join([
     '#ifndef GPCU_HPP_  // include guard',
     '#define GPCU_HPP_',
     '',
-    '\n'.join([f'#include <{i}>' for i in includes]),
+    '\n'.join(includes),
     '',
     'namespace gpcu {',
     '\n'.join(filesCode),

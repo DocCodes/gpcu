@@ -7,6 +7,9 @@
 #ifndef GPCU_HPP_  // include guard
 #define GPCU_HPP_
 
+#include <ctype.h>
+#include <stdlib.h>
+
 #include <algorithm>
 #include <iomanip>
 #include <iostream>
