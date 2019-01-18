@@ -4,8 +4,8 @@
 //  Created by Evan Young on 2019-01-13.
 //  Copyright 2019 Evan Elias Young. All rights reserved.
 
-#ifndef GPCU_ETEST_HPP_  // include guard
-#define GPCU_ETEST_HPP_
+#ifndef ETEST_HPP_  // include guard
+#define ETEST_HPP_
 
 #include <iostream>
 #include <string>
@@ -26,7 +26,7 @@ namespace etest {
     return passed;
   }
 
-  bool TEST_CATEGORY_EQ(std::string category, size_t localTotal, int *passing, int *total, std::string testNames[], std::string (*testFuncs[])(), std::string testExps[]) {
+  bool TEST_CATEGORY_EQ(std::string category, size_t localTotal, int* passingPtr, int* totalPtr, std::string testNames[], std::string (*testFuncs[])(), std::string testExps[]) {
     bool passed = true;
     int localPassing = 0;
 
@@ -38,12 +38,12 @@ namespace etest {
     }
 
     std::cout << localPassing << "/" << localTotal << " tests passing" << std::endl << std::endl;
-    passing += localPassing;
-    total += localTotal;
+    (*passingPtr) += localPassing;
+    (*totalPtr) += localTotal;
 
     return passed;
   }
 }  // namespace etest
 
 
-#endif  // GPCU_ETEST_HPP_
+#endif  // ETEST_HPP_
