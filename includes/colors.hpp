@@ -68,10 +68,22 @@ namespace gpcu {
       return "\033[" + std::to_string(30 + col + off) + "m";
     }
 
+    std::basic_string<char> wrapAnsi256(int col, int off) {
+      return "\033[" + std::to_string(38 + off) + ";5;" + std::to_string(col) + "m";
+    }
+
     namespace wrap {
       std::basic_string<char> wrapper(std::basic_string<char> txt, int col, int off, int term) {
-        if (getSupport() >= Support::basic) {
+        bool isColor = true;
+        if ((col < 10 && off == -30) && (term >= 22 && term <= 28)) {
+          isColor = false;
+        }
+
+        if (getSupport() == Support::basic || !isColor) {
           return wrapAnsi16(col, off) + txt + wrapAnsi16(term, -30);
+        }
+        if (getSupport() >= color && !isColor) {
+          return wrapAnsi256(col, off - 39) + txt + wrapAnsi16(term, -30);
         }
         return txt;
       }
