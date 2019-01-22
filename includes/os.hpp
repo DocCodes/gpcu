@@ -37,7 +37,7 @@ namespace gpcu {
     return macOS9;
     #elif defined(__APPLE__)
     return macOSX;
-    #if defined(sun) || defined(__sun)
+    #elif defined(sun) || defined(__sun)
     #if defined(__SVR4) || defined(__svr4__)
     return solaris;
     #else
