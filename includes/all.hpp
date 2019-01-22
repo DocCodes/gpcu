@@ -19,6 +19,7 @@
 
 #include "colors.hpp"
 #include "join.hpp"
+#include "os.hpp"
 #include "pause.hpp"
 #include "string.hpp"
 
