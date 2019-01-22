@@ -18,9 +18,9 @@
 #include <regex>
 
 namespace gpcu {
-  std::basic_string<char> getEnvVar(std::basic_string<char> key) {
+  std::string getEnvVar(std::string key) {
     char const* val = std::getenv(key.c_str());
-    return val == NULL ? std::basic_string<char>() : std::basic_string<char>(val);
+    return val == NULL ? std::string() : std::string(val);
   }
 
   namespace colors {
@@ -43,9 +43,9 @@ namespace gpcu {
     };
 
     Support getSupport() {
-      std::basic_string<char> term = getEnvVar("TERM");
-      std::basic_string<char> colorTerm = getEnvVar("COLORTERM");
-      std::basic_string<char> termProgram = getEnvVar("TERM_PROGRAM");
+      std::string term = getEnvVar("TERM");
+      std::string colorTerm = getEnvVar("COLORTERM");
+      std::string termProgram = getEnvVar("TERM_PROGRAM");
 
       if (!term.empty()) {
         if (term == "dumb") {
@@ -74,61 +74,61 @@ namespace gpcu {
       return none;
     }
 
-    std::basic_string<char> wrapAnsi16(int col, int off) {
+    std::string wrapAnsi16(int col, int off) {
       return "\033[" + std::to_string(30 + col + off) + "m";
     }
 
     namespace wrap {
-      std::basic_string<char> wrapper(std::basic_string<char> txt, int col, int off, int term) {
+      std::string wrapper(std::string txt, int col, int off, int term) {
         if (getSupport() >= Support::basic) {
           return wrapAnsi16(col, off) + txt + wrapAnsi16(term, -30);
         }
         return txt;
       }
 
-      std::basic_string<char> bold(std::basic_string<char> txt) { return wrapper(txt, 1, -30, 22); }
-      std::basic_string<char> dim(std::basic_string<char> txt) { return wrapper(txt, 2, -30, 22); }
-      std::basic_string<char> italic(std::basic_string<char> txt) { return wrapper(txt, 3, -30, 23); }
-      std::basic_string<char> underline(std::basic_string<char> txt) { return wrapper(txt, 4, -30, 24); }
-      std::basic_string<char> inverse(std::basic_string<char> txt) { return wrapper(txt, 7, -30, 27); }
-      std::basic_string<char> hidden(std::basic_string<char> txt) { return wrapper(txt, 8, -30, 28); }
-      std::basic_string<char> strikethrough(std::basic_string<char> txt) { return wrapper(txt, 9, -30, 29); }
-      std::basic_string<char> black(std::basic_string<char> txt) { return wrapper(txt, Ansi::black, 0, 39); }
-      std::basic_string<char> red(std::basic_string<char> txt) { return wrapper(txt, Ansi::red, 0, 39); }
-      std::basic_string<char> green(std::basic_string<char> txt) { return wrapper(txt, Ansi::green, 0, 39); }
-      std::basic_string<char> yellow(std::basic_string<char> txt) { return wrapper(txt, Ansi::yellow, 0, 39); }
-      std::basic_string<char> blue(std::basic_string<char> txt) { return wrapper(txt, Ansi::blue, 0, 39); }
-      std::basic_string<char> magenta(std::basic_string<char> txt) { return wrapper(txt, Ansi::magenta, 0, 39); }
-      std::basic_string<char> cyan(std::basic_string<char> txt) { return wrapper(txt, Ansi::cyan, 0, 39); }
-      std::basic_string<char> white(std::basic_string<char> txt) { return wrapper(txt, Ansi::white, 0, 39); }
-      std::basic_string<char> bgBlack(std::basic_string<char> txt) { return wrapper(txt, Ansi::black, 10, 49); }
-      std::basic_string<char> bgRed(std::basic_string<char> txt) { return wrapper(txt, Ansi::red, 10, 49); }
-      std::basic_string<char> bgGreen(std::basic_string<char> txt) { return wrapper(txt, Ansi::green, 10, 49); }
-      std::basic_string<char> bgYellow(std::basic_string<char> txt) { return wrapper(txt, Ansi::yellow, 10, 49); }
-      std::basic_string<char> bgBlue(std::basic_string<char> txt) { return wrapper(txt, Ansi::blue, 10, 49); }
-      std::basic_string<char> bgMagenta(std::basic_string<char> txt) { return wrapper(txt, Ansi::magenta, 10, 49); }
-      std::basic_string<char> bgCyan(std::basic_string<char> txt) { return wrapper(txt, Ansi::cyan, 10, 49); }
-      std::basic_string<char> bgWhite(std::basic_string<char> txt) { return wrapper(txt, Ansi::white, 10, 49); }
-      std::basic_string<char> blackBright(std::basic_string<char> txt) { return wrapper(txt, Ansi::black, 60, 39); }
-      std::basic_string<char> redBright(std::basic_string<char> txt) { return wrapper(txt, Ansi::red, 60, 39); }
-      std::basic_string<char> greenBright(std::basic_string<char> txt) { return wrapper(txt, Ansi::green, 60, 39); }
-      std::basic_string<char> yellowBright(std::basic_string<char> txt) { return wrapper(txt, Ansi::yellow, 60, 39); }
-      std::basic_string<char> blueBright(std::basic_string<char> txt) { return wrapper(txt, Ansi::blue, 60, 39); }
-      std::basic_string<char> magentaBright(std::basic_string<char> txt) { return wrapper(txt, Ansi::magenta, 60, 39); }
-      std::basic_string<char> cyanBright(std::basic_string<char> txt) { return wrapper(txt, Ansi::cyan, 60, 39); }
-      std::basic_string<char> whiteBright(std::basic_string<char> txt) { return wrapper(txt, Ansi::white, 60, 39); }
-      std::basic_string<char> bgBlackBright(std::basic_string<char> txt) { return wrapper(txt, Ansi::black, 70, 49); }
-      std::basic_string<char> bgRedBright(std::basic_string<char> txt) { return wrapper(txt, Ansi::red, 70, 49); }
-      std::basic_string<char> bgGreenBright(std::basic_string<char> txt) { return wrapper(txt, Ansi::green, 70, 49); }
-      std::basic_string<char> bgYellowBright(std::basic_string<char> txt) { return wrapper(txt, Ansi::yellow, 70, 49); }
-      std::basic_string<char> bgBlueBright(std::basic_string<char> txt) { return wrapper(txt, Ansi::blue, 70, 49); }
-      std::basic_string<char> bgMagentaBright(std::basic_string<char> txt) { return wrapper(txt, Ansi::magenta, 70, 49); }
-      std::basic_string<char> bgCyanBright(std::basic_string<char> txt) { return wrapper(txt, Ansi::cyan, 70, 49); }
-      std::basic_string<char> bgWhiteBright(std::basic_string<char> txt) { return wrapper(txt, Ansi::white, 70, 49); }
+      std::string bold(std::string txt) { return wrapper(txt, 1, -30, 22); }
+      std::string dim(std::string txt) { return wrapper(txt, 2, -30, 22); }
+      std::string italic(std::string txt) { return wrapper(txt, 3, -30, 23); }
+      std::string underline(std::string txt) { return wrapper(txt, 4, -30, 24); }
+      std::string inverse(std::string txt) { return wrapper(txt, 7, -30, 27); }
+      std::string hidden(std::string txt) { return wrapper(txt, 8, -30, 28); }
+      std::string strikethrough(std::string txt) { return wrapper(txt, 9, -30, 29); }
+      std::string black(std::string txt) { return wrapper(txt, Ansi::black, 0, 39); }
+      std::string red(std::string txt) { return wrapper(txt, Ansi::red, 0, 39); }
+      std::string green(std::string txt) { return wrapper(txt, Ansi::green, 0, 39); }
+      std::string yellow(std::string txt) { return wrapper(txt, Ansi::yellow, 0, 39); }
+      std::string blue(std::string txt) { return wrapper(txt, Ansi::blue, 0, 39); }
+      std::string magenta(std::string txt) { return wrapper(txt, Ansi::magenta, 0, 39); }
+      std::string cyan(std::string txt) { return wrapper(txt, Ansi::cyan, 0, 39); }
+      std::string white(std::string txt) { return wrapper(txt, Ansi::white, 0, 39); }
+      std::string bgBlack(std::string txt) { return wrapper(txt, Ansi::black, 10, 49); }
+      std::string bgRed(std::string txt) { return wrapper(txt, Ansi::red, 10, 49); }
+      std::string bgGreen(std::string txt) { return wrapper(txt, Ansi::green, 10, 49); }
+      std::string bgYellow(std::string txt) { return wrapper(txt, Ansi::yellow, 10, 49); }
+      std::string bgBlue(std::string txt) { return wrapper(txt, Ansi::blue, 10, 49); }
+      std::string bgMagenta(std::string txt) { return wrapper(txt, Ansi::magenta, 10, 49); }
+      std::string bgCyan(std::string txt) { return wrapper(txt, Ansi::cyan, 10, 49); }
+      std::string bgWhite(std::string txt) { return wrapper(txt, Ansi::white, 10, 49); }
+      std::string blackBright(std::string txt) { return wrapper(txt, Ansi::black, 60, 39); }
+      std::string redBright(std::string txt) { return wrapper(txt, Ansi::red, 60, 39); }
+      std::string greenBright(std::string txt) { return wrapper(txt, Ansi::green, 60, 39); }
+      std::string yellowBright(std::string txt) { return wrapper(txt, Ansi::yellow, 60, 39); }
+      std::string blueBright(std::string txt) { return wrapper(txt, Ansi::blue, 60, 39); }
+      std::string magentaBright(std::string txt) { return wrapper(txt, Ansi::magenta, 60, 39); }
+      std::string cyanBright(std::string txt) { return wrapper(txt, Ansi::cyan, 60, 39); }
+      std::string whiteBright(std::string txt) { return wrapper(txt, Ansi::white, 60, 39); }
+      std::string bgBlackBright(std::string txt) { return wrapper(txt, Ansi::black, 70, 49); }
+      std::string bgRedBright(std::string txt) { return wrapper(txt, Ansi::red, 70, 49); }
+      std::string bgGreenBright(std::string txt) { return wrapper(txt, Ansi::green, 70, 49); }
+      std::string bgYellowBright(std::string txt) { return wrapper(txt, Ansi::yellow, 70, 49); }
+      std::string bgBlueBright(std::string txt) { return wrapper(txt, Ansi::blue, 70, 49); }
+      std::string bgMagentaBright(std::string txt) { return wrapper(txt, Ansi::magenta, 70, 49); }
+      std::string bgCyanBright(std::string txt) { return wrapper(txt, Ansi::cyan, 70, 49); }
+      std::string bgWhiteBright(std::string txt) { return wrapper(txt, Ansi::white, 70, 49); }
     }  // namespace wrap
   }  // namespace colors
 
-  std::basic_string<char> join(int a[], size_t size, std::basic_string<char> delim) {
+  std::string join(int a[], size_t size, std::string delim) {
     std::stringstream ss;
     size_t i = 0;
 
@@ -140,7 +140,7 @@ namespace gpcu {
     return ss.str();
   }
 
-  std::basic_string<char> join(char a[], size_t size, std::basic_string<char> delim) {
+  std::string join(char a[], size_t size, std::string delim) {
     std::stringstream ss;
     size_t i = 0;
 
@@ -152,7 +152,7 @@ namespace gpcu {
     return ss.str();
   }
 
-  std::basic_string<char> join(bool a[], size_t size, std::basic_string<char> delim) {
+  std::string join(bool a[], size_t size, std::string delim) {
     std::stringstream ss;
     size_t i = 0;
 
@@ -165,7 +165,7 @@ namespace gpcu {
     return ss.str();
   }
 
-  std::basic_string<char> join(float a[], size_t size, std::basic_string<char> delim, int prec = 2) {
+  std::string join(float a[], size_t size, std::string delim, int prec = 2) {
     std::stringstream ss;
     size_t i = 0;
 
@@ -178,7 +178,7 @@ namespace gpcu {
     return ss.str();
   }
 
-  std::basic_string<char> join(double a[], size_t size, std::basic_string<char> delim, int prec = 2) {
+  std::string join(double a[], size_t size, std::string delim, int prec = 2) {
     std::stringstream ss;
     size_t i = 0;
 
@@ -191,7 +191,7 @@ namespace gpcu {
     return ss.str();
   }
 
-  std::basic_string<char> join(std::basic_string<char> a[], size_t size, std::basic_string<char> delim) {
+  std::string join(std::string a[], size_t size, std::string delim) {
     std::stringstream ss;
     size_t i = 0;
 
@@ -208,16 +208,16 @@ namespace gpcu {
     std::cin.get();
   }
 
-  void pause(std::basic_string<char> msg) {
+  void pause(std::string msg) {
     std::cout << msg << std::endl;
     std::cin.get();
   }
 
   namespace string {
-    void upper(std::basic_string<char>* s) {
+    void upper(std::string* s) {
       std::transform((*s).begin(), (*s).end(), (*s).begin(), ::toupper);
     }
-    void lower(std::basic_string<char>* s) {
+    void lower(std::string* s) {
       std::transform((*s).begin(), (*s).end(), (*s).begin(), ::tolower);
     }
   }  // namespace string
