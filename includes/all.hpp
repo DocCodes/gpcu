@@ -7,10 +7,6 @@
 #ifndef GPCU_HPP_  // include guard
 #define GPCU_HPP_
 
-#ifdef _WIN32
-#include <Ntddk.h>
-#endif
-
 #include <ctype.h>
 #include <stdlib.h>
 
