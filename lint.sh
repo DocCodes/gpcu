@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-py -m cpplint *.cpp *.hpp
+py -m cpplint main.cpp
