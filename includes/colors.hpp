@@ -74,15 +74,16 @@ namespace gpcu {
 
     namespace wrap {
       std::basic_string<char> wrapper(std::basic_string<char> txt, int col, int off, int term) {
+        Support supportLevel = getSupport();
         bool isColor = true;
         if ((col < 10 && off == -30) && (term >= 22 && term <= 28)) {
           isColor = false;
         }
 
-        if (getSupport() == Support::basic || !isColor) {
+        if ((supportLevel > Support::none) && (supportLevel == Support::basic || !isColor)) {
           return wrapAnsi16(col, off) + txt + wrapAnsi16(term, -30);
         }
-        if (getSupport() >= color && !isColor) {
+        if (supportLevel >= Support::color && !isColor) {
           return wrapAnsi256(col, off - 39) + txt + wrapAnsi16(term, -30);
         }
         return txt;
