@@ -12,6 +12,7 @@ namespace gpcu {
     void upper(std::string* s) {
       std::transform((*s).begin(), (*s).end(), (*s).begin(), ::toupper);
     }
+    
     void lower(std::string* s) {
       std::transform((*s).begin(), (*s).end(), (*s).begin(), ::tolower);
     }
