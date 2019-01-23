@@ -7,6 +7,8 @@
 #ifndef GPCU_STRING_HPP_  // include guard
 #define GPCU_STRING_HPP_
 
+#include <ctype.h>
+
 #include <algorithm>
 #include <string>
 

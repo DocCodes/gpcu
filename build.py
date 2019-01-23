@@ -12,21 +12,21 @@ files.remove('gpcu.hpp')
 filesCode = []
 code = ''
 
-includes = open('includes/all.hpp', 'r').read().split('\n')
-includes = [a for a in includes if a.startswith('#include <') ]
-includes.reverse()
-for i in includes:
-    if i.endswith('.h>'):
-        includes.insert(includes.index(i), '')
-        break
-includes.reverse()
-
-
+baseInc = []
+cInc = []
 for fi in files:
     lcCode = open(f'includes/{fi}', 'r').read()
+    baseInc.extend(re.findall('#include <.*>', lcCode))
     lcCode = re.sub(r'.*namespace gpcu {\n', '', lcCode, 0, re.MULTILINE + re.DOTALL)
     lcCode = re.sub(r'}  // namespace gpcu.*', '', lcCode, 0, re.MULTILINE + re.DOTALL)
     filesCode.append(lcCode)
+
+baseInc = list(set(baseInc))
+cInc = baseInc.copy()
+baseInc = [i for i in baseInc if not i.endswith('.h>')]
+cInc = [i for i in cInc if i.endswith('.h>')]
+baseInc.sort()
+cInc.sort()
 
 filesCode[-1] = filesCode[-1].rstrip()
 code = '\n'.join([
@@ -39,7 +39,9 @@ code = '\n'.join([
     '#ifndef GPCU_HPP_  // include guard',
     '#define GPCU_HPP_',
     '',
-    '\n'.join(includes),
+    '\n'.join(cInc),
+    '',
+    '\n'.join(baseInc),
     '',
     'namespace gpcu {',
     '\n'.join(filesCode),
