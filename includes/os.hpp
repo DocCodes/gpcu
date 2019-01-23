@@ -7,6 +7,11 @@
 #ifndef GPCU_OS_HPP_  // include guard
 #define GPCU_OS_HPP_
 
+#include <stdlib.h>
+
+#include <fstream>
+#include <string>
+
 #include "join.hpp"
 #include "string.hpp"
 

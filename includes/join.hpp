@@ -7,6 +7,11 @@
 #ifndef GPCU_JOIN_HPP_  // include guard
 #define GPCU_JOIN_HPP_
 
+#include <iostream>
+#include <iomanip>
+#include <sstream>
+#include <string>
+
 namespace gpcu {
   std::string join(int a[], size_t size, std::string delim) {
     std::stringstream ss;

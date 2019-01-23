@@ -7,6 +7,9 @@
 #ifndef GPCU_PAUSE_HPP_  // include guard
 #define GPCU_PAUSE_HPP_
 
+#include <iostream>
+#include <string>
+
 namespace gpcu {
   void pause() {
     std::cout << "Press the enter key to continue . . ." << std::endl;

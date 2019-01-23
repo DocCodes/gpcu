@@ -7,6 +7,9 @@
 #ifndef GPCU_STRING_HPP_  // include guard
 #define GPCU_STRING_HPP_
 
+#include <algorithm>
+#include <string>
+
 namespace gpcu {
   namespace string {
     void upper(std::string* s) {

@@ -7,6 +7,9 @@
 #ifndef GPCU_COLORS_HPP_  // include guard
 #define GPCU_COLORS_HPP_
 
+#include <regex>
+#include <string>
+
 #include "os.hpp"
 
 namespace gpcu {
