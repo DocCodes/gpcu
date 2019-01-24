@@ -8,11 +8,12 @@
 #include <stdlib.h>
 
 #include <algorithm>
+#include <fstream>
 #include <iomanip>
 #include <iostream>
+#include <regex>
 #include <sstream>
 #include <string>
-#include <regex>
 
 #include "etest.hpp"
 #include "includes/all.hpp"
