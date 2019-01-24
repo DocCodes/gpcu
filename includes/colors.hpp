@@ -76,26 +76,22 @@ namespace gpcu {
     }
 
     std::string wrapAnsi256(int col, int off) {
-      return "\033[" + std::to_string(38 + off) + ";5;" + std::to_string(col) + "m";
+      return "\033[" + std::to_string(38 + (off % 60)) + ";5;" + std::to_string(off >= 60 ? col + 8 : col) + "m";
     }
 
     namespace wrap {
       std::string wrapper(std::string txt, int col, int off, int term) {
         gpcu::colors::Support supportLevel = getSupport();
         bool isColor = true;
-        if ((col < 10 && off == -30) && (term >= 22 && term <= 28)) {
+        if ((col < 10 && off == -30) && (term >= 22 && term <= 29)) {
           isColor = false;
-        }
-
-        if (supportLevel == gpcu::colors::Support::none) {
-          return txt;
         }
 
         if (supportLevel == gpcu::colors::Support::basic || !isColor) {
           return wrapAnsi16(col, off) + txt + wrapAnsi16(term, -30);
         }
-        if (supportLevel >= gpcu::colors::Support::color && !isColor) {
-          return wrapAnsi256(col, off - 39) + txt + wrapAnsi16(term, -30);
+        if (supportLevel >= gpcu::colors::Support::color && isColor) {
+          return wrapAnsi256(col, off) + txt + wrapAnsi16(term, -30);
         }
         return txt;
       }
