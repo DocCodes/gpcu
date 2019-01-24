@@ -13,7 +13,6 @@
 #include <string>
 
 #include "join.hpp"
-#include "string.hpp"
 
 namespace gpcu {
   enum OperatingSystem : unsigned short {
