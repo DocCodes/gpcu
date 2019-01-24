@@ -199,19 +199,46 @@ std::string test_string_lower() {
   return test;
 }
 
+std::string test_string_ltrim() {
+  std::string test = "    Overflow";
+
+  return gpcu::string::ltrim(test);
+}
+
+std::string test_string_rtrim() {
+  std::string test = "Underflow   ";
+
+  return gpcu::string::rtrim(test);
+}
+
+std::string test_string_trim() {
+  std::string test = "   Botherflow   ";
+
+  return gpcu::string::trim(test);
+}
+
 bool test_string(int* passingPtr, int* totalPtr) {
-  size_t localTotal = 2;
+  size_t localTotal = 5;
   std::string testNames[localTotal] = {
     "upper(string* s)",
-    "lower(string* s)"
+    "lower(string* s)",
+    "ltrim(string& s, const string& chars)",
+    "rtrim(string& s, const string& chars)",
+    "trim(string& s, const string& chars)"
   };
   std::string (*testFuncs[localTotal])() = {
     test_string_upper,
-    test_string_lower
+    test_string_lower,
+    test_string_ltrim,
+    test_string_rtrim,
+    test_string_trim
   };
   std::string testExps[localTotal] = {
     "DAY TRIPPER",
-    "day tripper"
+    "day tripper",
+    "Overflow",
+    "Underflow",
+    "Botherflow"
   };
 
   return etest::TEST_CATEGORY_EQ("String", localTotal, passingPtr, totalPtr, testNames, testFuncs, testExps);
