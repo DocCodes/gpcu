@@ -1,7 +1,7 @@
 //  gpcu.hpp
 //  gpcu
 //
-//  Created by Evan Elias Young on 2019-01-22.
+//  Created by Evan Elias Young on 2019-01-24.
 //  Copyright 2019 Evan Elias Young. All rights reserved.
 
 #ifndef GPCU_HPP_  // include guard
@@ -20,14 +20,14 @@
 
 namespace gpcu {
   namespace colors {
-    enum Support {
+    enum Support : unsigned int {
       none = 1,
       basic = 16,
       color = 256,
       full = 16777216
     };
 
-    enum Ansi {
+    enum Ansi : unsigned short {
       black,
       red,
       green,
@@ -223,7 +223,7 @@ namespace gpcu {
     return ss.str();
   }
 
-  enum OperatingSystem {
+  enum OperatingSystem : unsigned short {
     other,
     DOS,
     linux,
