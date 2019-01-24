@@ -14,14 +14,14 @@
 
 namespace gpcu {
   namespace colors {
-    enum Support {
+    enum Support : unsigned int {
       none = 1,
       basic = 16,
       color = 256,
       full = 16777216
     };
 
-    enum Ansi {
+    enum Ansi : unsigned short {
       black,
       red,
       green,

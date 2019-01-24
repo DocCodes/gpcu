@@ -16,7 +16,7 @@
 #include "string.hpp"
 
 namespace gpcu {
-  enum OperatingSystem {
+  enum OperatingSystem : unsigned short {
     other,
     DOS,
     linux,
