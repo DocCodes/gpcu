@@ -35,27 +35,27 @@ namespace gpcu {
 
   gpcu::OperatingSystem getOS() {
     #if defined(MSDOS) || defined(__MSDOS__) || defined(_MSDOS) || defined(__DOS__)
-    return DOS;
+    return gpcu::OperatingSystem::DOS;
     #elif defined(__linux__)
-    return linux;
+    return gpcu::OperatingSystem::linux;
     #elif defined(macintosh) || defined(Macintosh)
-    return macOS9;
+    return gpcu::OperatingSystem::macOS9;
     #elif defined(__APPLE__)
-    return macOSX;
+    return gpcu::OperatingSystem::macOSX;
     #elif defined(sun) || defined(__sun)
     #if defined(__SVR4) || defined(__svr4__)
-    return solaris;
+    return gpcu::OperatingSystem::solaris;
     #else
-    return sunOS;
+    return gpcu::OperatingSystem::sunOS;
     #endif
     #elif defined(_WIN16) || defined(__TOS_WIN__)
-    return win16;
+    return gpcu::OperatingSystem::win16;
     #elif defined(_WIN32) || defined(__WIN32__) || defined(__WINDOWS__)
-    return win32;
+    return gpcu::OperatingSystem::win32;
     #elif defined(_WIN64)
-    return win64;
+    return gpcu::OperatingSystem::win64;
     #else
-    return other;
+    return gpcu::OperatingSystem::other;
     #endif
   }
 
@@ -63,7 +63,7 @@ namespace gpcu {
     gpcu::OperatingSystem os = getOS();
     std::string pathSep = "/";
 
-    if (os == DOS || os == win16 || os == win32 || os == win64) {
+    if (os == gpcu::OperatingSystem::DOS || os == gpcu::OperatingSystem::win16 || os == gpcu::OperatingSystem::win32 || os == gpcu::OperatingSystem::win64) {
       pathSep = "\\";
     }
 
@@ -74,13 +74,13 @@ namespace gpcu {
     gpcu::OperatingSystem os = getOS();
     std::string tempDir = std::string();
 
-    if (os == other) { return tempDir; }
+    if (os == gpcu::OperatingSystem::other) { return tempDir; }
     if (tempDir.empty()) { tempDir = gpcu::getEnvVar("TMP"); }
     if (tempDir.empty()) { tempDir = gpcu::getEnvVar("TEMP"); }
     if (tempDir.empty()) { tempDir = gpcu::getEnvVar("TMPDIR"); }
     if (tempDir.empty()) { tempDir = gpcu::getEnvVar("TEMPDIR"); }
     if (tempDir.empty()) {
-      if (!(os == other || os == DOS || os == win16 || os == win32 || os == win64)) {
+      if (!(os == gpcu::OperatingSystem::other || os == gpcu::OperatingSystem::DOS || os == gpcu::OperatingSystem::win16 || os == gpcu::OperatingSystem::win32 || os == gpcu::OperatingSystem::win64)) {
         tempDir = "/tmp";
       }
     }
@@ -100,7 +100,7 @@ namespace gpcu {
     std::ifstream verFile(verPath);
     std::stringstream buffer;
 
-    if (os == DOS || os == win16 || os == win32 || os == win64) {
+    if (os == gpcu::OperatingSystem::DOS || os == gpcu::OperatingSystem::win16 || os == gpcu::OperatingSystem::win32 || os == gpcu::OperatingSystem::win64) {
       std::system(("ver > " + verPath).c_str());
       buffer << verFile.rdbuf();
       ver = buffer.str();

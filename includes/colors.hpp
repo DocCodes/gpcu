@@ -41,7 +41,7 @@ namespace gpcu {
       if (term == "dumb") {
         return none;
       }
-      if (os == win32 || os == win64) {
+      if (os == gpcu::OperatingSystem::win32 || os == gpcu::OperatingSystem::win64) {
         std::string osVer = gpcu::getOSVer();
         if (std::stof(osVer.substr(0, 2)) >= 10) {
           if (std::stof(osVer.substr(5, osVer.length() - 5)) >= 10586) {
