@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+#  build.py
+#  gpcu
+#
+#  Created by Evan Elias Young on 2019-01-17.
+#  Copyright 2019 Evan Elias Young. All rights reserved.
 
 import os
 import re
