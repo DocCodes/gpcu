@@ -18,14 +18,14 @@
 #include "etest.hpp"
 #include "includes/all.hpp"
 
-// <region> Color Tests
-void test_color_support() {
+// <region> Colors Tests
+void test_colors_support() {
   std::cout << "  " << gpcu::colors::wrap::green("+") << " ";
   std::cout << "Colors Supported: " << gpcu::colors::getSupport();
   std::cout << std::endl;
 }
 
-void test_color_other() {
+void test_colors_other() {
   std::cout << "  " << gpcu::colors::wrap::green("+") << " ";
   std::cout << gpcu::colors::wrap::bold("BBBBBB") << "   ";
   std::cout << gpcu::colors::wrap::dim("DDDDDD") << "   ";
@@ -37,7 +37,7 @@ void test_color_other() {
   std::cout << std::endl;
 }
 
-void test_color_color() {
+void test_colors_color() {
   std::cout << "  " << gpcu::colors::wrap::green("+") << " ";
   std::cout << gpcu::colors::wrap::black("BBBBBB") << "   ";
   std::cout << gpcu::colors::wrap::red("RRRRRR") << "   ";
@@ -50,7 +50,7 @@ void test_color_color() {
   std::cout << std::endl;
 }
 
-void test_color_bright() {
+void test_colors_bright() {
   std::cout << "  " << gpcu::colors::wrap::green("+") << " ";
   std::cout << gpcu::colors::wrap::blackBright("BBBBBB") << "   ";
   std::cout << gpcu::colors::wrap::redBright("RRRRRR") << "   ";
@@ -63,7 +63,7 @@ void test_color_bright() {
   std::cout << std::endl;
 }
 
-void test_color_bg() {
+void test_colors_bg() {
   std::cout << "  " << gpcu::colors::wrap::green("+") << " ";
   std::cout << gpcu::colors::wrap::bgBlack("BBBBBB") << "   ";
   std::cout << gpcu::colors::wrap::bgRed("RRRRRR") << "   ";
@@ -76,7 +76,7 @@ void test_color_bg() {
   std::cout << std::endl;
 }
 
-void test_color_bgbright() {
+void test_colors_bgbright() {
   std::cout << "  " << gpcu::colors::wrap::green("+") << " ";
   std::cout << gpcu::colors::wrap::bgBlackBright("BBBBBB") << "   ";
   std::cout << gpcu::colors::wrap::bgRedBright("RRRRRR") << "   ";
@@ -89,7 +89,7 @@ void test_color_bgbright() {
   std::cout << std::endl;
 }
 
-void test_color_256() {
+void test_colors_256() {
   std::cout << "  " << gpcu::colors::wrap::green("+") << " ";
 
   for (size_t i = 0; i < 216; i++) {
@@ -112,19 +112,19 @@ void test_color_256() {
   std::cout << std::endl;
 }
 
-bool test_color(int* passingPtr, int* totalPtr) {
+bool test_colors(int* passingPtr, int* totalPtr) {
   bool passing = true;
   int localPassing = 12;
   int localTotal = 12;
-  std::cout << "Color" << std::endl;
+  std::cout << "Colors" << std::endl;
 
-  test_color_support();
-  test_color_other();
-  test_color_color();
-  test_color_bright();
-  test_color_bg();
-  test_color_bgbright();
-  test_color_256();
+  test_colors_support();
+  test_colors_other();
+  test_colors_color();
+  test_colors_bright();
+  test_colors_bg();
+  test_colors_bgbright();
+  test_colors_256();
 
   std::cout << localPassing << "/" << localTotal << " tests passing" << std::endl << std::endl;
   (*passingPtr) += localPassing;
@@ -276,7 +276,7 @@ int main(int argc, const char* argv[]) {
   int* passingPtr = &passing;
   int* totalPtr = &total;
 
-  test_color(passingPtr, totalPtr);
+  test_colors(passingPtr, totalPtr);
   test_join(passingPtr, totalPtr);
   test_string(passingPtr, totalPtr);
 
