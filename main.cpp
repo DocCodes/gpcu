@@ -27,72 +27,95 @@ void test_color_support() {
 
 void test_color_other() {
   std::cout << "  " << gpcu::colors::wrap::green("+") << " ";
-  std::cout << gpcu::colors::wrap::bold("BBBBB") << "   ";
-  std::cout << gpcu::colors::wrap::dim("DDDDD") << "   ";
-  std::cout << gpcu::colors::wrap::italic("IIIII") << "   ";
-  std::cout << gpcu::colors::wrap::underline("UUUUU") << "   ";
-  std::cout << gpcu::colors::wrap::inverse("IIIII") << "   ";
-  std::cout << gpcu::colors::wrap::hidden("HHHHH") << "   ";
-  std::cout << gpcu::colors::wrap::strikethrough("SSSSS") << "   ";
+  std::cout << gpcu::colors::wrap::bold("BBBBBB") << "   ";
+  std::cout << gpcu::colors::wrap::dim("DDDDDD") << "   ";
+  std::cout << gpcu::colors::wrap::italic("IIIIII") << "   ";
+  std::cout << gpcu::colors::wrap::underline("UUUUUU") << "   ";
+  std::cout << gpcu::colors::wrap::inverse("IIIIII") << "   ";
+  std::cout << gpcu::colors::wrap::hidden("HHHHHH") << "   ";
+  std::cout << gpcu::colors::wrap::strikethrough("SSSSSS") << "   ";
   std::cout << std::endl;
 }
 
 void test_color_color() {
   std::cout << "  " << gpcu::colors::wrap::green("+") << " ";
-  std::cout << gpcu::colors::wrap::black("BBBBB") << "   ";
-  std::cout << gpcu::colors::wrap::red("RRRRR") << "   ";
-  std::cout << gpcu::colors::wrap::green("GGGGG") << "   ";
-  std::cout << gpcu::colors::wrap::yellow("YYYYY") << "   ";
-  std::cout << gpcu::colors::wrap::blue("BBBBB") << "   ";
-  std::cout << gpcu::colors::wrap::magenta("MMMMM") << "   ";
-  std::cout << gpcu::colors::wrap::cyan("CCCCC") << "   ";
-  std::cout << gpcu::colors::wrap::white("WWWWW") << "   ";
+  std::cout << gpcu::colors::wrap::black("BBBBBB") << "   ";
+  std::cout << gpcu::colors::wrap::red("RRRRRR") << "   ";
+  std::cout << gpcu::colors::wrap::green("GGGGGG") << "   ";
+  std::cout << gpcu::colors::wrap::yellow("YYYYYY") << "   ";
+  std::cout << gpcu::colors::wrap::blue("BBBBBB") << "   ";
+  std::cout << gpcu::colors::wrap::magenta("MMMMMM") << "   ";
+  std::cout << gpcu::colors::wrap::cyan("CCCCCC") << "   ";
+  std::cout << gpcu::colors::wrap::white("WWWWWW") << "   ";
   std::cout << std::endl;
 }
 
 void test_color_bright() {
   std::cout << "  " << gpcu::colors::wrap::green("+") << " ";
-  std::cout << gpcu::colors::wrap::blackBright("BBBBB") << "   ";
-  std::cout << gpcu::colors::wrap::redBright("RRRRR") << "   ";
-  std::cout << gpcu::colors::wrap::greenBright("GGGGG") << "   ";
-  std::cout << gpcu::colors::wrap::yellowBright("YYYYY") << "   ";
-  std::cout << gpcu::colors::wrap::blueBright("BBBBB") << "   ";
-  std::cout << gpcu::colors::wrap::magentaBright("MMMMM") << "   ";
-  std::cout << gpcu::colors::wrap::cyanBright("CCCCC") << "   ";
-  std::cout << gpcu::colors::wrap::whiteBright("WWWWW") << "   ";
+  std::cout << gpcu::colors::wrap::blackBright("BBBBBB") << "   ";
+  std::cout << gpcu::colors::wrap::redBright("RRRRRR") << "   ";
+  std::cout << gpcu::colors::wrap::greenBright("GGGGGG") << "   ";
+  std::cout << gpcu::colors::wrap::yellowBright("YYYYYY") << "   ";
+  std::cout << gpcu::colors::wrap::blueBright("BBBBBB") << "   ";
+  std::cout << gpcu::colors::wrap::magentaBright("MMMMMM") << "   ";
+  std::cout << gpcu::colors::wrap::cyanBright("CCCCCC") << "   ";
+  std::cout << gpcu::colors::wrap::whiteBright("WWWWWW") << "   ";
   std::cout << std::endl;
 }
 
 void test_color_bg() {
   std::cout << "  " << gpcu::colors::wrap::green("+") << " ";
-  std::cout << gpcu::colors::wrap::bgBlack("BBBBB") << "   ";
-  std::cout << gpcu::colors::wrap::bgRed("RRRRR") << "   ";
-  std::cout << gpcu::colors::wrap::bgGreen("GGGGG") << "   ";
-  std::cout << gpcu::colors::wrap::bgYellow("YYYYY") << "   ";
-  std::cout << gpcu::colors::wrap::bgBlue("BBBBB") << "   ";
-  std::cout << gpcu::colors::wrap::bgMagenta("MMMMM") << "   ";
-  std::cout << gpcu::colors::wrap::bgCyan("CCCCC") << "   ";
-  std::cout << gpcu::colors::wrap::bgWhite("WWWWW") << "   ";
+  std::cout << gpcu::colors::wrap::bgBlack("BBBBBB") << "   ";
+  std::cout << gpcu::colors::wrap::bgRed("RRRRRR") << "   ";
+  std::cout << gpcu::colors::wrap::bgGreen("GGGGGG") << "   ";
+  std::cout << gpcu::colors::wrap::bgYellow("YYYYYY") << "   ";
+  std::cout << gpcu::colors::wrap::bgBlue("BBBBBB") << "   ";
+  std::cout << gpcu::colors::wrap::bgMagenta("MMMMMM") << "   ";
+  std::cout << gpcu::colors::wrap::bgCyan("CCCCCC") << "   ";
+  std::cout << gpcu::colors::wrap::bgWhite("WWWWWW") << "   ";
   std::cout << std::endl;
 }
 
 void test_color_bgbright() {
   std::cout << "  " << gpcu::colors::wrap::green("+") << " ";
-  std::cout << gpcu::colors::wrap::bgBlackBright("BBBBB") << "   ";
-  std::cout << gpcu::colors::wrap::bgRedBright("RRRRR") << "   ";
-  std::cout << gpcu::colors::wrap::bgGreenBright("GGGGG") << "   ";
-  std::cout << gpcu::colors::wrap::bgYellowBright("YYYYY") << "   ";
-  std::cout << gpcu::colors::wrap::bgBlueBright("BBBBB") << "   ";
-  std::cout << gpcu::colors::wrap::bgMagentaBright("MMMMM") << "   ";
-  std::cout << gpcu::colors::wrap::bgCyanBright("CCCCC") << "   ";
-  std::cout << gpcu::colors::wrap::bgWhiteBright("WWWWW") << "   ";
+  std::cout << gpcu::colors::wrap::bgBlackBright("BBBBBB") << "   ";
+  std::cout << gpcu::colors::wrap::bgRedBright("RRRRRR") << "   ";
+  std::cout << gpcu::colors::wrap::bgGreenBright("GGGGGG") << "   ";
+  std::cout << gpcu::colors::wrap::bgYellowBright("YYYYYY") << "   ";
+  std::cout << gpcu::colors::wrap::bgBlueBright("BBBBBB") << "   ";
+  std::cout << gpcu::colors::wrap::bgMagentaBright("MMMMMM") << "   ";
+  std::cout << gpcu::colors::wrap::bgCyanBright("CCCCCC") << "   ";
+  std::cout << gpcu::colors::wrap::bgWhiteBright("WWWWWW") << "   ";
+  std::cout << std::endl;
+}
+
+void test_color_256() {
+  std::cout << "  " << gpcu::colors::wrap::green("+") << " ";
+
+  for (size_t i = 0; i < 216; i++) {
+    if (i % 36 == 0 && i != 0) {
+      std::cout << std::endl;
+      std::cout << "  " << gpcu::colors::wrap::green("+") << " ";
+    }
+    if (i % 6 == 0 && i % 36 != 0) {
+      std::cout << "   ";
+    }
+    std::cout << gpcu::colors::wrap::wrapper("\u2588", i + 16, 0, 39);
+
+    if ((i + 1) % 36 == 0 && (i + 1) / 36 <= 4) {
+      std::cout << "            ";
+      for (size_t x = 0; x < 6; x++) {
+        std::cout << gpcu::colors::wrap::wrapper("\u2588", ((i + 1) / 36) * 6 + x + 226, 0, 39);
+      }
+    }
+  }
   std::cout << std::endl;
 }
 
 bool test_color(int* passingPtr, int* totalPtr) {
   bool passing = true;
-  int localPassing = 6;
-  int localTotal = 6;
+  int localPassing = 12;
+  int localTotal = 12;
   std::cout << "Color" << std::endl;
 
   test_color_support();
@@ -101,6 +124,7 @@ bool test_color(int* passingPtr, int* totalPtr) {
   test_color_bright();
   test_color_bg();
   test_color_bgbright();
+  test_color_256();
 
   std::cout << localPassing << "/" << localTotal << " tests passing" << std::endl << std::endl;
   (*passingPtr) += localPassing;
