@@ -7,6 +7,7 @@
 #ifndef GPCU_HPP_  // include guard
 #define GPCU_HPP_
 
+#include "color.hpp"
 #include "colors.hpp"
 #include "join.hpp"
 #include "os.hpp"
