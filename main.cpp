@@ -243,7 +243,7 @@ std::string test_string_trim() {
 }
 
 bool test_string(int* passingPtr, int* totalPtr) {
-  size_t localTotal = 5;
+  size_t const localTotal = 5;
   std::string testNames[localTotal] = {
     "upper(string* s)",
     "lower(string* s)",
