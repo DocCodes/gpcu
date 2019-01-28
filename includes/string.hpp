@@ -32,33 +32,33 @@ namespace gpcu {
 
     /**
      * Trims away whitespace from the left edge of a string.
-     * @param  [std::string&] s     The string to trim.
-     * @param  [std::string&] chars The characters to trim away.
-     * @return [std::string&]       The string without the trimmed characters.
+     * @param  [std::string] s     The string to trim.
+     * @param  [std::string] chars The characters to trim away.
+     * @return [std::string]       The string without the trimmed characters.
      */
-    std::string& ltrim(std::string& s, const std::string& chars = "\t\n\v\f\r ") {
+    std::string ltrim(std::string s, const std::string chars = "\t\n\v\f\r ") {
       s.erase(0, s.find_first_not_of(chars));
       return s;
     }
 
     /**
      * Trims away whitespace from the right edge of a string.
-     * @param  [std::string&] s     The string to trim.
-     * @param  [std::string&] chars The characters to trim away.
-     * @return [std::string&]       The string without the trimmed characters.
+     * @param  [std::string] s     The string to trim.
+     * @param  [std::string] chars The characters to trim away.
+     * @return [std::string]       The string without the trimmed characters.
      */
-    std::string& rtrim(std::string& s, const std::string& chars = "\t\n\v\f\r ") {
+    std::string rtrim(std::string s, const std::string chars = "\t\n\v\f\r ") {
       s.erase(s.find_last_not_of(chars) + 1);
       return s;
     }
 
     /**
      * Trims away whitespace from both edges of a string.
-     * @param  [std::string&] s     The string to trim.
-     * @param  [std::string&] chars The characters to trim away.
-     * @return [std::string&]       The string without the trimmed characters.
+     * @param  [std::string] s     The string to trim.
+     * @param  [std::string] chars The characters to trim away.
+     * @return [std::string]       The string without the trimmed characters.
      */
-    std::string& trim(std::string& s, const std::string& chars = "\t\n\v\f\r ") {
+    std::string trim(std::string s, const std::string chars = "\t\n\v\f\r ") {
       return ltrim(rtrim(s, chars), chars);
     }
   }  // namespace string
