@@ -14,13 +14,14 @@ nowStr = now.strftime('%Y-%m-%d')
 files = os.listdir('includes')
 files.remove('all.hpp')
 files.remove('gpcu.hpp')
+files = [f for f in files if f.endswith('.hpp')]
 filesCode = []
 code = ''
 
 baseInc = []
 cInc = []
 for fi in files:
-    lcCode = open(f'includes/{fi}', 'r').read()
+    lcCode = open(f'includes/{fi}', 'r', encoding='utf-8').read()
     baseInc.extend(re.findall('#include <.*>', lcCode))
     lcCode = re.sub(r'.*namespace gpcu {\n', '', lcCode, 0, re.MULTILINE + re.DOTALL)
     lcCode = re.sub(r'}  // namespace gpcu.*', '', lcCode, 0, re.MULTILINE + re.DOTALL)
@@ -55,4 +56,4 @@ code = '\n'.join([
     '#endif  // GPCU_HPP_',
     ''
 ])
-open('includes/gpcu.hpp', 'w').write(code)
+open('includes/gpcu.hpp', 'w', encoding='utf-8').write(code)
