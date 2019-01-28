@@ -69,11 +69,18 @@ namespace gpcu {
     setHex(h);
   }
 
+  /**
+   * Recalculates the hex value for the color object.
+   */
   void Color::recalcHex() {
     std::stringstream ss;
     ss << std::setfill('0') << std::setw(2) << std::hex << red << green << blue;
     hex = ss.str();
   }
+
+  /**
+   * Recalculates the RGB values for the color object.
+   */
   void Color::recalcRGB() {
     std::stringstream ss;
     ss << hex.substr(0, 2);
@@ -85,6 +92,10 @@ namespace gpcu {
     ss << hex.substr(4, 2);
     ss >> std::hex >> blue;
   }
+
+  /**
+   * Recalculates the HSVL values for the color object.
+   */
   void Color::recalcHSVL() {
     double min;
     double max;
@@ -130,13 +141,26 @@ namespace gpcu {
       hue += 360;
     }
   }
+
+  /**
+   * Recalculates the luminance value for the color object.
+   */
   void Color::recalcLuminance() {
     luminance = ::round((red * 0.2126) + (green * 0.7152) + (blue * 0.0722));
   }
 
+  /**
+   * Gets the red value.
+   * @return [int] The red value.
+   */
   int Color::getRed() {
     return red;
   }
+
+  /**
+   * Sets the red value.
+   * @param [int] newRed The new red value.
+   */
   void Color::setRed(int newRed) {
     if (newRed < 0 || newRed > 255) {
       throw std::out_of_range("newRed must be 0-255");
@@ -148,9 +172,19 @@ namespace gpcu {
     recalcHSVL();
     recalcLuminance();
   }
+
+  /**
+   * Gets the green value.
+   * @return [int] The green value.
+   */
   int Color::getGreen() {
     return green;
   }
+
+  /**
+   * Sets the green value.
+   * @param [int] The new green value.
+   */
   void Color::setGreen(int newGreen) {
     if (newGreen < 0 || newGreen > 255) {
       throw std::out_of_range("newGreen must be 0-255");
@@ -162,9 +196,19 @@ namespace gpcu {
     recalcHSVL();
     recalcLuminance();
   }
+
+  /**
+   * Gets the blue value.
+   * @return [int] The blue value.
+   */
   int Color::getBlue() {
     return blue;
   }
+
+  /**
+   * Sets the blue value.
+   * @param [int] The new blue value.
+   */
   void Color::setBlue(int newBlue) {
     if (newBlue < 0 || newBlue > 255) {
       throw std::out_of_range("newBlue must be 0-255");
@@ -176,12 +220,27 @@ namespace gpcu {
     recalcHSVL();
     recalcLuminance();
   }
+
+  /**
+   * Gets the luminance value.
+   * @return [int] The luminance value.
+   */
   int Color::getLuminance() {
     return luminance;
   }
+
+  /**
+   * Gets the alpha value.
+   * @return [int] The alpha value.
+   */
   int Color::getAlpha() {
     return alpha;
   }
+
+  /**
+   * Sets the alpha value.
+   * @param [int] The new alpha value.
+   */
   void Color::setAlpha(int newAlpha) {
     if (newAlpha < 0 || newAlpha > 255) {
       throw std::out_of_range("newAlpha must be 0-255");
@@ -191,6 +250,11 @@ namespace gpcu {
   int Color::getHue() {
     return hue;
   }
+
+  /**
+   * Sets the hue value.
+   * @param [int] The new hue value.
+   */
   void Color::setHue(int newHue) {
     if (newHue < 0 || newHue > 360) {
       throw std::out_of_range("newHue must be 0-360");
@@ -204,6 +268,11 @@ namespace gpcu {
   int Color::getSaturation() {
     return saturation;
   }
+
+  /**
+   * Sets the saturation value.
+   * @param [int] The new saturation value.
+   */
   void Color::setSaturation(int newSaturation) {
     if (newSaturation < 0 || newSaturation > 100) {
       throw std::out_of_range("newSaturation must be 0-100");
@@ -214,9 +283,19 @@ namespace gpcu {
     recalcHex();
     recalcLuminance();
   }
+
+  /**
+   * Gets the lightness value.
+   * @return [int] The lightness value.
+   */
   int Color::getLightness() {
     return lightness;
   }
+
+  /**
+   * Sets the lightness value.
+   * @param [int] The new lightness value.
+   */
   void Color::setLightness(int newLightness) {
     if (newLightness < 0 || newLightness > 100) {
       throw std::out_of_range("newLightness must be 0-100");
@@ -227,9 +306,19 @@ namespace gpcu {
     recalcHex();
     recalcHSVL();
   }
+
+  /**
+   * Gets the value.
+   * @return [int] The value.
+   */
   int Color::getValue() {
     return value;
   }
+
+  /**
+   * Sets the value.
+   * @param [int] The new value.
+   */
   void Color::setValue(int newValue) {
     if (newValue < 0 || newValue > 100) {
       throw std::out_of_range("newValue must be 0-100");
@@ -240,9 +329,19 @@ namespace gpcu {
     recalcHex();
     recalcLuminance();
   }
+
+  /**
+   * Gets the luminance value.
+   * @return [std::string] The hex value.
+   */
   std::string Color::getHex() {
     return hex;
   }
+
+  /**
+   * Sets the blue value.
+   * @param [std::string] The new hex value.
+   */
   void Color::setHex(std::string newHex) {
     if (!std::regex_match(newHex, std::regex("^#?([[:xdigit:]]{3,4}|[[:xdigit:]]{6}|[[:xdigit:]]{8})$"))) {
       throw std::invalid_argument("invalid value for hex variable");

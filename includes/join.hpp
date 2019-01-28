@@ -13,6 +13,13 @@
 #include <string>
 
 namespace gpcu {
+  /**
+   * Joins an array of integers.
+   * @param  [integer]     a     The array of integers to join.
+   * @param  [size_t]      size  The length of the array.
+   * @param  [std::string] delim The joining character.
+   * @return [std::string]       The joint string.
+   */
   std::string join(int a[], size_t size, std::string delim) {
     std::stringstream ss;
     size_t i = 0;
@@ -25,6 +32,13 @@ namespace gpcu {
     return ss.str();
   }
 
+  /**
+   * Joins an array of chars.
+   * @param  [char]        a     The array of chars to join.
+   * @param  [size_t]      size  The length of the array.
+   * @param  [std::string] delim The joining character.
+   * @return [std::string]       The joint string.
+   */
   std::string join(char a[], size_t size, std::string delim) {
     std::stringstream ss;
     size_t i = 0;
@@ -37,6 +51,13 @@ namespace gpcu {
     return ss.str();
   }
 
+  /**
+   * Joins an array of bools.
+   * @param  [bool]        a     The array of bools to join.
+   * @param  [size_t]      size  The length of the array.
+   * @param  [std::string] delim The joining character.
+   * @return [std::string]       The joint string.
+   */
   std::string join(bool a[], size_t size, std::string delim) {
     std::stringstream ss;
     size_t i = 0;
@@ -50,6 +71,13 @@ namespace gpcu {
     return ss.str();
   }
 
+  /**
+   * Joins an array of floats.
+   * @param  [float]       a     The array of floats to join.
+   * @param  [size_t]      size  The length of the array.
+   * @param  [std::string] delim The joining character.
+   * @return [std::string]       The joint string.
+   */
   std::string join(float a[], size_t size, std::string delim, int prec = 2) {
     std::stringstream ss;
     size_t i = 0;
@@ -63,6 +91,13 @@ namespace gpcu {
     return ss.str();
   }
 
+  /**
+   * Joins an array of doubles.
+   * @param  [double]      a     The array of doubles to join.
+   * @param  [size_t]      size  The length of the array.
+   * @param  [std::string] delim The joining character.
+   * @return [std::string]       The joint string.
+   */
   std::string join(double a[], size_t size, std::string delim, int prec = 2) {
     std::stringstream ss;
     size_t i = 0;
@@ -76,6 +111,13 @@ namespace gpcu {
     return ss.str();
   }
 
+  /**
+   * Joins an array of strings.
+   * @param  [string]      a     The array of strings to join.
+   * @param  [size_t]      size  The length of the array.
+   * @param  [std::string] delim The joining character.
+   * @return [std::string]       The joint string.
+   */
   std::string join(std::string a[], size_t size, std::string delim) {
     std::stringstream ss;
     size_t i = 0;

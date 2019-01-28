@@ -29,11 +29,20 @@ namespace gpcu {
     win64
   };
 
+  /**
+   * Gets an environment variable.
+   * @param  [std::string] key The key of the environment variable.
+   * @return [std::string]     The environment variable's value.
+   */
   std::string getEnvVar(std::string key) {
     char const* val = std::getenv(key.c_str());
     return val == NULL ? std::string() : std::string(val);
   }
 
+  /**
+   * Gets the operating system currently running.
+   * @return [gpcu::OperatingSystem] The operating system.
+   */
   gpcu::OperatingSystem getOS() {
     #if defined(MSDOS) || defined(__MSDOS__) || defined(_MSDOS) || defined(__DOS__)
     return gpcu::OperatingSystem::DOS;
@@ -60,6 +69,12 @@ namespace gpcu {
     #endif
   }
 
+  /**
+   * Joins a path depending on the operating system.
+   * @param  [std::string[]] a    The array of paths.
+   * @param  [size_t]        size The size of the array of paths.
+   * @return [std::string]        The joined path.
+   */
   std::string joinPath(std::string a[], size_t size) {
     gpcu::OperatingSystem os = getOS();
     std::string pathSep = "/";
@@ -71,6 +86,10 @@ namespace gpcu {
     return gpcu::join(a, size, pathSep);
   }
 
+  /**
+   * Gets the temporary directory depending on the operating system.
+   * @return [std::string] The temporary directory.
+   */
   std::string getTempDir() {
     gpcu::OperatingSystem os = getOS();
     std::string tempDir = std::string();
@@ -89,11 +108,19 @@ namespace gpcu {
     return tempDir;
   }
 
+  /**
+   * Gets the path to a temporary file.
+   * @return [std::string] The path to the temporary file.
+   */
   std::string getTempFile() {
     std::string tempJoin[2] = { gpcu::getTempDir(), "gpcu.txt" };
     return gpcu::joinPath(tempJoin, 2);
   }
 
+  /**
+   * Gets the version of the operating system.
+   * @return [std::string] The version of the operating system.
+   */
   std::string getOSVer() {
     gpcu::OperatingSystem os = getOS();
     std::string verPath = getTempFile();

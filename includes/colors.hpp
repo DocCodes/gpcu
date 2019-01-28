@@ -14,6 +14,7 @@
 
 namespace gpcu {
   namespace colors {
+    /** Support levels for console colors */
     enum Support : unsigned int {
       none = 1,
       basic = 16,
@@ -21,6 +22,7 @@ namespace gpcu {
       full = 16777216
     };
 
+    /** Colors for consoles */
     enum Ansi : unsigned short {
       black,
       red,
@@ -32,6 +34,10 @@ namespace gpcu {
       white
     };
 
+    /**
+     * Gets the color support levels of the current console
+     * @return [gpcu::Colors::Support] The number of colors supported by the current console.
+     */
     gpcu::colors::Support getSupport() {
       gpcu::OperatingSystem os = gpcu::getOS();
       std::string term = gpcu::getEnvVar("TERM");
@@ -71,15 +77,35 @@ namespace gpcu {
       return none;
     }
 
+    /**
+     * Wraps a color and an offset into an Ansi-16 sequence.
+     * @param  [int]        col The color to wrap.
+     * @param  [int]        off The offset value.
+     * @return [std::string]    The wrapped Ansi sequence.
+     */
     std::string wrapAnsi16(int col, int off) {
       return "\033[" + std::to_string(30 + col + off) + "m";
     }
 
+    /**
+     * Wraps a color and an offset into an Ansi-256 sequence.
+     * @param  [int]        col The color to wrap.
+     * @param  [int]        off The offset value.
+     * @return [std::string]    The wrapped Ansi sequence.
+     */
     std::string wrapAnsi256(int col, int off) {
       return "\033[" + std::to_string(38 + (off % 60)) + ";5;" + std::to_string(off >= 60 ? col + 8 : col) + "m";
     }
 
     namespace wrap {
+      /**
+       * Handles all the wrapping for text before returning to the console.
+       * @param  [std::string] txt  The text to wrap in the color/format.
+       * @param  [int]         col  The color/format to wrap.
+       * @param  [int]         off  The offset value.
+       * @param  [int]         term The terminator value.
+       * @return [std::string]      The complete wrapped Ansi sequence with the terminator.
+       */
       std::string wrapper(std::string txt, int col, int off, int term) {
         gpcu::colors::Support supportLevel = getSupport();
         bool isColor = true;

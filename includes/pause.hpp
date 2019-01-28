@@ -11,11 +11,18 @@
 #include <string>
 
 namespace gpcu {
+  /**
+   * Pauses the program until the newline character is received.
+   */
   void pause() {
     std::cout << "Press the enter key to continue . . ." << std::endl;
     std::cin.get();
   }
 
+  /**
+   * Pauses the program with a message until the newline character is received.
+   * @param [std::string] msg The message to prompt.
+   */
   void pause(std::string msg) {
     std::cout << msg << std::endl;
     std::cin.get();
