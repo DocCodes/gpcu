@@ -9,6 +9,7 @@
 
 #include "color.hpp"
 #include "colors.hpp"
+#include "console.hpp"
 #include "join.hpp"
 #include "os.hpp"
 #include "pause.hpp"
