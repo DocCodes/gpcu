@@ -12,8 +12,15 @@ def lint(c):
     c.run('cpplint main.cpp')
 
 @task
-def compile(c):
+def compile(c, headers = False):
+    if headers:
+        c.run('g++ -std=c++11 includes/*.hpp')
     c.run('g++ -std=c++11 main.cpp -O -o main.exe')
+
+@task
+def clean(c):
+    c.run('rm -rf main.exe')
+    c.run('rm -rf includes/*.hpp.gch')
 
 @task
 def build(c):
