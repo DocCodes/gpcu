@@ -10,6 +10,7 @@
 #include <stdlib.h>
 
 #include <fstream>
+#include <regex>
 #include <string>
 
 #include "join.hpp"
