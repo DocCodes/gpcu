@@ -1,7 +1,7 @@
 //  gpcu.hpp
 //  gpcu
 //
-//  Created by Evan Elias Young on 2019-01-25.
+//  Created by Evan Elias Young on 2019-01-28.
 //  Copyright 2019 Evan Elias Young. All rights reserved.
 
 #ifndef GPCU_HPP_  // include guard
@@ -109,8 +109,8 @@ namespace gpcu {
     max = r > g ? r : g;
     max = max > b ? max : b;
 
-    value = std::round(max * 100);
-    lightness = std::round((max + min) * 50);
+    value = ::round(max * 100);
+    lightness = ::round((max + min) * 50);
     d = max - min;
     if (d < 0.00001) {
       saturation = 0;
@@ -118,24 +118,24 @@ namespace gpcu {
       return;
     }
     if (max > 0.0) {
-      saturation = std::round(d / max) * 100;
+      saturation = ::round(d / max) * 100;
     } else {
       saturation = 0;
       hue = 0;
       return;
     }
     hue = r >= max
-    ? std::round((g - b) / d * 60)
+    ? ::round((g - b) / d * 60)
     : g >= max
-    ? std::round((2 + (b - r) / d) * 60)
-    : std::round((4 + (r - g) / d) * 60);
+    ? ::round((2 + (b - r) / d) * 60)
+    : ::round((4 + (r - g) / d) * 60);
 
     if (hue < 0) {
       hue += 360;
     }
   }
   void Color::recalcLuminance() {
-    luminance = std::round((red * 0.2126) + (green * 0.7152) + (blue * 0.0722));
+    luminance = ::round((red * 0.2126) + (green * 0.7152) + (blue * 0.0722));
   }
 
   int Color::getRed() {

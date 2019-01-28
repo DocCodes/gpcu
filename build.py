@@ -13,7 +13,6 @@ now = dt.now()
 nowStr = now.strftime('%Y-%m-%d')
 files = os.listdir('includes')
 files.remove('all.hpp')
-files.remove('gpcu.hpp')
 files = [f for f in files if f.endswith('.hpp')]
 filesCode = []
 code = ''
@@ -56,4 +55,4 @@ code = '\n'.join([
     '#endif  // GPCU_HPP_',
     ''
 ])
-open('includes/gpcu.hpp', 'w', encoding='utf-8').write(code)
+open('gpcu.hpp', 'w', encoding='utf-8').write(code)
