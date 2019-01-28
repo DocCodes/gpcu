@@ -14,7 +14,7 @@ def lint(c):
 @task
 def compile(c, headers = False):
     if headers:
-        c.run('g++ -std=c++11 includes/*.hpp')
+        c.run('g++ -std=c++11 -c includes/*.hpp')
     c.run('g++ -std=c++11 main.cpp -O -o main.exe')
 
 @task
@@ -27,5 +27,8 @@ def build(c):
     c.run('build.py')
 
 @task
-def run(c):
-    c.run('main.exe')
+def run(c, external = False):
+    if external:
+        c.run('start main.exe')
+    else:
+        c.run('main.exe')
