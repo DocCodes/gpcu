@@ -7,6 +7,8 @@
 #ifndef GPCU_HPP_  // include guard
 #define GPCU_HPP_
 
+#define GPCU_VERSION_ 0x0202000025
+
 #include "color.hpp"
 #include "colors.hpp"
 #include "console.hpp"

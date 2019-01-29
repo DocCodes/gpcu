@@ -276,6 +276,12 @@ int main(int argc, const char* argv[]) {
   int* passingPtr = &passing;
   int* totalPtr = &total;
 
+  std::cout << "GPCU Version ";
+  std::cout << ((GPCU_VERSION_ & 0xFF00000000) >> 32) << '.';
+  std::cout << ((GPCU_VERSION_ & 0x00FF000000) >> 24) << '.';
+  std::cout << ((GPCU_VERSION_ & 0x0000FF0000) >> 16) << '-';
+  std::cout << ((GPCU_VERSION_ & 0x000000FFFF) >> 0) << std::endl;
+
   test_colors(passingPtr, totalPtr);
   test_join(passingPtr, totalPtr);
   test_string(passingPtr, totalPtr);
