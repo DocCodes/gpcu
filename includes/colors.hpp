@@ -36,7 +36,7 @@ namespace gpcu {
 
     /**
      * Gets the color support levels of the current console
-     * @return [gpcu::Colors::Support] The number of colors supported by the current console.
+     * @return The number of colors supported by the current console.
      */
     gpcu::colors::Support getSupport() {
       gpcu::OperatingSystem os = gpcu::getOS();
@@ -79,9 +79,9 @@ namespace gpcu {
 
     /**
      * Wraps a color and an offset into an Ansi-16 sequence.
-     * @param  [int]        col The color to wrap.
-     * @param  [int]        off The offset value.
-     * @return [std::string]    The wrapped Ansi sequence.
+     * @param  col The color to wrap.
+     * @param  off The offset value.
+     * @return     The wrapped Ansi sequence.
      */
     std::string wrapAnsi16(int col, int off) {
       return "\033[" + std::to_string(30 + col + off) + "m";
@@ -89,9 +89,9 @@ namespace gpcu {
 
     /**
      * Wraps a color and an offset into an Ansi-256 sequence.
-     * @param  [int]        col The color to wrap.
-     * @param  [int]        off The offset value.
-     * @return [std::string]    The wrapped Ansi sequence.
+     * @param  col The color to wrap.
+     * @param  off The offset value.
+     * @return     The wrapped Ansi sequence.
      */
     std::string wrapAnsi256(int col, int off) {
       return "\033[" + std::to_string(38 + (off % 60)) + ";5;" + std::to_string(off >= 60 ? col + 8 : col) + "m";
@@ -100,11 +100,11 @@ namespace gpcu {
     namespace wrap {
       /**
        * Handles all the wrapping for text before returning to the console.
-       * @param  [std::string] txt  The text to wrap in the color/format.
-       * @param  [int]         col  The color/format to wrap.
-       * @param  [int]         off  The offset value.
-       * @param  [int]         term The terminator value.
-       * @return [std::string]      The complete wrapped Ansi sequence with the terminator.
+       * @param  txt  The text to wrap in the color/format.
+       * @param  col  The color/format to wrap.
+       * @param  off  The offset value.
+       * @param  term The terminator value.
+       * @return      The complete wrapped Ansi sequence with the terminator.
        */
       std::string wrapper(std::string txt, int col, int off, int term) {
         gpcu::colors::Support supportLevel = getSupport();

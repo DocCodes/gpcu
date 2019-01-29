@@ -21,7 +21,7 @@ namespace gpcu {
 
   /**
    * Pauses the program with a message until the newline character is received.
-   * @param [std::string] msg The message to prompt.
+   * @param msg The message to prompt.
    */
   void pause(std::string msg) {
     std::cout << msg << std::endl;

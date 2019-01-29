@@ -31,8 +31,8 @@ namespace gpcu {
 
   /**
    * Gets an environment variable.
-   * @param  [std::string] key The key of the environment variable.
-   * @return [std::string]     The environment variable's value.
+   * @param  key The key of the environment variable.
+   * @return     The environment variable's value.
    */
   std::string getEnvVar(std::string key) {
     char const* val = std::getenv(key.c_str());
@@ -41,7 +41,7 @@ namespace gpcu {
 
   /**
    * Gets the operating system currently running.
-   * @return [gpcu::OperatingSystem] The operating system.
+   * @return The operating system.
    */
   gpcu::OperatingSystem getOS() {
     #if defined(MSDOS) || defined(__MSDOS__) || defined(_MSDOS) || defined(__DOS__)
@@ -71,9 +71,9 @@ namespace gpcu {
 
   /**
    * Joins a path depending on the operating system.
-   * @param  [std::string[]] a    The array of paths.
-   * @param  [size_t]        size The size of the array of paths.
-   * @return [std::string]        The joined path.
+   * @param  a    The array of paths.
+   * @param  size The size of the array of paths.
+   * @return The joined path.
    */
   std::string joinPath(std::string a[], size_t size) {
     gpcu::OperatingSystem os = getOS();
@@ -88,7 +88,7 @@ namespace gpcu {
 
   /**
    * Gets the temporary directory depending on the operating system.
-   * @return [std::string] The temporary directory.
+   * @return The temporary directory.
    */
   std::string getTempDir() {
     gpcu::OperatingSystem os = getOS();
@@ -110,7 +110,7 @@ namespace gpcu {
 
   /**
    * Gets the path to a temporary file.
-   * @return [std::string] The path to the temporary file.
+   * @return The path to the temporary file.
    */
   std::string getTempFile() {
     std::string tempJoin[2] = { gpcu::getTempDir(), "gpcu.txt" };
@@ -119,7 +119,7 @@ namespace gpcu {
 
   /**
    * Gets the version of the operating system.
-   * @return [std::string] The version of the operating system.
+   * @return The version of the operating system.
    */
   std::string getOSVer() {
     gpcu::OperatingSystem os = getOS();

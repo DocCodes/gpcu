@@ -29,7 +29,7 @@ namespace gpcu {
 
     /**
      * Gets a line of input from stdin.
-     * @return [std:string] The line of input without the newline character.
+     * @return The line of input without the newline character.
      */
     std::string getline() {
       std::string temp;
@@ -39,8 +39,8 @@ namespace gpcu {
 
     /**
      * Gets a line of input from stdin after outputting to the stdout.
-     * @param  [std:string] s The string to send to stdout.
-     * @return [std:string]   The line of input without the newline character.
+     * @param  s The string to send to stdout.
+     * @return   The line of input without the newline character.
      */
     std::string getline(std::string s) {
       std::string temp;
@@ -51,7 +51,7 @@ namespace gpcu {
 
     /**
      * Writes a line of output to stdout without the newline character.
-     * @param [std:string] s The string to send to stdout.
+     * @param s The string to send to stdout.
      */
     void write(std::string s) {
       std::cout << s;
@@ -59,7 +59,7 @@ namespace gpcu {
 
     /**
      * Writes a line of output to stdout with the newline character.
-     * @param [std:string] s The string to send to stdout.
+     * @param s The string to send to stdout.
      */
     void writeline(std::string s) {
       std::cout << s << std::endl;
