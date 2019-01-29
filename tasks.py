@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
-#  tasks.py
-#  gpcu
+###
+#  @file      tasks.py
+#  @brief     Defines tasks the help the build process for the task runner.
 #
-#  Created by Evan Elias Young on 2019-01-24.
-#  Copyright 2019 Evan Elias Young. All rights reserved.
+#  @author    Evan Elias Young
+#  @date      2019-01-24
+#  @date      2019-01-29
+#  @copyright Copyright 2019 Evan Elias Young. All rights reserved.
+##
 
 from invoke import task
 

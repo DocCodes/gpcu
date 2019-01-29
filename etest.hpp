@@ -1,8 +1,12 @@
-//  etest.hpp
-//  gpcu
-//
-//  Created by Evan Elias Young on 2019-01-13.
-//  Copyright 2019 Evan Elias Young. All rights reserved.
+/**
+*  @file      etest.hpp
+*  @brief     Adds testing and assert functions to the test process.
+*
+*  @author    Evan Elias Young
+*  @date      2019-01-13
+*  @date      2019-01-29
+*  @copyright Copyright 2019 Evan Elias Young. All rights reserved.
+*/
 
 #ifndef ETEST_HPP_  // include guard
 #define ETEST_HPP_

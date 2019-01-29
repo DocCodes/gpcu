@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
-#  build.py
-#  gpcu
+###
+#  @file      build.py
+#  @brief     Builds together all the separate headers into one main header.
 #
-#  Created by Evan Elias Young on 2019-01-17.
-#  Copyright 2019 Evan Elias Young. All rights reserved.
+#  @author    Evan Elias Young
+#  @date      2019-01-17
+#  @date      2019-01-29
+#  @copyright Copyright 2019 Evan Elias Young. All rights reserved.
+##
 
 import os
 import re

@@ -1,8 +1,12 @@
-//  main.cpp
-//  gpcu
-//
-//  Created by Evan Elias Young on 2019-01-13.
-//  Copyright 2019 Evan Elias Young. All rights reserved.
+/**
+*  @file      main.cpp
+*  @brief     The main entry point for testing and running demos.
+*
+*  @author    Evan Elias Young
+*  @date      2019-01-13
+*  @date      2019-01-29
+*  @copyright Copyright 2019 Evan Elias Young. All rights reserved.
+*/
 
 #include <ctype.h>
 #include <stdlib.h>

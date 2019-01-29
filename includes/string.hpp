@@ -1,8 +1,12 @@
-//  string.hpp
-//  gpcu
-//
-//  Created by Evan Elias Young on 2019-01-17.
-//  Copyright 2019 Evan Elias Young. All rights reserved.
+/**
+*  @file      string.hpp
+*  @brief     Adds string methods to include the strings in the default header.
+*
+*  @author    Evan Elias Young
+*  @date      2019-01-17
+*  @date      2019-01-29
+*  @copyright Copyright 2019 Evan Elias Young. All rights reserved.
+*/
 
 #ifndef GPCU_STRING_HPP_  // include guard
 #define GPCU_STRING_HPP_

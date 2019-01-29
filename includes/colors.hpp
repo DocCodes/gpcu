@@ -1,8 +1,12 @@
-//  colors.hpp
-//  gpcu
-//
-//  Created by Evan Elias Young on 2019-01-17.
-//  Copyright 2019 Evan Elias Young. All rights reserved.
+/**
+*  @file      colors.hpp
+*  @brief     Adds methods for coloring stdout.
+*
+*  @author    Evan Elias Young
+*  @date      2019-01-17
+*  @date      2019-01-29
+*  @copyright Copyright 2019 Evan Elias Young. All rights reserved.
+*/
 
 #ifndef GPCU_COLORS_HPP_  // include guard
 #define GPCU_COLORS_HPP_
@@ -35,9 +39,9 @@ namespace gpcu {
     };
 
     /**
-     * Gets the color support levels of the current console
-     * @return The number of colors supported by the current console.
-     */
+    * Gets the color support levels of the current console
+    * @return The number of colors supported by the current console.
+    */
     gpcu::colors::Support getSupport() {
       gpcu::OperatingSystem os = gpcu::getOS();
       std::string term = gpcu::getEnvVar("TERM");
@@ -78,34 +82,34 @@ namespace gpcu {
     }
 
     /**
-     * Wraps a color and an offset into an Ansi-16 sequence.
-     * @param  col The color to wrap.
-     * @param  off The offset value.
-     * @return     The wrapped Ansi sequence.
-     */
+    * Wraps a color and an offset into an Ansi-16 sequence.
+    * @param  col The color to wrap.
+    * @param  off The offset value.
+    * @return     The wrapped Ansi sequence.
+    */
     std::string wrapAnsi16(int col, int off) {
       return "\033[" + std::to_string(30 + col + off) + "m";
     }
 
     /**
-     * Wraps a color and an offset into an Ansi-256 sequence.
-     * @param  col The color to wrap.
-     * @param  off The offset value.
-     * @return     The wrapped Ansi sequence.
-     */
+    * Wraps a color and an offset into an Ansi-256 sequence.
+    * @param  col The color to wrap.
+    * @param  off The offset value.
+    * @return     The wrapped Ansi sequence.
+    */
     std::string wrapAnsi256(int col, int off) {
       return "\033[" + std::to_string(38 + (off % 60)) + ";5;" + std::to_string(off >= 60 ? col + 8 : col) + "m";
     }
 
     namespace wrap {
       /**
-       * Handles all the wrapping for text before returning to the console.
-       * @param  txt  The text to wrap in the color/format.
-       * @param  col  The color/format to wrap.
-       * @param  off  The offset value.
-       * @param  term The terminator value.
-       * @return      The complete wrapped Ansi sequence with the terminator.
-       */
+      * Handles all the wrapping for text before returning to the console.
+      * @param  txt  The text to wrap in the color/format.
+      * @param  col  The color/format to wrap.
+      * @param  off  The offset value.
+      * @param  term The terminator value.
+      * @return      The complete wrapped Ansi sequence with the terminator.
+      */
       std::string wrapper(std::string txt, int col, int off, int term) {
         gpcu::colors::Support supportLevel = getSupport();
         bool isColor = true;
