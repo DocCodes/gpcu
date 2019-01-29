@@ -17,6 +17,9 @@
 #include <regex>
 
 namespace gpcu {
+  /**
+   * Represents an RGB color
+   */
   class Color {
   private:
     int red;
@@ -57,6 +60,12 @@ namespace gpcu {
     void setHex(std::string);
   };
 
+  /**
+   * Represents an RGB color declared declared by such.
+   * @param [int] r The red value.
+   * @param [int] g The green value.
+   * @param [int] b The blue value.
+   */
   Color::Color(int r, int g, int b) {
     red = r;
     green = g;
@@ -65,6 +74,11 @@ namespace gpcu {
     recalcHSVL();
     recalcLuminance();
   }
+
+  /**
+   * Represents an RGB color declared by hex.
+   * @param [std::string] h The hex value.
+   */
   Color::Color(std::string h) {
     setHex(h);
   }
