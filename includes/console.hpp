@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-01-28
-*  @date      2019-01-29
+*  @date      2019-01-30
 *  @copyright Copyright 2019 Evan Elias Young. All rights reserved.
 */
 
@@ -13,7 +13,6 @@
 
 #include <iostream>
 #include <string>
-
 
 namespace gpcu {
   namespace console {
