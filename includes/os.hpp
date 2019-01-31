@@ -177,14 +177,14 @@ namespace gpcu {
     }
 
     if (osFamily == gpcu::OperatingSystemFamily::linux) {
-      std::system(("lsb_release -r" > verPath).c_str());
+      std::system(("lsb_release -r" + verPath).c_str());
       buffer << verFile.rdbuf();
       ver = buffer.str();
       ver = ver.substr(9, ver.length() - 9);
     }
 
     if (osFamily == gpcu::OperatingSystemFamily::solaris) {
-      std::system(("uname -r" > verPath).c_str());
+      std::system(("uname -r" + verPath).c_str());
       buffer << verFile.rdbuf();
       ver = buffer.str();
     }
