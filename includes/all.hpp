@@ -18,7 +18,7 @@
 * the next four contain the minor number,
 * and the last twelve contain the revision number.
 */
-#define GPCU_VERSION_ 0x020300002A
+#define GPCU_VERSION_ 0x020300002B
 
 #include "color.hpp"
 #include "colors.hpp"

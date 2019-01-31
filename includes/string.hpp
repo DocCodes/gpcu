@@ -65,6 +65,44 @@ namespace gpcu {
     std::string trim(std::string s, const std::string chars = "\t\n\v\f\r ") {
       return ltrim(rtrim(s, chars), chars);
     }
+
+    /**
+    * @brief Counts the occurrences of a string in a string.
+    * @param  s     The string from which to count occurrences.
+    * @param  delim The string to count.
+    * @return       The number of occurrences of a string within a string.
+    */
+    std::size_t count(std::string s, std::string delim) {
+      std::string::size_type ocLast = s.find_last_of(delim);
+      std::string::size_type n = 0;
+      std::size_t cnt = 0;
+
+      if (ocLast == std::string::npos) { return 0; }
+      while (n < ocLast) {
+        ++cnt;
+        n = s.find(delim, n) + (delim.length() - 1);
+      }
+      return cnt;
+    }
+
+    /**
+    * @brief Counts the occurrences of a character in a string.
+    * @param  s     The string from which to count occurrences.
+    * @param  delim The character to count.
+    * @return       The number of occurrences of a character within a string.
+    */
+    std::size_t count(std::string s, char delim) {
+      std::string::size_type ocLast = s.find_last_of(delim);
+      std::string::size_type n = 0;
+      std::size_t cnt = 0;
+
+      if (ocLast == std::string::npos) { return 0; }
+      while (n < ocLast) {
+        ++cnt;
+        n = s.find(delim, n) + 1;
+      }
+      return cnt;
+    }
   }  // namespace string
 }  // namespace gpcu
 
