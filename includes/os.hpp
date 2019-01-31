@@ -170,6 +170,25 @@ namespace gpcu {
       ver = ver.substr(8, ver.length() - 8);
     }
 
+    if (osFamily == gpcu::OperatingSystemFamily::darwin) {
+      std::system(("sw_vers -productVersion > " + verPath).c_str());
+      buffer << verFile.rdbuf();
+      ver = buffer.str();
+    }
+
+    if (osFamily == gpcu::OperatingSystemFamily::linux) {
+      std::system(("lsb_release -r" > ver_Path).c_str());
+      buffer << verFile.rdbuf();
+      ver = buffer.str();
+      ver = ver.substr(9, ver.length() - 9);
+    }
+
+    if (osFamily == gpcu::OperatingSystemFamily::solaris) {
+      std::system(("uname -r" > ver_Path).c_str());
+      buffer << verFile.rdbuf();
+      ver = buffer.str();
+    }
+
     return ver;
   }
 }  // namespace gpcu

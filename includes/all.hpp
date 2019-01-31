@@ -11,7 +11,7 @@
 #ifndef GPCU_HPP_  // include guard
 #define GPCU_HPP_
 
-#define GPCU_VERSION_ 0x0203000025
+#define GPCU_VERSION_ 0x0203000026
 
 #include "color.hpp"
 #include "colors.hpp"
