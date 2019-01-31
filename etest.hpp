@@ -32,12 +32,12 @@ namespace etest {
     return passed;
   }
 
-  bool TEST_CATEGORY_EQ(std::string category, size_t localTotal, int* passingPtr, int* totalPtr, std::string testNames[], std::string (*testFuncs[])(), std::string testExps[]) {
+  bool TEST_CATEGORY_EQ(std::string category, std::size_t localTotal, int* passingPtr, int* totalPtr, std::string testNames[], std::string (*testFuncs[])(), std::string testExps[]) {
     bool passed = true;
     int localPassing = 0;
 
     std::cout << category << std::endl;
-    for (size_t i = 0; i < localTotal; i++) {
+    for (std::size_t i = 0; i < localTotal; i++) {
       if (EXPECT_EQ(testNames[i], testFuncs[i], testExps[i])) {
         localPassing++;
       }

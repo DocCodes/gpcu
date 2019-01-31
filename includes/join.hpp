@@ -24,9 +24,9 @@ namespace gpcu {
   * @param  delim The joining character.
   * @return       The joint string.
   */
-  std::string join(int a[], size_t size, std::string delim) {
+  std::string join(int a[], std::size_t size, std::string delim) {
     std::stringstream ss;
-    size_t i = 0;
+    std::size_t i = 0;
 
     ss << a[i++];
     while (i < size) {
@@ -43,9 +43,9 @@ namespace gpcu {
   * @param  delim The joining character.
   * @return       The joint string.
   */
-  std::string join(char a[], size_t size, std::string delim) {
+  std::string join(char a[], std::size_t size, std::string delim) {
     std::stringstream ss;
-    size_t i = 0;
+    std::size_t i = 0;
 
     ss << a[i++];
     while (i < size) {
@@ -62,9 +62,9 @@ namespace gpcu {
   * @param  delim The joining character.
   * @return       The joint string.
   */
-  std::string join(bool a[], size_t size, std::string delim) {
+  std::string join(bool a[], std::size_t size, std::string delim) {
     std::stringstream ss;
-    size_t i = 0;
+    std::size_t i = 0;
 
     ss << std::boolalpha;
     ss << a[i++];
@@ -82,9 +82,9 @@ namespace gpcu {
   * @param  delim The joining character.
   * @return       The joint string.
   */
-  std::string join(float a[], size_t size, std::string delim, int prec = 2) {
+  std::string join(float a[], std::size_t size, std::string delim, int prec = 2) {
     std::stringstream ss;
-    size_t i = 0;
+    std::size_t i = 0;
 
     ss << std::fixed << std::setprecision(prec);
     ss << a[i++];
@@ -102,9 +102,9 @@ namespace gpcu {
   * @param  delim The joining character.
   * @return       The joint string.
   */
-  std::string join(double a[], size_t size, std::string delim, int prec = 2) {
+  std::string join(double a[], std::size_t size, std::string delim, int prec = 2) {
     std::stringstream ss;
-    size_t i = 0;
+    std::size_t i = 0;
 
     ss << std::fixed << std::setprecision(prec);
     ss << a[i++];
@@ -122,9 +122,9 @@ namespace gpcu {
   * @param  delim The joining character.
   * @return       The joint string.
   */
-  std::string join(std::string a[], size_t size, std::string delim) {
+  std::string join(std::string a[], std::size_t size, std::string delim) {
     std::stringstream ss;
-    size_t i = 0;
+    std::size_t i = 0;
 
     ss << a[i++];
     while (i < size) {

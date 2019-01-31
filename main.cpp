@@ -96,7 +96,7 @@ void test_colors_bgbright() {
 void test_colors_256() {
   std::cout << "  " << gpcu::colors::wrap::green("+") << " ";
 
-  for (size_t i = 0; i < 216; i++) {
+  for (std::size_t i = 0; i < 216; i++) {
     if (i % 36 == 0 && i != 0) {
       std::cout << std::endl;
       std::cout << "  " << gpcu::colors::wrap::green("+") << " ";
@@ -108,7 +108,7 @@ void test_colors_256() {
 
     if ((i + 1) % 36 == 0 && (i + 1) / 36 <= 4) {
       std::cout << "            ";
-      for (size_t x = 0; x < 6; x++) {
+      for (std::size_t x = 0; x < 6; x++) {
         std::cout << gpcu::colors::wrap::wrapper("\u2588", ((i + 1) / 36) * 6 + x + 226, 0, 39);
       }
     }
@@ -181,14 +181,14 @@ std::string test_join_string() {
 }
 
 bool test_join(int* passingPtr, int* totalPtr) {
-  size_t const localTotal = 6;
+  std::size_t const localTotal = 6;
   std::string testNames[localTotal] = {
-    "join(int a[], size_t size, string delim)",
-    "join(char a[], size_t size, string delim)",
-    "join(bool a[], size_t size, string delim)",
-    "join(float a[], size_t size, string delim)",
-    "join(double a[], size_t size, string delim)",
-    "join(string a[], size_t size, string delim)"
+    "join(int a[], std::size_t size, string delim)",
+    "join(char a[], std::size_t size, string delim)",
+    "join(bool a[], std::size_t size, string delim)",
+    "join(float a[], std::size_t size, string delim)",
+    "join(double a[], std::size_t size, string delim)",
+    "join(string a[], std::size_t size, string delim)"
   };
   std::string (*testFuncs[localTotal])() = {
     test_join_int,
@@ -247,7 +247,7 @@ std::string test_string_trim() {
 }
 
 bool test_string(int* passingPtr, int* totalPtr) {
-  size_t const localTotal = 5;
+  std::size_t const localTotal = 6;
   std::string testNames[localTotal] = {
     "upper(string* s)",
     "lower(string* s)",

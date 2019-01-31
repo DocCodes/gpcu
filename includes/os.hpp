@@ -108,7 +108,7 @@ namespace gpcu {
   * @param  size The size of the array of paths.
   * @return The joined path.
   */
-  std::string joinPath(std::string a[], size_t size) {
+  std::string joinPath(std::string a[], std::size_t size) {
     gpcu::OperatingSystemFamily osFamily = gpcu::getOSFamily();
     std::string pathSep = "/";
 
