@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-01-18
-*  @date      2019-01-29
+*  @date      2019-01-31
 *  @copyright Copyright 2019 Evan Elias Young. All rights reserved.
 */
 
@@ -20,7 +20,16 @@
 #include "join.hpp"
 
 namespace gpcu {
-  enum OperatingSystem : unsigned short {
+  enum class OperatingSystemFamily : unsigned short {
+    other,
+    DOS,
+    win,
+    darwin,
+    linux,
+    solaris
+  };
+
+  enum class OperatingSystem : unsigned short {
     other,
     DOS,
     linux,
@@ -41,6 +50,26 @@ namespace gpcu {
   std::string getEnvVar(std::string key) {
     char const* val = std::getenv(key.c_str());
     return val == NULL ? std::string() : std::string(val);
+  }
+
+  /**
+  * Gets the family of the operating system.
+  * @return The family of the operating system.
+  */
+  gpcu::OperatingSystemFamily getOSFamily() {
+    #if defined(MSDOS) || defined(__MSDOS__) || defined(_MSDOS) || defined(__DOS__)
+    return gpcu::OperatingSystemFamily::DOS;
+    #elif defined(__linux__)
+    return gpcu::OperatingSystemFamily::linux;
+    #elif defined(macintosh) || defined(Macintosh) || defined(__APPLE__)
+    return gpcu::OperatingSystemFamily::darwin;
+    #elif defined(sun) || defined(__sun) || defined(__SVR4) || defined(__svr4__)
+    return gpcu::OperatingSystemFamily::solaris;
+    #elif defined(_WIN16) || defined(__TOS_WIN__) || defined(_WIN32) || defined(__WIN32__) || defined(__WINDOWS__) || defined(_WIN64)
+    return gpcu::OperatingSystemFamily::win;
+    #else
+    return gpcu::OperatingSystemFamily::other;
+    #endif
   }
 
   /**
@@ -80,10 +109,10 @@ namespace gpcu {
   * @return The joined path.
   */
   std::string joinPath(std::string a[], size_t size) {
-    gpcu::OperatingSystem os = getOS();
+    gpcu::OperatingSystemFamily osFamily = gpcu::getOSFamily();
     std::string pathSep = "/";
 
-    if (os == gpcu::OperatingSystem::DOS || os == gpcu::OperatingSystem::win16 || os == gpcu::OperatingSystem::win32 || os == gpcu::OperatingSystem::win64) {
+    if (osFamily == gpcu::OperatingSystemFamily::win || osFamily == gpcu::OperatingSystemFamily::DOS) {
       pathSep = "\\";
     }
 
@@ -95,7 +124,8 @@ namespace gpcu {
   * @return The temporary directory.
   */
   std::string getTempDir() {
-    gpcu::OperatingSystem os = getOS();
+    gpcu::OperatingSystemFamily osFamily = gpcu::getOSFamily();
+    gpcu::OperatingSystem os = gpcu::getOS();
     std::string tempDir = std::string();
 
     if (os == gpcu::OperatingSystem::other) { return tempDir; }
@@ -104,7 +134,7 @@ namespace gpcu {
     if (tempDir.empty()) { tempDir = gpcu::getEnvVar("TMPDIR"); }
     if (tempDir.empty()) { tempDir = gpcu::getEnvVar("TEMPDIR"); }
     if (tempDir.empty()) {
-      if (!(os == gpcu::OperatingSystem::other || os == gpcu::OperatingSystem::DOS || os == gpcu::OperatingSystem::win16 || os == gpcu::OperatingSystem::win32 || os == gpcu::OperatingSystem::win64)) {
+      if (!(osFamily == gpcu::OperatingSystemFamily::win || osFamily == gpcu::OperatingSystemFamily::DOS)) {
         tempDir = "/tmp";
       }
     }
@@ -126,13 +156,13 @@ namespace gpcu {
   * @return The version of the operating system.
   */
   std::string getOSVer() {
-    gpcu::OperatingSystem os = getOS();
-    std::string verPath = getTempFile();
+    gpcu::OperatingSystemFamily osFamily = gpcu::getOSFamily();
+    std::string verPath = gpcu::getTempFile();
     std::string ver = std::string();
     std::ifstream verFile(verPath);
     std::stringstream buffer;
 
-    if (os == gpcu::OperatingSystem::DOS || os == gpcu::OperatingSystem::win16 || os == gpcu::OperatingSystem::win32 || os == gpcu::OperatingSystem::win64) {
+    if (osFamily == gpcu::OperatingSystemFamily::DOS || osFamily == gpcu::OperatingSystemFamily::win) {
       std::system(("ver > " + verPath).c_str());
       buffer << verFile.rdbuf();
       ver = buffer.str();
