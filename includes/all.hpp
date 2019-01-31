@@ -11,6 +11,13 @@
 #ifndef GPCU_HPP_  // include guard
 #define GPCU_HPP_
 
+/**
+* @brief Contains the major, minor, and revision versions of GPCU.
+*
+* The first four bytes contain the major number,
+* the next four contain the minor number,
+* and the last twelve contain the revision number.
+*/
 #define GPCU_VERSION_ 0x0203000029
 
 #include "color.hpp"

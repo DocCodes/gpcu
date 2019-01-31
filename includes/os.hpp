@@ -43,7 +43,7 @@ namespace gpcu {
   };
 
   /**
-  * Gets an environment variable.
+  * @brief Gets an environment variable.
   * @param  key The key of the environment variable.
   * @return     The environment variable's value.
   */
@@ -53,7 +53,7 @@ namespace gpcu {
   }
 
   /**
-  * Gets the family of the operating system.
+  * @brief Gets the family of the operating system.
   * @return The family of the operating system.
   */
   gpcu::OperatingSystemFamily getOSFamily() {
@@ -73,7 +73,7 @@ namespace gpcu {
   }
 
   /**
-  * Gets the operating system currently running.
+  * @brief Gets the operating system currently running.
   * @return The operating system.
   */
   gpcu::OperatingSystem getOS() {
@@ -103,7 +103,7 @@ namespace gpcu {
   }
 
   /**
-  * Joins a path depending on the operating system.
+  * @brief Joins a path depending on the operating system.
   * @param  a    The array of paths.
   * @param  size The size of the array of paths.
   * @return The joined path.
@@ -120,7 +120,7 @@ namespace gpcu {
   }
 
   /**
-  * Gets the temporary directory depending on the operating system.
+  * @brief Gets the temporary directory depending on the operating system.
   * @return The temporary directory.
   */
   std::string getTempDir() {
@@ -143,7 +143,7 @@ namespace gpcu {
   }
 
   /**
-  * Gets the path to a temporary file.
+  * @brief Gets the path to a temporary file.
   * @return The path to the temporary file.
   */
   std::string getTempFile() {
@@ -152,7 +152,7 @@ namespace gpcu {
   }
 
   /**
-  * Gets the version of the operating system.
+  * @brief Gets the version of the operating system.
   * @return The version of the operating system.
   */
   std::string getOSVer() {

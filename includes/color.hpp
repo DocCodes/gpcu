@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-01-25
-*  @date      2019-01-29
+*  @date      2019-01-31
 *  @copyright Copyright 2019 Evan Elias Young. All rights reserved.
 */
 
@@ -22,29 +22,29 @@
 
 namespace gpcu {
   /**
-  * Represents an RGB color
+  * @brief Represents an RGB color
   */
   class Color {
   private:
-    /** The red value of the color */
+    /** @brief The red value of the color */
     int red;
-    /** The green value of the color */
+    /** @brief The green value of the color */
     int green;
-    /** The blue value of the color */
+    /** @brief The blue value of the color */
     int blue;
-    /** The luminance value of the color */
+    /** @brief The luminance value of the color */
     int luminance;
-    /** The alpha value of the color */
+    /** @brief The alpha value of the color */
     int alpha;
-    /** The hue value of the color */
+    /** @brief The hue value of the color */
     int hue;
-    /** The saturation value of the color */
+    /** @brief The saturation value of the color */
     int saturation;
-    /** The lightness value of the color */
+    /** @brief The lightness value of the color */
     int lightness;
-    /** The value of the color */
+    /** @brief The value of the color */
     int value;
-    /** The hex value of the color */
+    /** @brief The hex value of the color */
     std::string hex;
     void recalcHex();
     void recalcRGB();
@@ -75,7 +75,7 @@ namespace gpcu {
   };
 
   /**
-  * Represents an RGB color declared declared by such.
+  * @brief Represents an RGB color declared declared by such.
   * @param r The red value.
   * @param g The green value.
   * @param b The blue value.
@@ -90,7 +90,7 @@ namespace gpcu {
   }
 
   /**
-  * Represents an RGB color declared by hex.
+  * @brief Represents an RGB color declared by hex.
   * @param h The hex value.
   */
   Color::Color(std::string h) {
@@ -98,7 +98,7 @@ namespace gpcu {
   }
 
   /**
-  * Recalculates the hex value for the color object.
+  * @brief Recalculates the hex value for the color object.
   */
   void Color::recalcHex() {
     std::stringstream ss;
@@ -107,7 +107,7 @@ namespace gpcu {
   }
 
   /**
-  * Recalculates the RGB values for the color object.
+  * @brief Recalculates the RGB values for the color object.
   */
   void Color::recalcRGB() {
     std::stringstream ss;
@@ -122,7 +122,7 @@ namespace gpcu {
   }
 
   /**
-  * Recalculates the HSVL values for the color object.
+  * @brief Recalculates the HSVL values for the color object.
   */
   void Color::recalcHSVL() {
     double min;
@@ -171,14 +171,14 @@ namespace gpcu {
   }
 
   /**
-  * Recalculates the luminance value for the color object.
+  * @brief Recalculates the luminance value for the color object.
   */
   void Color::recalcLuminance() {
     luminance = ::round((red * 0.2126) + (green * 0.7152) + (blue * 0.0722));
   }
 
   /**
-  * Gets the red value.
+  * @brief Gets the red value.
   * @return The red value.
   */
   int Color::getRed() {
@@ -186,7 +186,7 @@ namespace gpcu {
   }
 
   /**
-  * Sets the red value.
+  * @brief Sets the red value.
   * @param newRed The new red value.
   */
   void Color::setRed(int newRed) {
@@ -202,7 +202,7 @@ namespace gpcu {
   }
 
   /**
-  * Gets the green value.
+  * @brief Gets the green value.
   * @return The green value.
   */
   int Color::getGreen() {
@@ -210,7 +210,7 @@ namespace gpcu {
   }
 
   /**
-  * Sets the green value.
+  * @brief Sets the green value.
   * @param newGreen The new green value.
   */
   void Color::setGreen(int newGreen) {
@@ -226,7 +226,7 @@ namespace gpcu {
   }
 
   /**
-  * Gets the blue value.
+  * @brief Gets the blue value.
   * @return The blue value.
   */
   int Color::getBlue() {
@@ -234,7 +234,7 @@ namespace gpcu {
   }
 
   /**
-  * Sets the blue value.
+  * @brief Sets the blue value.
   * @param newBlue The new blue value.
   */
   void Color::setBlue(int newBlue) {
@@ -250,7 +250,7 @@ namespace gpcu {
   }
 
   /**
-  * Gets the luminance value.
+  * @brief Gets the luminance value.
   * @return The luminance value.
   */
   int Color::getLuminance() {
@@ -258,7 +258,7 @@ namespace gpcu {
   }
 
   /**
-  * Gets the alpha value.
+  * @brief Gets the alpha value.
   * @return The alpha value.
   */
   int Color::getAlpha() {
@@ -266,7 +266,7 @@ namespace gpcu {
   }
 
   /**
-  * Sets the alpha value.
+  * @brief Sets the alpha value.
   * @param newAlpha The new alpha value.
   */
   void Color::setAlpha(int newAlpha) {
@@ -277,7 +277,7 @@ namespace gpcu {
   }
 
   /**
-  * Gets the hue value.
+  * @brief Gets the hue value.
   * @return The hue value.
   */
   int Color::getHue() {
@@ -285,7 +285,7 @@ namespace gpcu {
   }
 
   /**
-  * Sets the hue value.
+  * @brief Sets the hue value.
   * @param newHue The new hue value.
   */
   void Color::setHue(int newHue) {
@@ -300,7 +300,7 @@ namespace gpcu {
   }
 
   /**
-  * Gets the saturation value.
+  * @brief Gets the saturation value.
   * @return The saturation value.
   */
   int Color::getSaturation() {
@@ -308,7 +308,7 @@ namespace gpcu {
   }
 
   /**
-  * Sets the saturation value.
+  * @brief Sets the saturation value.
   * @param newSaturation The new saturation value.
   */
   void Color::setSaturation(int newSaturation) {
@@ -323,7 +323,7 @@ namespace gpcu {
   }
 
   /**
-  * Gets the lightness value.
+  * @brief Gets the lightness value.
   * @return The lightness value.
   */
   int Color::getLightness() {
@@ -331,7 +331,7 @@ namespace gpcu {
   }
 
   /**
-  * Sets the lightness value.
+  * @brief Sets the lightness value.
   * @param newLightness The new lightness value.
   */
   void Color::setLightness(int newLightness) {
@@ -346,7 +346,7 @@ namespace gpcu {
   }
 
   /**
-  * Gets the value.
+  * @brief Gets the value.
   * @return The value.
   */
   int Color::getValue() {
@@ -354,7 +354,7 @@ namespace gpcu {
   }
 
   /**
-  * Sets the value.
+  * @brief Sets the value.
   * @param newValue The new value.
   */
   void Color::setValue(int newValue) {
@@ -369,7 +369,7 @@ namespace gpcu {
   }
 
   /**
-  * Gets the luminance value.
+  * @brief Gets the luminance value.
   * @return The hex value.
   */
   std::string Color::getHex() {
@@ -377,7 +377,7 @@ namespace gpcu {
   }
 
   /**
-  * Sets the blue value.
+  * @brief Sets the blue value.
   * @param newHex The new hex value.
   */
   void Color::setHex(std::string newHex) {

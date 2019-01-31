@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-01-17
-*  @date      2019-01-29
+*  @date      2019-01-31
 *  @copyright Copyright 2019 Evan Elias Young. All rights reserved.
 */
 
@@ -16,7 +16,7 @@
 
 namespace gpcu {
   /**
-  * Pauses the program until the newline character is received.
+  * @brief Pauses the program until the newline character is received.
   */
   void pause() {
     std::cout << "Press the enter key to continue . . ." << std::endl;
@@ -24,7 +24,7 @@ namespace gpcu {
   }
 
   /**
-  * Pauses the program with a message until the newline character is received.
+  * @brief Pauses the program with a message until the newline character is received.
   * @param msg The message to prompt.
   */
   void pause(std::string msg) {

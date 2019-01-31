@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-01-17
-*  @date      2019-01-29
+*  @date      2019-01-31
 *  @copyright Copyright 2019 Evan Elias Young. All rights reserved.
 */
 
@@ -18,7 +18,7 @@
 
 namespace gpcu {
   namespace colors {
-    /** Support levels for console colors */
+    /** @brief Support levels for console colors */
     enum Support : unsigned int {
       none = 1,
       basic = 16,
@@ -26,7 +26,7 @@ namespace gpcu {
       full = 16777216
     };
 
-    /** Colors for consoles */
+    /** @brief Colors for consoles */
     enum Ansi : unsigned short {
       black,
       red,
@@ -39,7 +39,7 @@ namespace gpcu {
     };
 
     /**
-    * Gets the color support levels of the current console
+    * @brief Gets the color support levels of the current console
     * @return The number of colors supported by the current console.
     */
     gpcu::colors::Support getSupport() {
@@ -82,7 +82,7 @@ namespace gpcu {
     }
 
     /**
-    * Wraps a color and an offset into an Ansi-16 sequence.
+    * @brief Wraps a color and an offset into an Ansi-16 sequence.
     * @param  col The color to wrap.
     * @param  off The offset value.
     * @return     The wrapped Ansi sequence.
@@ -92,7 +92,7 @@ namespace gpcu {
     }
 
     /**
-    * Wraps a color and an offset into an Ansi-256 sequence.
+    * @brief Wraps a color and an offset into an Ansi-256 sequence.
     * @param  col The color to wrap.
     * @param  off The offset value.
     * @return     The wrapped Ansi sequence.

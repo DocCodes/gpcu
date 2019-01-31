@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-01-28
-*  @date      2019-01-30
+*  @date      2019-01-31
 *  @copyright Copyright 2019 Evan Elias Young. All rights reserved.
 */
 
@@ -17,21 +17,21 @@
 namespace gpcu {
   namespace console {
     /**
-    * Emits a beep noise through the console.
+    * @brief Emits a beep noise through the console.
     */
     void beep() {
       std::cout << '\a';
     }
 
     /**
-    * Clears the console screen.
+    * @brief Clears the console screen.
     */
     void clear() {
       std::cout << std::string(100, '\n');
     }
 
     /**
-    * Gets a line of input from stdin.
+    * @brief Gets a line of input from stdin.
     * @return The line of input without the newline character.
     */
     std::string getline() {
@@ -41,7 +41,7 @@ namespace gpcu {
     }
 
     /**
-    * Gets a line of input from stdin after outputting to the stdout.
+    * @brief Gets a line of input from stdin after outputting to the stdout.
     * @param  s The string to send to stdout.
     * @return   The line of input without the newline character.
     */
@@ -53,7 +53,7 @@ namespace gpcu {
     }
 
     /**
-    * Writes a line of output to stdout without the newline character.
+    * @brief Writes a line of output to stdout without the newline character.
     * @param s The string to send to stdout.
     */
     void write(std::string s) {
@@ -61,7 +61,7 @@ namespace gpcu {
     }
 
     /**
-    * Writes a line of output to stdout with the newline character.
+    * @brief Writes a line of output to stdout with the newline character.
     * @param s The string to send to stdout.
     */
     void writeline(std::string s) {

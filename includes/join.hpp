@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-01-17
-*  @date      2019-01-29
+*  @date      2019-01-31
 *  @copyright Copyright 2019 Evan Elias Young. All rights reserved.
 */
 
@@ -18,7 +18,7 @@
 
 namespace gpcu {
   /**
-  * Joins an array of integers.
+  * @brief Joins an array of integers.
   * @param  a     The array of integers to join.
   * @param  size  The length of the array.
   * @param  delim The joining character.
@@ -37,7 +37,7 @@ namespace gpcu {
   }
 
   /**
-  * Joins an array of chars.
+  * @brief Joins an array of chars.
   * @param  a     The array of chars to join.
   * @param  size  The length of the array.
   * @param  delim The joining character.
@@ -56,7 +56,7 @@ namespace gpcu {
   }
 
   /**
-  * Joins an array of bools.
+  * @brief Joins an array of bools.
   * @param  a     The array of bools to join.
   * @param  size  The length of the array.
   * @param  delim The joining character.
@@ -76,7 +76,7 @@ namespace gpcu {
   }
 
   /**
-  * Joins an array of floats.
+  * @brief Joins an array of floats.
   * @param  a     The array of floats to join.
   * @param  size  The length of the array.
   * @param  delim The joining character.
@@ -96,7 +96,7 @@ namespace gpcu {
   }
 
   /**
-  * Joins an array of doubles.
+  * @brief Joins an array of doubles.
   * @param  a     The array of doubles to join.
   * @param  size  The length of the array.
   * @param  delim The joining character.
@@ -116,7 +116,7 @@ namespace gpcu {
   }
 
   /**
-  * Joins an array of strings.
+  * @brief Joins an array of strings.
   * @param  a     The array of strings to join.
   * @param  size  The length of the array.
   * @param  delim The joining character.
