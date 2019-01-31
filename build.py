@@ -5,7 +5,7 @@
 #
 #  @author    Evan Elias Young
 #  @date      2019-01-17
-#  @date      2019-01-29
+#  @date      2019-01-31
 #  @copyright Copyright 2019 Evan Elias Young. All rights reserved.
 ##
 
@@ -37,6 +37,8 @@ cInc = [i for i in cInc if i.endswith('.h>')]
 baseInc.sort()
 cInc.sort()
 
+gpcuVer = re.search('0x.{10}', open('includes/all.hpp').read())[0]
+
 filesCode[-1] = filesCode[-1].rstrip()
 code = '\n'.join([
     '//  gpcu.hpp',
@@ -47,6 +49,8 @@ code = '\n'.join([
     '',
     '#ifndef GPCU_HPP_  // include guard',
     '#define GPCU_HPP_',
+    '',
+    f'#define GPCU_VERSION_ {gpcuVer}',
     '',
     '\n'.join(cInc),
     '',
