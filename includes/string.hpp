@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-01-17
-*  @date      2019-01-31
+*  @date      2019-02-01
 *  @copyright Copyright 2019 Evan Elias Young. All rights reserved.
 */
 
@@ -80,7 +80,7 @@ namespace gpcu {
       if (ocLast == std::string::npos) { return 0; }
       while (n < ocLast) {
         ++cnt;
-        n = s.find(delim, n) + (delim.length() - 1);
+        n = s.find(delim, n) + 1;
       }
       return cnt;
     }
@@ -102,6 +102,50 @@ namespace gpcu {
         n = s.find(delim, n) + 1;
       }
       return cnt;
+    }
+
+    /**
+    * Splits a string into a collection of smaller parts.
+    * @param  a     The array of parts.
+    * @param  s     The string to split.
+    * @param  delim The characters to split on.
+    * @param  size  The length of the array.
+    * @return       Whether or not the split was successful.
+    */
+    bool split(std::string* a, std::string s, std::string delim, std::size_t size) {
+      std::string::size_type beg = 0;
+      std::string::size_type end = s.find(delim, beg + 1);
+      if (gpcu::string::count(s, delim) + 1 != size) { return false; }
+
+      for (size_t i = 0; i < size; i++) {
+        a[i] = s.substr(beg, end - beg);
+        beg = s.find(delim, end) + delim.length();
+        end = s.find(delim, beg);
+      }
+
+      return true;
+    }
+
+    /**
+    * Splits a string into a collection of smaller parts.
+    * @param  a     The array of parts.
+    * @param  s     The string to split.
+    * @param  delim The character to split on.
+    * @param  size  The length of the array.
+    * @return       Whether or not the split was successful.
+    */
+    bool split(std::string* a, std::string s, char delim, std::size_t size) {
+      std::string::size_type beg = 0;
+      std::string::size_type end = s.find(delim, beg + 1);
+      if (gpcu::string::count(s, delim) + 1 != size) { return false; }
+
+      for (size_t i = 0; i < size; i++) {
+        a[i] = s.substr(beg, end - beg);
+        beg = s.find(delim, end) + 1;
+        end = s.find(delim, beg);
+      }
+
+      return true;
     }
   }  // namespace string
 }  // namespace gpcu
