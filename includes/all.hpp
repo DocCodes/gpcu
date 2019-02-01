@@ -12,11 +12,12 @@
 #define GPCU_HPP_
 
 /**
-* @brief Contains the major, minor, and revision versions of GPCU.
+* @brief Contains the major, minor, patch, and revision versions of GPCU.
 *
 * The first four bytes contain the major number,
 * the next four contain the minor number,
-* and the last twelve contain the revision number.
+* the next four contain the patch number,
+* and the last eight contain the revision number.
 */
 #define GPCU_VERSION_ 0x020300002B
 
