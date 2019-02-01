@@ -19,7 +19,7 @@
 * the next four contain the patch number,
 * and the last eight contain the revision number.
 */
-#define GPCU_VERSION_ 0x020400002C
+#define GPCU_VERSION_ 0x020401002D
 
 #include "color.hpp"
 #include "colors.hpp"

@@ -80,7 +80,7 @@ namespace gpcu {
       if (ocLast == std::string::npos) { return 0; }
       while (n < ocLast) {
         ++cnt;
-        n = s.find(delim, n) + 1;
+        n = s.find(delim, n) + delim.length();
       }
       return cnt;
     }
