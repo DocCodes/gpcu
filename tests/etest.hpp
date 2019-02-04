@@ -4,17 +4,17 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-01-13
-*  @date      2019-01-29
+*  @date      2019-02-04
 *  @copyright Copyright 2019 Evan Elias Young. All rights reserved.
 */
 
-#ifndef ETEST_HPP_  // include guard
-#define ETEST_HPP_
+#ifndef TESTS_ETEST_HPP_  // include guard
+#define TESTS_ETEST_HPP_
 
 #include <iostream>
 #include <string>
 
-#include "includes/all.hpp"
+#include "../includes/all.hpp"
 
 namespace etest {
   bool EXPECT_EQ(std::string testName, std::string (*func)(), std::string exp) {
@@ -51,5 +51,4 @@ namespace etest {
   }
 }  // namespace etest
 
-
-#endif  // ETEST_HPP_
+#endif  // TESTS_ETEST_HPP_
