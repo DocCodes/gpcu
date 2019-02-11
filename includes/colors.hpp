@@ -4,12 +4,14 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-01-17
-*  @date      2019-01-31
+*  @date      2019-02-11
 *  @copyright Copyright 2019 Evan Elias Young. All rights reserved.
 */
 
 #ifndef GPCU_COLORS_HPP_  // include guard
 #define GPCU_COLORS_HPP_
+
+#include <stdint.h>
 
 #include <regex>
 #include <string>
@@ -27,7 +29,7 @@ namespace gpcu {
     };
 
     /** @brief Colors for consoles */
-    enum Ansi : unsigned short {
+    enum Ansi : unsigned int8_t {
       black,
       red,
       green,

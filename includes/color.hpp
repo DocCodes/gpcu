@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-01-25
-*  @date      2019-01-31
+*  @date      2019-02-11
 *  @copyright Copyright 2019 Evan Elias Young. All rights reserved.
 */
 
@@ -25,7 +25,7 @@ namespace gpcu {
   * @brief Represents an RGB color
   */
   class Color {
-  private:
+   private:
     /** @brief The red value of the color */
     int red;
     /** @brief The green value of the color */
@@ -50,9 +50,10 @@ namespace gpcu {
     void recalcRGB();
     void recalcHSVL();
     void recalcLuminance();
-  public:
-    Color (int, int, int);
-    Color (std::string);
+
+   public:
+    Color(int, int, int);
+    explicit Color(std::string);
     int getRed();
     void setRed(int);
     int getGreen();

@@ -4,13 +4,14 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-01-18
-*  @date      2019-01-31
+*  @date      2019-02-11
 *  @copyright Copyright 2019 Evan Elias Young. All rights reserved.
 */
 
 #ifndef GPCU_OS_HPP_  // include guard
 #define GPCU_OS_HPP_
 
+#include <stdint.h>
 #include <stdlib.h>
 
 #include <fstream>
@@ -20,7 +21,7 @@
 #include "join.hpp"
 
 namespace gpcu {
-  enum class OperatingSystemFamily : unsigned short {
+  enum class OperatingSystemFamily : unsigned int8_t {
     other,
     DOS,
     win,
@@ -29,7 +30,7 @@ namespace gpcu {
     solaris
   };
 
-  enum class OperatingSystem : unsigned short {
+  enum class OperatingSystem : unsigned int16_t {
     other,
     DOS,
     linux,
