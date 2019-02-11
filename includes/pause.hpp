@@ -27,7 +27,7 @@ namespace gpcu {
   * @brief Pauses the program with a message until the newline character is received.
   * @param msg The message to prompt.
   */
-  void pause(std::string msg) {
+  void pause(const std::string& msg) {
     std::cout << msg << std::endl;
     std::cin.get();
   }

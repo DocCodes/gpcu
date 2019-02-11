@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-01-17
-*  @date      2019-02-01
+*  @date      2019-02-11
 *  @copyright Copyright 2019 Evan Elias Young. All rights reserved.
 */
 
@@ -72,7 +72,7 @@ namespace gpcu {
     * @param  delim The string to count.
     * @return       The number of occurrences of a string within a string.
     */
-    std::size_t count(std::string s, std::string delim) {
+    std::size_t count(const std::string& s, const std::string& delim) {
       std::string::size_type ocLast = s.find_last_of(delim);
       std::string::size_type n = 0;
       std::size_t cnt = 0;
@@ -91,7 +91,7 @@ namespace gpcu {
     * @param  delim The character to count.
     * @return       The number of occurrences of a character within a string.
     */
-    std::size_t count(std::string s, char delim) {
+    std::size_t count(const std::string& s, const char& delim) {
       std::string::size_type ocLast = s.find_last_of(delim);
       std::string::size_type n = 0;
       std::size_t cnt = 0;
@@ -112,7 +112,7 @@ namespace gpcu {
     * @param  size  The length of the array.
     * @return       Whether or not the split was successful.
     */
-    bool split(std::string* a, std::string s, std::string delim, std::size_t size) {
+    bool split(std::string* a, const std::string& s, const std::string& delim, const std::size_t& size) {
       std::string::size_type beg = 0;
       std::string::size_type end = s.find(delim, beg + 1);
       if (gpcu::string::count(s, delim) + 1 != size) { return false; }
@@ -134,7 +134,7 @@ namespace gpcu {
     * @param  size  The length of the array.
     * @return       Whether or not the split was successful.
     */
-    bool split(std::string* a, std::string s, char delim, std::size_t size) {
+    bool split(std::string* a, const std::string& s, const char& delim, const std::size_t& size) {
       std::string::size_type beg = 0;
       std::string::size_type end = s.find(delim, beg + 1);
       if (gpcu::string::count(s, delim) + 1 != size) { return false; }

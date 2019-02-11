@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-01-17
-*  @date      2019-01-31
+*  @date      2019-02-11
 *  @copyright Copyright 2019 Evan Elias Young. All rights reserved.
 */
 
@@ -24,7 +24,7 @@ namespace gpcu {
   * @param  delim The joining character.
   * @return       The joint string.
   */
-  std::string join(int a[], std::size_t size, std::string delim) {
+  std::string join(const int a[], const std::size_t& size, const std::string& delim) {
     std::stringstream ss;
     std::size_t i = 0;
 
@@ -43,7 +43,7 @@ namespace gpcu {
   * @param  delim The joining character.
   * @return       The joint string.
   */
-  std::string join(char a[], std::size_t size, std::string delim) {
+  std::string join(const char a[], const std::size_t& size, const std::string& delim) {
     std::stringstream ss;
     std::size_t i = 0;
 
@@ -62,7 +62,7 @@ namespace gpcu {
   * @param  delim The joining character.
   * @return       The joint string.
   */
-  std::string join(bool a[], std::size_t size, std::string delim) {
+  std::string join(const bool a[], const std::size_t& size, const std::string& delim) {
     std::stringstream ss;
     std::size_t i = 0;
 
@@ -82,7 +82,7 @@ namespace gpcu {
   * @param  delim The joining character.
   * @return       The joint string.
   */
-  std::string join(float a[], std::size_t size, std::string delim, int prec = 2) {
+  std::string join(const float a[], const std::size_t& size, const std::string& delim, const int& prec = 2) {
     std::stringstream ss;
     std::size_t i = 0;
 
@@ -102,7 +102,7 @@ namespace gpcu {
   * @param  delim The joining character.
   * @return       The joint string.
   */
-  std::string join(double a[], std::size_t size, std::string delim, int prec = 2) {
+  std::string join(const double a[], const std::size_t& size, const std::string& delim, const int& prec = 2) {
     std::stringstream ss;
     std::size_t i = 0;
 
@@ -122,7 +122,7 @@ namespace gpcu {
   * @param  delim The joining character.
   * @return       The joint string.
   */
-  std::string join(std::string a[], std::size_t size, std::string delim) {
+  std::string join(const std::string a[], const std::size_t& size, const std::string& delim) {
     std::stringstream ss;
     std::size_t i = 0;
 

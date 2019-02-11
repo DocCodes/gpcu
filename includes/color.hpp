@@ -52,25 +52,25 @@ namespace gpcu {
     void recalcLuminance();
 
    public:
-    Color(int, int, int);
-    explicit Color(std::string);
+     Color(const int&, const int&, const int&);
+    explicit Color(const std::string&);
     int getRed();
-    void setRed(int);
+    void setRed(const int&);
     int getGreen();
-    void setGreen(int);
+    void setGreen(const int&);
     int getBlue();
-    void setBlue(int);
+    void setBlue(const int&);
     int getLuminance();
     int getAlpha();
-    void setAlpha(int);
+    void setAlpha(const int&);
     int getHue();
-    void setHue(int);
+    void setHue(const int&);
     int getSaturation();
-    void setSaturation(int);
+    void setSaturation(const int&);
     int getLightness();
-    void setLightness(int);
+    void setLightness(const int&);
     int getValue();
-    void setValue(int);
+    void setValue(const int&);
     std::string getHex();
     void setHex(std::string);
   };
@@ -81,7 +81,7 @@ namespace gpcu {
   * @param g The green value.
   * @param b The blue value.
   */
-  Color::Color(int r, int g, int b) {
+  Color::Color(const int& r, const int& g, const int& b) {
     red = r;
     green = g;
     blue = b;
@@ -94,7 +94,7 @@ namespace gpcu {
   * @brief Represents an RGB color declared by hex.
   * @param h The hex value.
   */
-  Color::Color(std::string h) {
+  Color::Color(const std::string& h) {
     setHex(h);
   }
 
@@ -190,7 +190,7 @@ namespace gpcu {
   * @brief Sets the red value.
   * @param newRed The new red value.
   */
-  void Color::setRed(int newRed) {
+  void Color::setRed(const int& newRed) {
     if (newRed < 0 || newRed > 255) {
       throw std::out_of_range("newRed must be 0-255");
     }
@@ -214,7 +214,7 @@ namespace gpcu {
   * @brief Sets the green value.
   * @param newGreen The new green value.
   */
-  void Color::setGreen(int newGreen) {
+  void Color::setGreen(const int& newGreen) {
     if (newGreen < 0 || newGreen > 255) {
       throw std::out_of_range("newGreen must be 0-255");
     }
@@ -238,7 +238,7 @@ namespace gpcu {
   * @brief Sets the blue value.
   * @param newBlue The new blue value.
   */
-  void Color::setBlue(int newBlue) {
+  void Color::setBlue(const int& newBlue) {
     if (newBlue < 0 || newBlue > 255) {
       throw std::out_of_range("newBlue must be 0-255");
     }
@@ -270,7 +270,7 @@ namespace gpcu {
   * @brief Sets the alpha value.
   * @param newAlpha The new alpha value.
   */
-  void Color::setAlpha(int newAlpha) {
+  void Color::setAlpha(const int& newAlpha) {
     if (newAlpha < 0 || newAlpha > 255) {
       throw std::out_of_range("newAlpha must be 0-255");
     }
@@ -289,7 +289,7 @@ namespace gpcu {
   * @brief Sets the hue value.
   * @param newHue The new hue value.
   */
-  void Color::setHue(int newHue) {
+  void Color::setHue(const int& newHue) {
     if (newHue < 0 || newHue > 360) {
       throw std::out_of_range("newHue must be 0-360");
     }
@@ -312,7 +312,7 @@ namespace gpcu {
   * @brief Sets the saturation value.
   * @param newSaturation The new saturation value.
   */
-  void Color::setSaturation(int newSaturation) {
+  void Color::setSaturation(const int& newSaturation) {
     if (newSaturation < 0 || newSaturation > 100) {
       throw std::out_of_range("newSaturation must be 0-100");
     }
@@ -335,7 +335,7 @@ namespace gpcu {
   * @brief Sets the lightness value.
   * @param newLightness The new lightness value.
   */
-  void Color::setLightness(int newLightness) {
+  void Color::setLightness(const int& newLightness) {
     if (newLightness < 0 || newLightness > 100) {
       throw std::out_of_range("newLightness must be 0-100");
     }
@@ -358,7 +358,7 @@ namespace gpcu {
   * @brief Sets the value.
   * @param newValue The new value.
   */
-  void Color::setValue(int newValue) {
+  void Color::setValue(const int& newValue) {
     if (newValue < 0 || newValue > 100) {
       throw std::out_of_range("newValue must be 0-100");
     }

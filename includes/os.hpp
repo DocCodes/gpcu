@@ -48,7 +48,7 @@ namespace gpcu {
   * @param  key The key of the environment variable.
   * @return     The environment variable's value.
   */
-  std::string getEnvVar(std::string key) {
+  std::string getEnvVar(const std::string& key) {
     char const* val = std::getenv(key.c_str());
     return val == NULL ? std::string() : std::string(val);
   }
@@ -109,7 +109,7 @@ namespace gpcu {
   * @param  size The size of the array of paths.
   * @return The joined path.
   */
-  std::string joinPath(std::string a[], std::size_t size) {
+  std::string joinPath(const std::string a[], const std::size_t& size) {
     gpcu::OperatingSystemFamily osFamily = gpcu::getOSFamily();
     std::string pathSep = "/";
 
