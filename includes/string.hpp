@@ -9,7 +9,7 @@
 */
 
 #ifndef GPCU_STRING_HPP_
-#define GPCU_STRING_HPP_  0x0100000000
+#define GPCU_STRING_HPP_
 
 #include <ctype.h>
 

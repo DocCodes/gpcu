@@ -9,7 +9,7 @@
 */
 
 #ifndef GPCU_OS_HPP_
-#define GPCU_OS_HPP_  0x0100000000
+#define GPCU_OS_HPP_
 
 #include <stdint.h>
 #include <stdlib.h>

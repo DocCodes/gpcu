@@ -9,7 +9,7 @@
 */
 
 #ifndef GPCU_JOIN_HPP_
-#define GPCU_JOIN_HPP_  0x0100000000
+#define GPCU_JOIN_HPP_
 
 #include <iostream>
 #include <iomanip>

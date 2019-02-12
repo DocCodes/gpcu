@@ -9,7 +9,7 @@
 */
 
 #ifndef GPCU_CONSOLE_HPP_
-#define GPCU_CONSOLE_HPP_  0x0100000000
+#define GPCU_CONSOLE_HPP_
 
 #include <iostream>
 #include <string>

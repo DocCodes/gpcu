@@ -9,7 +9,7 @@
 */
 
 #ifndef GPCU_COLORS_HPP_
-#define GPCU_COLORS_HPP_  0x0100000000
+#define GPCU_COLORS_HPP_ 
 
 #include <stdint.h>
 
