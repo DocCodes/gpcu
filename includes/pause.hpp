@@ -8,7 +8,7 @@
 *  @copyright Copyright 2019 Evan Elias Young. All rights reserved.
 */
 
-#ifndef GPCU_PAUSE_HPP_  // include guard
+#ifndef GPCU_PAUSE_HPP_
 #define GPCU_PAUSE_HPP_
 
 #include <iostream>

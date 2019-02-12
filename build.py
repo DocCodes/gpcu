@@ -47,7 +47,7 @@ code = '\n'.join([
     f'//  Created by Evan Elias Young on {nowStr}.',
     f'//  Copyright {now.year} Evan Elias Young. All rights reserved.',
     '',
-    '#ifndef GPCU_HPP_  // include guard',
+    '#ifndef GPCU_HPP_',
     '#define GPCU_HPP_',
     '',
     f'#define GPCU_VERSION_ {gpcuVer}',

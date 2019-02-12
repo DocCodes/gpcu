@@ -8,7 +8,7 @@
 *  @copyright Copyright 2019 Evan Elias Young. All rights reserved.
 */
 
-#ifndef GPCU_JOIN_HPP_  // include guard
+#ifndef GPCU_JOIN_HPP_
 #define GPCU_JOIN_HPP_
 
 #include <iostream>

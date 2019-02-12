@@ -8,7 +8,7 @@
 *  @copyright Copyright 2019 Evan Elias Young. All rights reserved.
 */
 
-#ifndef GPCU_STRING_HPP_  // include guard
+#ifndef GPCU_STRING_HPP_
 #define GPCU_STRING_HPP_
 
 #include <ctype.h>

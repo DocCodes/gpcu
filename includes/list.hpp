@@ -8,7 +8,7 @@
 *  @copyright Copyright 2019 Evan Elias Young. All rights reserved.
 */
 
-#ifndef GPCU_LIST_HPP_  // include guard
+#ifndef GPCU_LIST_HPP_
 #define GPCU_LIST_HPP_
 
 #include <stdlib.h>

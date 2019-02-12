@@ -4,7 +4,7 @@
 //  Created by Evan Elias Young on 2019-02-01.
 //  Copyright 2019 Evan Elias Young. All rights reserved.
 
-#ifndef GPCU_HPP_  // include guard
+#ifndef GPCU_HPP_
 #define GPCU_HPP_
 
 #define GPCU_VERSION_ 0x020401002D

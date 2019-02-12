@@ -8,7 +8,7 @@
 *  @copyright Copyright 2019 Evan Elias Young. All rights reserved.
 */
 
-#ifndef TESTS_JOIN_HPP_  // include guard
+#ifndef TESTS_JOIN_HPP_
 #define TESTS_JOIN_HPP_
 
 #include <iostream>
