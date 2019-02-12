@@ -4,12 +4,12 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-01-17
-*  @date      2019-01-31
+*  @date      2019-02-12
 *  @copyright Copyright 2019 Evan Elias Young. All rights reserved.
 */
 
 #ifndef GPCU_PAUSE_HPP_
-#define GPCU_PAUSE_HPP_
+#define GPCU_PAUSE_HPP_  0x0100000000
 
 #include <iostream>
 #include <string>
