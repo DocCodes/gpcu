@@ -18,6 +18,7 @@ namespace gpcu {
   namespace console {
     /**
     * @brief Emits a beep noise through the console.
+    * @since 2.2.0-37 (0x0202000025)
     */
     void beep() {
       std::cout << '\a';
@@ -25,13 +26,15 @@ namespace gpcu {
 
     /**
     * @brief Clears the console screen.
+    * @since 2.2.0-37 (0x0202000025)
     */
     void clear() {
       std::cout << std::string(100, '\n');
     }
 
     /**
-    * @brief Gets a line of input from stdin.
+    * @brief  Gets a line of input from stdin.
+    * @since  2.2.0-37 (0x0202000025)
     * @return The line of input without the newline character.
     */
     std::string getline() {
@@ -41,7 +44,8 @@ namespace gpcu {
     }
 
     /**
-    * @brief Gets a line of input from stdin after outputting to the stdout.
+    * @brief  Gets a line of input from stdin after outputting to the stdout.
+    * @since  2.2.0-37 (0x0202000025)
     * @param  s The string to send to stdout.
     * @return   The line of input without the newline character.
     */
@@ -54,6 +58,7 @@ namespace gpcu {
 
     /**
     * @brief Writes a line of output to stdout without the newline character.
+    * @since 2.2.0-37 (0x0202000025)
     * @param s The string to send to stdout.
     */
     void write(const std::string& s) {
@@ -62,6 +67,7 @@ namespace gpcu {
 
     /**
     * @brief Writes a line of output to stdout with the newline character.
+    * @since 2.2.0-37 (0x0202000025)
     * @param s The string to send to stdout.
     */
     void writeline(const std::string& s) {

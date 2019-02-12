@@ -18,7 +18,8 @@
 
 namespace gpcu {
   /**
-  * @brief Joins an array of integers.
+  * @brief  Joins an array of integers.
+  * @since  1.1.0-11 (0x010100000B)
   * @param  a     The array of integers to join.
   * @param  size  The length of the array.
   * @param  delim The joining character.
@@ -37,7 +38,8 @@ namespace gpcu {
   }
 
   /**
-  * @brief Joins an array of chars.
+  * @brief  Joins an array of chars.
+  * @since  1.1.0-11 (0x010100000B)
   * @param  a     The array of chars to join.
   * @param  size  The length of the array.
   * @param  delim The joining character.
@@ -56,7 +58,8 @@ namespace gpcu {
   }
 
   /**
-  * @brief Joins an array of bools.
+  * @brief  Joins an array of bools.
+  * @since  1.1.0-11 (0x010100000B)
   * @param  a     The array of bools to join.
   * @param  size  The length of the array.
   * @param  delim The joining character.
@@ -76,7 +79,8 @@ namespace gpcu {
   }
 
   /**
-  * @brief Joins an array of floats.
+  * @brief  Joins an array of floats.
+  * @since  1.1.0-11 (0x010100000B)
   * @param  a     The array of floats to join.
   * @param  size  The length of the array.
   * @param  delim The joining character.
@@ -96,7 +100,8 @@ namespace gpcu {
   }
 
   /**
-  * @brief Joins an array of doubles.
+  * @brief  Joins an array of doubles.
+  * @since  1.1.0-11 (0x010100000B)
   * @param  a     The array of doubles to join.
   * @param  size  The length of the array.
   * @param  delim The joining character.
@@ -116,7 +121,8 @@ namespace gpcu {
   }
 
   /**
-  * @brief Joins an array of strings.
+  * @brief  Joins an array of strings.
+  * @since  1.1.0-11 (0x010100000B)
   * @param  a     The array of strings to join.
   * @param  size  The length of the array.
   * @param  delim The joining character.

@@ -20,6 +20,7 @@ namespace gpcu {
   namespace string {
     /**
     * @brief Transforms a string to uppercase.
+    * @since 2.2.0-37 (0x0202000025)
     * @param s The string to make uppercase.
     */
     void upper(std::string* s) {
@@ -28,6 +29,7 @@ namespace gpcu {
 
     /**
     * @brief Transforms a string to lowercase.
+    * @since 2.2.0-37 (0x0202000025)
     * @param s The string to make lowercase.
     */
     void lower(std::string* s) {
@@ -35,7 +37,8 @@ namespace gpcu {
     }
 
     /**
-    * @brief Trims away whitespace from the left edge of a string.
+    * @brief  Trims away whitespace from the left edge of a string.
+    * @since  2.2.0-37 (0x0202000025)
     * @param  s     The string to trim.
     * @param  chars The characters to trim away.
     * @return       The string without the trimmed characters.
@@ -46,7 +49,8 @@ namespace gpcu {
     }
 
     /**
-    * @brief Trims away whitespace from the right edge of a string.
+    * @brief  Trims away whitespace from the right edge of a string.
+    * @since  2.2.0-37 (0x0202000025)
     * @param  s     The string to trim.
     * @param  chars The characters to trim away.
     * @return       The string without the trimmed characters.
@@ -57,7 +61,8 @@ namespace gpcu {
     }
 
     /**
-    * @brief Trims away whitespace from both edges of a string.
+    * @brief  Trims away whitespace from both edges of a string.
+    * @since  2.2.0-37 (0x0202000025)
     * @param  s     The string to trim.
     * @param  chars The characters to trim away.
     * @return       The string without the trimmed characters.
@@ -67,7 +72,8 @@ namespace gpcu {
     }
 
     /**
-    * @brief Counts the occurrences of a string in a string.
+    * @brief  Counts the occurrences of a string in a string.
+    * @since  2.3.0-43 (0x020300002B)
     * @param  s     The string from which to count occurrences.
     * @param  delim The string to count.
     * @return       The number of occurrences of a string within a string.
@@ -86,7 +92,8 @@ namespace gpcu {
     }
 
     /**
-    * @brief Counts the occurrences of a character in a string.
+    * @brief  Counts the occurrences of a character in a string.
+    * @since  2.3.0-43 (0x020300002B)
     * @param  s     The string from which to count occurrences.
     * @param  delim The character to count.
     * @return       The number of occurrences of a character within a string.
@@ -105,7 +112,8 @@ namespace gpcu {
     }
 
     /**
-    * Splits a string into a collection of smaller parts.
+    * @brief  Splits a string into a collection of smaller parts.
+    * @since  2.4.0-44 (0x020400002C)
     * @param  a     The array of parts.
     * @param  s     The string to split.
     * @param  delim The characters to split on.
@@ -127,7 +135,8 @@ namespace gpcu {
     }
 
     /**
-    * Splits a string into a collection of smaller parts.
+    * @brief Splits a string into a collection of smaller parts.
+    * @since  2.4.0-44 (0x020400002C)
     * @param  a     The array of parts.
     * @param  s     The string to split.
     * @param  delim The character to split on.

@@ -13,6 +13,7 @@
 
 /**
 * @brief Contains the major, minor, patch, and revision versions of GPCU.
+* @since 2.2.0-37 (0x0202000025)
 *
 * The first four bytes contain the major number,
 * the next four contain the minor number,

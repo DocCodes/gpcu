@@ -9,7 +9,7 @@
 */
 
 #ifndef GPCU_COLORS_HPP_
-#define GPCU_COLORS_HPP_ 
+#define GPCU_COLORS_HPP_
 
 #include <stdint.h>
 
@@ -20,7 +20,10 @@
 
 namespace gpcu {
   namespace colors {
-    /** @brief Support levels for console colors */
+    /**
+    * @brief Support levels for console colors.
+    * @since 2.2.0-37 (0x0202000025)
+    */
     enum Support : unsigned int {
       none = 1,
       basic = 16,
@@ -28,7 +31,10 @@ namespace gpcu {
       full = 16777216
     };
 
-    /** @brief Colors for consoles */
+    /**
+    * @brief Colors for consoles.
+    * @since 2.2.0-37 (0x0202000025)
+    */
     enum Ansi : unsigned int8_t {
       black,
       red,
@@ -41,7 +47,8 @@ namespace gpcu {
     };
 
     /**
-    * @brief Gets the color support levels of the current console
+    * @brief  Gets the color support levels of the current console.
+    * @since  2.2.0-37 (0x0202000025)
     * @return The number of colors supported by the current console.
     */
     gpcu::colors::Support getSupport() {
@@ -84,7 +91,8 @@ namespace gpcu {
     }
 
     /**
-    * @brief Wraps a color and an offset into an Ansi-16 sequence.
+    * @brief  Wraps a color and an offset into an Ansi-16 sequence.
+    * @since  2.2.0-37 (0x0202000025)
     * @param  col The color to wrap.
     * @param  off The offset value.
     * @return     The wrapped Ansi sequence.
@@ -94,7 +102,8 @@ namespace gpcu {
     }
 
     /**
-    * @brief Wraps a color and an offset into an Ansi-256 sequence.
+    * @brief  Wraps a color and an offset into an Ansi-256 sequence.
+    * @since  2.2.0-37 (0x0202000025)
     * @param  col The color to wrap.
     * @param  off The offset value.
     * @return     The wrapped Ansi sequence.
@@ -105,7 +114,7 @@ namespace gpcu {
 
     namespace wrap {
       /**
-      * Handles all the wrapping for text before returning to the console.
+      * @brief  Handles all the wrapping for text before returning to the console.
       * @param  txt  The text to wrap in the color/format.
       * @param  col  The color/format to wrap.
       * @param  off  The offset value.

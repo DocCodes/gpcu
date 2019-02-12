@@ -17,6 +17,7 @@
 namespace gpcu {
   /**
   * @brief Pauses the program until the newline character is received.
+  * @since 1.0.0-2 (0x0200000002)
   */
   void pause() {
     std::cout << "Press the enter key to continue . . ." << std::endl;
@@ -25,6 +26,7 @@ namespace gpcu {
 
   /**
   * @brief Pauses the program with a message until the newline character is received.
+  * @since 1.0.0-2 (0x0200000002)
   * @param msg The message to prompt.
   */
   void pause(const std::string& msg) {
