@@ -4,16 +4,15 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-01-18
-*  @date      2019-02-12
+*  @date      2019-02-19
 *  @copyright Copyright 2019 Evan Elias Young. All rights reserved.
 */
 
 #ifndef GPCU_OS_HPP_
 #define GPCU_OS_HPP_
 
-#include <stdint.h>
-#include <stdlib.h>
-
+#include <cstdint>
+#include <cstdlib>
 #include <fstream>
 #include <regex>
 #include <string>
