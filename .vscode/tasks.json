@@ -6,7 +6,7 @@
       "type": "shell",
       "command": "make",
       "args": [
-        "-j6"
+        "-j12"
       ],
       "group": {
         "kind": "build",
