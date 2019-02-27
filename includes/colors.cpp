@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-02-26
-*  @date      2019-02-26
+*  @date      2019-02-27
 *  @copyright Copyright 2019 Evan Elias Young. All rights reserved.
 */
 
@@ -12,7 +12,9 @@
 #include "colors.h"
 #include "os.h"
 
-namespace gpcu::colors
+namespace gpcu
+{
+namespace colors
 {
 /**
 * @brief  Gets the color support levels of the current console.
@@ -163,4 +165,5 @@ std::string bgMagentaBright(const std::string &txt) { return wrapper(txt, colors
 std::string bgCyanBright(const std::string &txt) { return wrapper(txt, colors::Ansi::cyan, 70, 49); }
 std::string bgWhiteBright(const std::string &txt) { return wrapper(txt, colors::Ansi::white, 70, 49); }
 } // namespace wrap
-} // namespace gpcu::colors
+} // namespace colors
+} // namespace gpcu

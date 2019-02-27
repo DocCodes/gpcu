@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-02-26
-*  @date      2019-02-26
+*  @date      2019-02-27
 *  @copyright Copyright 2019 Evan Elias Young. All rights reserved.
 */
 
@@ -13,7 +13,9 @@
 
 #include "stdafx.h"
 
-namespace gpcu::string
+namespace gpcu
+{
+namespace string
 {
 void upper(std::string *s);
 void lower(std::string *s);
@@ -24,6 +26,7 @@ std::size_t count(const std::string &s, const std::string &t);
 std::size_t count(const std::string &s, const char &t);
 bool split(std::string *a, const std::string &s, const std::string &delim);
 bool split(std::string *a, const std::string &s, const char &delim);
-} // namespace gpcu::string
+} // namespace string
+} // namespace gpcu
 
 #endif // GPCU_STRING_H_

@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-02-26
-*  @date      2019-02-26
+*  @date      2019-02-27
 *  @copyright Copyright 2019 Evan Elias Young. All rights reserved.
 */
 
@@ -13,7 +13,9 @@
 
 #include "stdafx.h"
 
-namespace gpcu::colors
+namespace gpcu
+{
+namespace colors
 {
 enum Support : std::uint32_t
 {
@@ -82,6 +84,7 @@ std::string bgMagentaBright(const std::string &txt);
 std::string bgCyanBright(const std::string &txt);
 std::string bgWhiteBright(const std::string &txt);
 } // namespace wrap
-} // namespace gpcu::colors
+} // namespace colors
+} // namespace gpcu
 
 #endif // GPCU_COLORS_H_
