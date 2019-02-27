@@ -20,13 +20,14 @@
 * the next four contain the patch number,
 * and the last eight contain the revision number.
 */
-#define GPCU_VERSION_ 0x020602003B
+#define GPCU_VERSION_ 0x020602003E
 
 #include "stdafx.h"
 
 #include "color.h"
 #include "colors.h"
 #include "console.h"
+#include "exits.h"
 #include "join.h"
 #include "list.h"
 #include "os.h"

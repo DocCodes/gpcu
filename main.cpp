@@ -34,5 +34,5 @@ int main(int argc, const char *argv[])
   std::cout << (*passing) << "/" << (*total) << " total tests passing" << std::endl;
 
   gpcu::pause();
-  return 0;
+  return EXIT_OK;
 }
