@@ -10,7 +10,7 @@
 
 #include "stdafx.h"
 #include "colors.h"
-#include "os.cpp"
+#include "os.h"
 
 namespace gpcu
 {
