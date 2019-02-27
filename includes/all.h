@@ -20,7 +20,7 @@
 * the next four contain the patch number,
 * and the last eight contain the revision number.
 */
-#define GPCU_VERSION_ 0x0206000038
+#define GPCU_VERSION_ 0x0206000039
 
 #include "stdafx.h"
 
