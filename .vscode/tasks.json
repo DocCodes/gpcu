@@ -32,8 +32,9 @@
       "command": "rm",
       "args": [
         "-rf",
-        "*.o",
-        "*.gch"
+        "*/*.o",
+        "*/*.gch",
+        "*/*.exe"
       ],
       "group": "none",
       "problemMatcher": []
