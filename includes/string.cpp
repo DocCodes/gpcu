@@ -20,7 +20,7 @@ namespace gpcu::string
 */
 void upper(std::string *s)
 {
-    std::transform((*s).begin(), (*s).end(), (*s).begin(), ::toupper);
+  std::transform((*s).begin(), (*s).end(), (*s).begin(), ::toupper);
 }
 
 /**
@@ -30,7 +30,7 @@ void upper(std::string *s)
 */
 void lower(std::string *s)
 {
-    std::transform((*s).begin(), (*s).end(), (*s).begin(), ::tolower);
+  std::transform((*s).begin(), (*s).end(), (*s).begin(), ::tolower);
 }
 
 /**
@@ -40,9 +40,9 @@ void lower(std::string *s)
 * @param  chars The characters to trim away.
 * @return       The string without the trimmed characters.
 */
-void ltrim(std::string *s, const std::string &chars = "\t\n\v\f\r ")
+void ltrim(std::string *s, const std::string &chars)
 {
-    (*s).erase(0, (*s).find_first_not_of(chars));
+  (*s).erase(0, (*s).find_first_not_of(chars));
 }
 
 /**
@@ -52,9 +52,9 @@ void ltrim(std::string *s, const std::string &chars = "\t\n\v\f\r ")
 * @param  chars The characters to trim away.
 * @return       The string without the trimmed characters.
 */
-void rtrim(std::string *s, const std::string &chars = "\t\n\v\f\r ")
+void rtrim(std::string *s, const std::string &chars)
 {
-    (*s).erase((*s).find_last_not_of(chars) + 1);
+  (*s).erase((*s).find_last_not_of(chars) + 1);
 }
 
 /**
@@ -64,10 +64,10 @@ void rtrim(std::string *s, const std::string &chars = "\t\n\v\f\r ")
 * @param  chars The characters to trim away.
 * @return       The string without the trimmed characters.
 */
-void trim(std::string *s, const std::string &chars = "\t\n\v\f\r ")
+void trim(std::string *s, const std::string &chars)
 {
-    rtrim(s, chars);
-    ltrim(s, chars);
+  rtrim(s, chars);
+  ltrim(s, chars);
 }
 
 /**
@@ -79,20 +79,20 @@ void trim(std::string *s, const std::string &chars = "\t\n\v\f\r ")
 */
 std::size_t count(const std::string &s, const std::string &t)
 {
-    std::unique_ptr<std::string::size_type> ocLast(new std::string::size_type(s.find_last_of(t)));
-    std::unique_ptr<std::string::size_type> n(new std::string::size_type(0));
-    std::unique_ptr<std::size_t> cnt(new std::size_t(0));
+  std::unique_ptr<std::string::size_type> ocLast(new std::string::size_type(s.find_last_of(t)));
+  std::unique_ptr<std::string::size_type> n(new std::string::size_type(0));
+  std::unique_ptr<std::size_t> cnt(new std::size_t(0));
 
-    if ((*ocLast) == std::string::npos)
-    {
-        return 0;
-    }
-    while ((*n) < (*ocLast))
-    {
-        ++(*cnt);
-        (*n) = s.find(t, (*n)) + t.length();
-    }
-    return (*cnt);
+  if ((*ocLast) == std::string::npos)
+  {
+    return 0;
+  }
+  while ((*n) < (*ocLast))
+  {
+    ++(*cnt);
+    (*n) = s.find(t, (*n)) + t.length();
+  }
+  return (*cnt);
 }
 
 /**
@@ -104,20 +104,20 @@ std::size_t count(const std::string &s, const std::string &t)
 */
 std::size_t count(const std::string &s, const char &t)
 {
-    std::unique_ptr<std::string::size_type> ocLast(new std::string::size_type(s.find_last_of(t)));
-    std::unique_ptr<std::string::size_type> n(new std::string::size_type(0));
-    std::unique_ptr<std::size_t> cnt(new std::size_t(0));
+  std::unique_ptr<std::string::size_type> ocLast(new std::string::size_type(s.find_last_of(t)));
+  std::unique_ptr<std::string::size_type> n(new std::string::size_type(0));
+  std::unique_ptr<std::size_t> cnt(new std::size_t(0));
 
-    if ((*ocLast) == std::string::npos)
-    {
-        return 0;
-    }
-    while ((*n) < (*ocLast))
-    {
-        ++(*cnt);
-        (*n) = s.find(t, (*n)) + 1;
-    }
-    return (*cnt);
+  if ((*ocLast) == std::string::npos)
+  {
+    return 0;
+  }
+  while ((*n) < (*ocLast))
+  {
+    ++(*cnt);
+    (*n) = s.find(t, (*n)) + 1;
+  }
+  return (*cnt);
 }
 
 /**
@@ -131,22 +131,22 @@ std::size_t count(const std::string &s, const char &t)
 */
 bool split(std::string *a, const std::string &s, const std::string &delim, const std::size_t &size)
 {
-    std::unique_ptr<std::string::size_type> beg(new std::string::size_type(0));
-    std::unique_ptr<std::string::size_type> end(new std::string::size_type(s.find(delim, (*beg) + 1)));
+  std::unique_ptr<std::string::size_type> beg(new std::string::size_type(0));
+  std::unique_ptr<std::string::size_type> end(new std::string::size_type(s.find(delim, (*beg) + 1)));
 
-    if (gpcu::string::count(s, delim) + 1 != size)
-    {
-        return false;
-    }
+  if (gpcu::string::count(s, delim) + 1 != size)
+  {
+    return false;
+  }
 
-    for (std::size_t i = 0; i < size; i++)
-    {
-        a[i] = s.substr((*beg), (*end) - (*beg));
-        (*beg) = s.find(delim, (*end)) + delim.length();
-        (*end) = s.find(delim, (*beg));
-    }
+  for (std::size_t i = 0; i < size; i++)
+  {
+    a[i] = s.substr((*beg), (*end) - (*beg));
+    (*beg) = s.find(delim, (*end)) + delim.length();
+    (*end) = s.find(delim, (*beg));
+  }
 
-    return true;
+  return true;
 }
 
 /**
@@ -160,21 +160,21 @@ bool split(std::string *a, const std::string &s, const std::string &delim, const
 */
 bool split(std::string *a, const std::string &s, const char &delim, const std::size_t &size)
 {
-    std::unique_ptr<std::string::size_type> beg(new std::string::size_type(0));
-    std::unique_ptr<std::string::size_type> end(new std::string::size_type(s.find(delim, (*beg) + 1)));
+  std::unique_ptr<std::string::size_type> beg(new std::string::size_type(0));
+  std::unique_ptr<std::string::size_type> end(new std::string::size_type(s.find(delim, (*beg) + 1)));
 
-    if (gpcu::string::count(s, delim) + 1 != size)
-    {
-        return false;
-    }
+  if (gpcu::string::count(s, delim) + 1 != size)
+  {
+    return false;
+  }
 
-    for (std::size_t i = 0; i < size; i++)
-    {
-        a[i] = s.substr((*beg), (*end) - (*beg));
-        (*beg) = s.find(delim, (*end)) + 1;
-        (*end) = s.find(delim, (*beg));
-    }
+  for (std::size_t i = 0; i < size; i++)
+  {
+    a[i] = s.substr((*beg), (*end) - (*beg));
+    (*beg) = s.find(delim, (*end)) + 1;
+    (*end) = s.find(delim, (*beg));
+  }
 
-    return true;
+  return true;
 }
 } // namespace gpcu::string

@@ -19,8 +19,8 @@ namespace gpcu
 */
 void pause()
 {
-    std::cout << "Press the enter key to continue . . ." << std::endl;
-    std::cin.get();
+  std::cout << "Press the enter key to continue . . ." << std::endl;
+  std::cin.get();
 }
 
 /**
@@ -30,7 +30,7 @@ void pause()
 */
 void pause(const std::string &msg)
 {
-    std::cout << msg << std::endl;
-    std::cin.get();
+  std::cout << msg << std::endl;
+  std::cin.get();
 }
 } // namespace gpcu

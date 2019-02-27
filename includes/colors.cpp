@@ -21,52 +21,52 @@ namespace gpcu::colors
 */
 gpcu::colors::Support getSupport()
 {
-    OperatingSystem os = gpcu::getOS();
-    std::string term = gpcu::getEnvVar("TERM");
-    std::string colorTerm = gpcu::getEnvVar("COLORTERM");
-    std::string termProgram = gpcu::getEnvVar("TERM_PROGRAM");
+  OperatingSystem os = gpcu::getOS();
+  std::string term = gpcu::getEnvVar("TERM");
+  std::string colorTerm = gpcu::getEnvVar("COLORTERM");
+  std::string termProgram = gpcu::getEnvVar("TERM_PROGRAM");
 
-    if (term == "dumb")
-    {
-        return none;
-    }
-    if (os == OperatingSystem::win32 || os == OperatingSystem::win64)
-    {
-        std::string osVer = gpcu::getOSVer();
-        if (std::stof(osVer.substr(0, 2)) >= 10)
-        {
-            if (std::stof(osVer.substr(5, osVer.length() - 5)) >= 10586)
-            {
-                return std::stof(osVer.substr(5, osVer.length() - 5)) >= 14931 ? full : color;
-            }
-        }
-    }
-    if (std::regex_match(term, std::regex("/-256(color)?$")))
-    {
-        return color;
-    }
-    if (std::regex_match(term, std::regex("/-16m(color)?$")))
-    {
-        return full;
-    }
-    if (std::regex_match(term, std::regex("/^screen|^xterm|^vt100|^vt220|^rxvt|color|ansi|cygwin|linux/")))
-    {
-        return basic;
-    }
-    if (!colorTerm.empty())
-    {
-        if (colorTerm == "truecolor")
-        {
-            return full;
-        }
-        return basic;
-    }
-    if (!termProgram.empty())
-    {
-        return color;
-    }
-
+  if (term == "dumb")
+  {
     return none;
+  }
+  if (os == OperatingSystem::win32 || os == OperatingSystem::win64)
+  {
+    std::string osVer = gpcu::getOSVer();
+    if (std::stof(osVer.substr(0, 2)) >= 10)
+    {
+      if (std::stof(osVer.substr(5, osVer.length() - 5)) >= 10586)
+      {
+        return std::stof(osVer.substr(5, osVer.length() - 5)) >= 14931 ? full : color;
+      }
+    }
+  }
+  if (std::regex_match(term, std::regex("/-256(color)?$")))
+  {
+    return color;
+  }
+  if (std::regex_match(term, std::regex("/-16m(color)?$")))
+  {
+    return full;
+  }
+  if (std::regex_match(term, std::regex("/^screen|^xterm|^vt100|^vt220|^rxvt|color|ansi|cygwin|linux/")))
+  {
+    return basic;
+  }
+  if (!colorTerm.empty())
+  {
+    if (colorTerm == "truecolor")
+    {
+      return full;
+    }
+    return basic;
+  }
+  if (!termProgram.empty())
+  {
+    return color;
+  }
+
+  return none;
 }
 
 /**
@@ -78,7 +78,7 @@ gpcu::colors::Support getSupport()
 */
 std::string wrapAnsi16(const int &col, const int &off)
 {
-    return "\033[" + std::to_string(30 + col + off) + "m";
+  return "\033[" + std::to_string(30 + col + off) + "m";
 }
 
 /**
@@ -90,7 +90,7 @@ std::string wrapAnsi16(const int &col, const int &off)
 */
 std::string wrapAnsi256(const int &col, const int &off)
 {
-    return "\033[" + std::to_string(38 + (off % 60)) + ";5;" + std::to_string(off >= 60 ? col + 8 : col) + "m";
+  return "\033[" + std::to_string(38 + (off % 60)) + ";5;" + std::to_string(off >= 60 ? col + 8 : col) + "m";
 }
 
 namespace wrap
@@ -105,22 +105,22 @@ namespace wrap
 */
 std::string wrapper(const std::string &txt, const int &col, const int &off, const int &term)
 {
-    colors::Support supportLevel = getSupport();
-    bool isColor = true;
-    if ((col < 10 && off == -30) && (term >= 22 && term <= 29))
-    {
-        isColor = false;
-    }
+  colors::Support supportLevel = getSupport();
+  bool isColor = true;
+  if ((col < 10 && off == -30) && (term >= 22 && term <= 29))
+  {
+    isColor = false;
+  }
 
-    if (supportLevel == colors::Support::basic || !isColor)
-    {
-        return wrapAnsi16(col, off) + txt + wrapAnsi16(term, -30);
-    }
-    if (supportLevel >= colors::Support::color && isColor)
-    {
-        return wrapAnsi256(col, off) + txt + wrapAnsi16(term, -30);
-    }
-    return txt;
+  if (supportLevel == colors::Support::basic || !isColor)
+  {
+    return wrapAnsi16(col, off) + txt + wrapAnsi16(term, -30);
+  }
+  if (supportLevel >= colors::Support::color && isColor)
+  {
+    return wrapAnsi256(col, off) + txt + wrapAnsi16(term, -30);
+  }
+  return txt;
 }
 
 std::string bold(const std::string &txt) { return wrapper(txt, 1, -30, 22); }

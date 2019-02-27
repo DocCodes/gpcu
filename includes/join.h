@@ -15,7 +15,7 @@
 
 namespace gpcu
 {
-template <class T>
+template <typename T>
 std::string join(const std::vector<T> &a, const std::string &delim);
 } // namespace gpcu
 

@@ -22,54 +22,54 @@ namespace gpcu
 */
 class Color
 {
-  private:
-    /* @brief The red value of the color */
-    int red;
-    /* @brief The green value of the color */
-    int green;
-    /* @brief The blue value of the color */
-    int blue;
-    /* @brief The luminance value of the color */
-    int luminance;
-    /* @brief The alpha value of the color */
-    int alpha;
-    /* @brief The hue value of the color */
-    int hue;
-    /* @brief The saturation value of the color */
-    int saturation;
-    /* @brief The lightness value of the color */
-    int lightness;
-    /* @brief The value of the color */
-    int value;
-    /* @brief The hex value of the color */
-    std::string hex;
-    void recalcHex();
-    void recalcRGB();
-    void recalcHSVL();
-    void recalcLuminance();
+private:
+  /* @brief The red value of the color */
+  int red;
+  /* @brief The green value of the color */
+  int green;
+  /* @brief The blue value of the color */
+  int blue;
+  /* @brief The luminance value of the color */
+  int luminance;
+  /* @brief The alpha value of the color */
+  int alpha;
+  /* @brief The hue value of the color */
+  int hue;
+  /* @brief The saturation value of the color */
+  int saturation;
+  /* @brief The lightness value of the color */
+  int lightness;
+  /* @brief The value of the color */
+  int value;
+  /* @brief The hex value of the color */
+  std::string hex;
+  void recalcHex();
+  void recalcRGB();
+  void recalcHSVL();
+  void recalcLuminance();
 
-  public:
-    Color(const int &, const int &, const int &);
-    explicit Color(const std::string &);
-    int getRed();
-    void setRed(const int &);
-    int getGreen();
-    void setGreen(const int &);
-    int getBlue();
-    void setBlue(const int &);
-    int getLuminance();
-    int getAlpha();
-    void setAlpha(const int &);
-    int getHue();
-    void setHue(const int &);
-    int getSaturation();
-    void setSaturation(const int &);
-    int getLightness();
-    void setLightness(const int &);
-    int getValue();
-    void setValue(const int &);
-    std::string getHex();
-    void setHex(std::string);
+public:
+  Color(const int &, const int &, const int &);
+  explicit Color(const std::string &);
+  int getRed();
+  void setRed(const int &);
+  int getGreen();
+  void setGreen(const int &);
+  int getBlue();
+  void setBlue(const int &);
+  int getLuminance();
+  int getAlpha();
+  void setAlpha(const int &);
+  int getHue();
+  void setHue(const int &);
+  int getSaturation();
+  void setSaturation(const int &);
+  int getLightness();
+  void setLightness(const int &);
+  int getValue();
+  void setValue(const int &);
+  std::string getHex();
+  void setHex(std::string);
 };
 
 /**
@@ -81,12 +81,12 @@ class Color
 */
 Color::Color(const int &r, const int &g, const int &b)
 {
-    red = r;
-    green = g;
-    blue = b;
-    recalcHex();
-    recalcHSVL();
-    recalcLuminance();
+  red = r;
+  green = g;
+  blue = b;
+  recalcHex();
+  recalcHSVL();
+  recalcLuminance();
 }
 
 /**
@@ -96,7 +96,7 @@ Color::Color(const int &r, const int &g, const int &b)
 */
 Color::Color(const std::string &h)
 {
-    setHex(h);
+  setHex(h);
 }
 
 /**
@@ -105,9 +105,9 @@ Color::Color(const std::string &h)
 */
 void Color::recalcHex()
 {
-    std::stringstream ss;
-    ss << std::setfill('0') << std::setw(2) << std::hex << red << green << blue;
-    hex = ss.str();
+  std::stringstream ss;
+  ss << std::setfill('0') << std::setw(2) << std::hex << red << green << blue;
+  hex = ss.str();
 }
 
 /**
@@ -116,15 +116,15 @@ void Color::recalcHex()
 */
 void Color::recalcRGB()
 {
-    std::stringstream ss;
-    ss << hex.substr(0, 2);
-    ss >> std::hex >> red;
-    std::stringstream().swap(ss);
-    ss << hex.substr(2, 2);
-    ss >> std::hex >> green;
-    std::stringstream().swap(ss);
-    ss << hex.substr(4, 2);
-    ss >> std::hex >> blue;
+  std::stringstream ss;
+  ss << hex.substr(0, 2);
+  ss >> std::hex >> red;
+  std::stringstream().swap(ss);
+  ss << hex.substr(2, 2);
+  ss >> std::hex >> green;
+  std::stringstream().swap(ss);
+  ss << hex.substr(4, 2);
+  ss >> std::hex >> blue;
 }
 
 /**
@@ -133,54 +133,54 @@ void Color::recalcRGB()
 */
 void Color::recalcHSVL()
 {
-    double min;
-    double max;
-    double d;
-    double r;
-    double g;
-    double b;
+  double min;
+  double max;
+  double d;
+  double r;
+  double g;
+  double b;
 
-    r = red;
-    g = green;
-    b = blue;
-    r /= 255;
-    g /= 255;
-    b /= 255;
+  r = red;
+  g = green;
+  b = blue;
+  r /= 255;
+  g /= 255;
+  b /= 255;
 
-    min = r < g ? r : g;
-    min = min < b ? min : b;
-    max = r > g ? r : g;
-    max = max > b ? max : b;
+  min = r < g ? r : g;
+  min = min < b ? min : b;
+  max = r > g ? r : g;
+  max = max > b ? max : b;
 
-    value = ::round(max * 100);
-    lightness = ::round((max + min) * 50);
-    d = max - min;
-    if (d < 0.00001)
-    {
-        saturation = 0;
-        hue = 0;
-        return;
-    }
-    if (max > 0.0)
-    {
-        saturation = ::round(d / max) * 100;
-    }
-    else
-    {
-        saturation = 0;
-        hue = 0;
-        return;
-    }
-    hue = r >= max
-              ? ::round((g - b) / d * 60)
-              : g >= max
-                    ? ::round((2 + (b - r) / d) * 60)
-                    : ::round((4 + (r - g) / d) * 60);
+  value = ::round(max * 100);
+  lightness = ::round((max + min) * 50);
+  d = max - min;
+  if (d < 0.00001)
+  {
+    saturation = 0;
+    hue = 0;
+    return;
+  }
+  if (max > 0.0)
+  {
+    saturation = ::round(d / max) * 100;
+  }
+  else
+  {
+    saturation = 0;
+    hue = 0;
+    return;
+  }
+  hue = r >= max
+            ? ::round((g - b) / d * 60)
+            : g >= max
+                  ? ::round((2 + (b - r) / d) * 60)
+                  : ::round((4 + (r - g) / d) * 60);
 
-    if (hue < 0)
-    {
-        hue += 360;
-    }
+  if (hue < 0)
+  {
+    hue += 360;
+  }
 }
 
 /**
@@ -189,7 +189,7 @@ void Color::recalcHSVL()
 */
 void Color::recalcLuminance()
 {
-    luminance = ::round((red * 0.2126) + (green * 0.7152) + (blue * 0.0722));
+  luminance = ::round((red * 0.2126) + (green * 0.7152) + (blue * 0.0722));
 }
 
 /**
@@ -199,7 +199,7 @@ void Color::recalcLuminance()
 */
 int Color::getRed()
 {
-    return red;
+  return red;
 }
 
 /**
@@ -209,16 +209,16 @@ int Color::getRed()
 */
 void Color::setRed(const int &newRed)
 {
-    if (newRed < 0 || newRed > 255)
-    {
-        throw std::out_of_range("newRed must be 0-255");
-    }
-    red = newRed;
+  if (newRed < 0 || newRed > 255)
+  {
+    throw std::out_of_range("newRed must be 0-255");
+  }
+  red = newRed;
 
-    recalcRGB();
-    recalcHex();
-    recalcHSVL();
-    recalcLuminance();
+  recalcRGB();
+  recalcHex();
+  recalcHSVL();
+  recalcLuminance();
 }
 
 /**
@@ -228,7 +228,7 @@ void Color::setRed(const int &newRed)
 */
 int Color::getGreen()
 {
-    return green;
+  return green;
 }
 
 /**
@@ -238,16 +238,16 @@ int Color::getGreen()
 */
 void Color::setGreen(const int &newGreen)
 {
-    if (newGreen < 0 || newGreen > 255)
-    {
-        throw std::out_of_range("newGreen must be 0-255");
-    }
-    green = newGreen;
+  if (newGreen < 0 || newGreen > 255)
+  {
+    throw std::out_of_range("newGreen must be 0-255");
+  }
+  green = newGreen;
 
-    recalcRGB();
-    recalcHex();
-    recalcHSVL();
-    recalcLuminance();
+  recalcRGB();
+  recalcHex();
+  recalcHSVL();
+  recalcLuminance();
 }
 
 /**
@@ -257,7 +257,7 @@ void Color::setGreen(const int &newGreen)
 */
 int Color::getBlue()
 {
-    return blue;
+  return blue;
 }
 
 /**
@@ -267,16 +267,16 @@ int Color::getBlue()
 */
 void Color::setBlue(const int &newBlue)
 {
-    if (newBlue < 0 || newBlue > 255)
-    {
-        throw std::out_of_range("newBlue must be 0-255");
-    }
-    blue = newBlue;
+  if (newBlue < 0 || newBlue > 255)
+  {
+    throw std::out_of_range("newBlue must be 0-255");
+  }
+  blue = newBlue;
 
-    recalcRGB();
-    recalcHex();
-    recalcHSVL();
-    recalcLuminance();
+  recalcRGB();
+  recalcHex();
+  recalcHSVL();
+  recalcLuminance();
 }
 
 /**
@@ -286,7 +286,7 @@ void Color::setBlue(const int &newBlue)
 */
 int Color::getLuminance()
 {
-    return luminance;
+  return luminance;
 }
 
 /**
@@ -296,7 +296,7 @@ int Color::getLuminance()
 */
 int Color::getAlpha()
 {
-    return alpha;
+  return alpha;
 }
 
 /**
@@ -306,11 +306,11 @@ int Color::getAlpha()
 */
 void Color::setAlpha(const int &newAlpha)
 {
-    if (newAlpha < 0 || newAlpha > 255)
-    {
-        throw std::out_of_range("newAlpha must be 0-255");
-    }
-    alpha = newAlpha;
+  if (newAlpha < 0 || newAlpha > 255)
+  {
+    throw std::out_of_range("newAlpha must be 0-255");
+  }
+  alpha = newAlpha;
 }
 
 /**
@@ -320,7 +320,7 @@ void Color::setAlpha(const int &newAlpha)
 */
 int Color::getHue()
 {
-    return hue;
+  return hue;
 }
 
 /**
@@ -330,15 +330,15 @@ int Color::getHue()
 */
 void Color::setHue(const int &newHue)
 {
-    if (newHue < 0 || newHue > 360)
-    {
-        throw std::out_of_range("newHue must be 0-360");
-    }
-    hue = newHue;
+  if (newHue < 0 || newHue > 360)
+  {
+    throw std::out_of_range("newHue must be 0-360");
+  }
+  hue = newHue;
 
-    recalcRGB();
-    recalcHex();
-    recalcLuminance();
+  recalcRGB();
+  recalcHex();
+  recalcLuminance();
 }
 
 /**
@@ -348,7 +348,7 @@ void Color::setHue(const int &newHue)
 */
 int Color::getSaturation()
 {
-    return saturation;
+  return saturation;
 }
 
 /**
@@ -358,15 +358,15 @@ int Color::getSaturation()
 */
 void Color::setSaturation(const int &newSaturation)
 {
-    if (newSaturation < 0 || newSaturation > 100)
-    {
-        throw std::out_of_range("newSaturation must be 0-100");
-    }
-    saturation = newSaturation;
+  if (newSaturation < 0 || newSaturation > 100)
+  {
+    throw std::out_of_range("newSaturation must be 0-100");
+  }
+  saturation = newSaturation;
 
-    recalcRGB();
-    recalcHex();
-    recalcLuminance();
+  recalcRGB();
+  recalcHex();
+  recalcLuminance();
 }
 
 /**
@@ -376,7 +376,7 @@ void Color::setSaturation(const int &newSaturation)
 */
 int Color::getLightness()
 {
-    return lightness;
+  return lightness;
 }
 
 /**
@@ -386,15 +386,15 @@ int Color::getLightness()
 */
 void Color::setLightness(const int &newLightness)
 {
-    if (newLightness < 0 || newLightness > 100)
-    {
-        throw std::out_of_range("newLightness must be 0-100");
-    }
-    lightness = newLightness;
+  if (newLightness < 0 || newLightness > 100)
+  {
+    throw std::out_of_range("newLightness must be 0-100");
+  }
+  lightness = newLightness;
 
-    recalcRGB();
-    recalcHex();
-    recalcHSVL();
+  recalcRGB();
+  recalcHex();
+  recalcHSVL();
 }
 
 /**
@@ -404,7 +404,7 @@ void Color::setLightness(const int &newLightness)
 */
 int Color::getValue()
 {
-    return value;
+  return value;
 }
 
 /**
@@ -414,15 +414,15 @@ int Color::getValue()
 */
 void Color::setValue(const int &newValue)
 {
-    if (newValue < 0 || newValue > 100)
-    {
-        throw std::out_of_range("newValue must be 0-100");
-    }
-    value = newValue;
+  if (newValue < 0 || newValue > 100)
+  {
+    throw std::out_of_range("newValue must be 0-100");
+  }
+  value = newValue;
 
-    recalcRGB();
-    recalcHex();
-    recalcLuminance();
+  recalcRGB();
+  recalcHex();
+  recalcLuminance();
 }
 
 /**
@@ -432,7 +432,7 @@ void Color::setValue(const int &newValue)
 */
 std::string Color::getHex()
 {
-    return hex;
+  return hex;
 }
 
 /**
@@ -442,27 +442,27 @@ std::string Color::getHex()
 */
 void Color::setHex(std::string newHex)
 {
-    if (!std::regex_match(newHex, std::regex("^#?([[:xdigit:]]{3,4}|[[:xdigit:]]{6}|[[:xdigit:]]{8})$")))
+  if (!std::regex_match(newHex, std::regex("^#?([[:xdigit:]]{3,4}|[[:xdigit:]]{6}|[[:xdigit:]]{8})$")))
+  {
+    throw std::invalid_argument("invalid value for hex variable");
+  }
+  newHex = std::regex_replace(newHex, std::regex("#"), "");
+  if (newHex.length() <= 4)
+  {
+    newHex.insert(0, 1, newHex[0]);
+    newHex.insert(2, 1, newHex[2]);
+    newHex.insert(4, 1, newHex[4]);
+    if (newHex.length() == 7)
     {
-        throw std::invalid_argument("invalid value for hex variable");
+      newHex.insert(6, 1, newHex[6]);
     }
-    newHex = std::regex_replace(newHex, std::regex("#"), "");
-    if (newHex.length() <= 4)
-    {
-        newHex.insert(0, 1, newHex[0]);
-        newHex.insert(2, 1, newHex[2]);
-        newHex.insert(4, 1, newHex[4]);
-        if (newHex.length() == 7)
-        {
-            newHex.insert(6, 1, newHex[6]);
-        }
-    }
+  }
 
-    hex = newHex;
+  hex = newHex;
 
-    recalcRGB();
-    recalcHSVL();
-    recalcLuminance();
+  recalcRGB();
+  recalcHSVL();
+  recalcLuminance();
 }
 } // namespace gpcu
 

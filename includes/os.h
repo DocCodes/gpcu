@@ -17,26 +17,26 @@ namespace gpcu
 {
 enum class OperatingSystemFamily : uint8_t
 {
-    other,
-    DOS,
-    win,
-    darwin,
-    linux,
-    solaris
+  other,
+  DOS,
+  win,
+  darwin,
+  linux,
+  solaris
 };
 
 enum class OperatingSystem : uint8_t
 {
-    other,
-    DOS,
-    linux,
-    macOS9,
-    macOSX,
-    solaris,
-    sunOS,
-    win16,
-    win32,
-    win64
+  other,
+  DOS,
+  linux,
+  macOS9,
+  macOSX,
+  solaris,
+  sunOS,
+  win16,
+  win32,
+  win64
 };
 
 std::string getEnvVar(const std::string &key);

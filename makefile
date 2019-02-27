@@ -3,11 +3,14 @@ FLAGS = -g -c -Wall -std=c++11
 INCL  = includes
 TEST  = tests
 
-main.exe: $(INCL)/stdafx.h.gch $(INCL)/all.h.gch
+main.exe: $(INCL)/stdafx.h.gch $(INCL)/all.h.gch $(INCL)/color.o $(INCL)/colors.o $(INCL)/console.o $(INCL)/join.o $(INCL)/list.o $(INCL)/os.o $(INCL)/pause.o $(INCL)/string.o
 	$(CC) -g -Wall -std=c++11 -o main.exe main.cpp
 
 $(INCL)/stdafx.h.gch:
 	$(CC) $(FLAGS) $(INCL)/stdafx.h
+
+$(INCL)/all.h.gch:
+	$(CC) $(FLAGS) $(INCL)/all.h
 
 $(INCL)/color.o: $(INCL)/stdafx.h.gch
 	$(CC) $(FLAGS) $(INCL)/color.cpp

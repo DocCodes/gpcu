@@ -14,10 +14,10 @@
 void printVersion()
 {
   std::cout << "GPCU Version ";
-  std::cout << ((GPCU_VERSION_ & 0xFF00000000) >> 32) << '.';
-  std::cout << ((GPCU_VERSION_ & 0x00FF000000) >> 24) << '.';
-  std::cout << ((GPCU_VERSION_ & 0x0000FF0000) >> 16) << '-';
-  std::cout << ((GPCU_VERSION_ & 0x000000FFFF) >> 0) << std::endl;
+  std::cout << ((GPCU_VERSION_ & 0xFF00000000) >> (8 * 4)) << '.';
+  std::cout << ((GPCU_VERSION_ & 0x00FF000000) >> (6 * 4)) << '.';
+  std::cout << ((GPCU_VERSION_ & 0x0000FF0000) >> (4 * 4)) << '-';
+  std::cout << ((GPCU_VERSION_ & 0x000000FFFF) >> (0 * 4)) << std::endl;
 }
 
 int main(int argc, const char *argv[])

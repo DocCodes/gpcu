@@ -23,26 +23,26 @@ namespace gpcu
 template <class T>
 class List
 {
-  private:
-    /** @brief The underlying collection of elements */
-    std::vector<T> elems;
+private:
+  /** @brief The underlying collection of elements */
+  std::vector<T> elems;
 
-  public:
-    std::size_t Capacity();
-    std::size_t Count();
-    void Add(const T &e);
-    void Empty();
-    bool Contains(const T &e);
-    std::size_t IndexOf(const T &e);
-    std::size_t IndexOf(const T &e, const std::size_t &j);
-    void Insert(const T &e, const std::size_t &i);
-    bool Remove(const T &e);
-    bool RemoveAt(const std::size_t &i);
-    std::string Join(const std::string &s);
-    void Sort();
-    void Swap(const std::size_t &i, const std::size_t &j);
-    T &operator[](const std::size_t &i);
-    bool operator==(const List<T> &l);
+public:
+  std::size_t Capacity();
+  std::size_t Count();
+  void Add(const T &e);
+  void Empty();
+  bool Contains(const T &e);
+  std::size_t IndexOf(const T &e);
+  std::size_t IndexOf(const T &e, const std::size_t &j);
+  void Insert(const T &e, const std::size_t &i);
+  bool Remove(const T &e);
+  bool RemoveAt(const std::size_t &i);
+  std::string Join(const std::string &s);
+  void Sort();
+  void Swap(const std::size_t &i, const std::size_t &j);
+  T &operator[](const std::size_t &i);
+  bool operator==(const List<T> &l);
 };
 
 /**
@@ -52,7 +52,7 @@ class List
 template <class T>
 std::size_t List<T>::Capacity()
 {
-    return elems.capacity();
+  return elems.capacity();
 }
 
 /**
@@ -62,7 +62,7 @@ std::size_t List<T>::Capacity()
 template <class T>
 std::size_t List<T>::Count()
 {
-    return elems.size();
+  return elems.size();
 }
 
 /**
@@ -73,7 +73,7 @@ std::size_t List<T>::Count()
 template <class T>
 void List<T>::Add(const T &e)
 {
-    elems.push_back(e);
+  elems.push_back(e);
 }
 
 /**
@@ -83,7 +83,7 @@ void List<T>::Add(const T &e)
 template <class T>
 void List<T>::Empty()
 {
-    elems.empty();
+  elems.empty();
 }
 
 /**
@@ -95,14 +95,14 @@ void List<T>::Empty()
 template <class T>
 bool List<T>::Contains(const T &e)
 {
-    for (std::size_t i = 0; i < this->Count(); i++)
+  for (std::size_t i = 0; i < this->Count(); i++)
+  {
+    if (elems[i] == e)
     {
-        if (elems[i] == e)
-        {
-            return true;
-        }
+      return true;
     }
-    return false;
+  }
+  return false;
 }
 
 /**
@@ -114,14 +114,14 @@ bool List<T>::Contains(const T &e)
 template <class T>
 std::size_t List<T>::IndexOf(const T &e)
 {
-    for (std::size_t i = 0; i < this->Count(); i++)
+  for (std::size_t i = 0; i < this->Count(); i++)
+  {
+    if (elems[i] == e)
     {
-        if (elems[i] == e)
-        {
-            return i;
-        }
+      return i;
     }
-    return -1;
+  }
+  return -1;
 }
 
 /**
@@ -134,14 +134,14 @@ std::size_t List<T>::IndexOf(const T &e)
 template <class T>
 std::size_t List<T>::IndexOf(const T &e, const std::size_t &j)
 {
-    for (std::size_t i = j; i < this->Count(); i++)
+  for (std::size_t i = j; i < this->Count(); i++)
+  {
+    if (elems[i] == e)
     {
-        if (elems[i] == e)
-        {
-            return i;
-        }
+      return i;
     }
-    return -1;
+  }
+  return -1;
 }
 
 /**
@@ -153,14 +153,14 @@ std::size_t List<T>::IndexOf(const T &e, const std::size_t &j)
 template <class T>
 void List<T>::Insert(const T &e, const std::size_t &i)
 {
-    if (i < 0 || i > this->Count())
-    {
-        throw std::out_of_range("i must be 0-" + this->Count());
-    }
-    else
-    {
-        elems.insert(i, 1, e);
-    }
+  if (i < 0 || i > this->Count())
+  {
+    throw std::out_of_range("i must be 0-" + this->Count());
+  }
+  else
+  {
+    elems.insert(i, 1, e);
+  }
 }
 
 /**
@@ -172,12 +172,12 @@ void List<T>::Insert(const T &e, const std::size_t &i)
 template <class T>
 bool List<T>::Remove(const T &e)
 {
-    if (!this->Contains(e))
-    {
-        return false;
-    }
-    this->RemoveAt(this->IndexOf(e));
-    return true;
+  if (!this->Contains(e))
+  {
+    return false;
+  }
+  this->RemoveAt(this->IndexOf(e));
+  return true;
 }
 
 /**
@@ -189,12 +189,12 @@ bool List<T>::Remove(const T &e)
 template <class T>
 bool List<T>::RemoveAt(const std::size_t &i)
 {
-    if (i >= this->Count())
-    {
-        return false;
-    }
-    elems.erase(elems.begin() + i);
-    return true;
+  if (i >= this->Count())
+  {
+    return false;
+  }
+  elems.erase(elems.begin() + i);
+  return true;
 }
 
 /**
@@ -206,15 +206,15 @@ bool List<T>::RemoveAt(const std::size_t &i)
 template <class T>
 std::string List<T>::Join(const std::string &s)
 {
-    std::unique_ptr<std::stringstream> ss(new std::stringstream());
+  std::unique_ptr<std::stringstream> ss(new std::stringstream());
 
-    (*ss) << elems[0];
-    for (std::size_t i = 1; i < this->Count(); i++)
-    {
-        (*ss) << s << elems[i];
-    }
+  (*ss) << elems[0];
+  for (std::size_t i = 1; i < this->Count(); i++)
+  {
+    (*ss) << s << elems[i];
+  }
 
-    return (*ss).str();
+  return (*ss).str();
 }
 
 /**
@@ -224,20 +224,20 @@ std::string List<T>::Join(const std::string &s)
 template <class T>
 void List<T>::Sort()
 {
-    for (std::size_t k = 0; k < this->Count() / 2; k++)
-    {
-        std::unique_ptr<int> i(new int(-1));
-        std::unique_ptr<T> pivot(new T(elems[this->Count() - 1]));
+  for (std::size_t k = 0; k < this->Count() / 2; k++)
+  {
+    std::unique_ptr<int> i(new int(-1));
+    std::unique_ptr<T> pivot(new T(elems[this->Count() - 1]));
 
-        for (std::size_t j = 0; j < this->Count() - 1; j++)
-        {
-            if (elems[j] <= (*pivot))
-            {
-                this->Swap(++(*i), j);
-            }
-        }
-        this->Swap(++(*i), this->Count() - 1);
+    for (std::size_t j = 0; j < this->Count() - 1; j++)
+    {
+      if (elems[j] <= (*pivot))
+      {
+        this->Swap(++(*i), j);
+      }
     }
+    this->Swap(++(*i), this->Count() - 1);
+  }
 }
 
 /**
@@ -249,10 +249,9 @@ void List<T>::Sort()
 template <class T>
 void List<T>::Swap(const std::size_t &i, const std::size_t &j)
 {
-std:
-    unique_ptr<T> tmp(new T(elems[i]));
-    elems[i] = elems[j];
-    elems[j] = (*tmp);
+  std::unique_ptr<T> tmp(new T(elems[i]));
+  elems[i] = elems[j];
+  elems[j] = (*tmp);
 }
 
 /**
@@ -264,7 +263,7 @@ std:
 template <class T>
 T &List<T>::operator[](const std::size_t &i)
 {
-    return elems[i];
+  return elems[i];
 }
 
 /**
@@ -276,18 +275,18 @@ T &List<T>::operator[](const std::size_t &i)
 template <class T>
 bool List<T>::operator==(const List<T> &l)
 {
-    if (this->Count() != l.Count())
+  if (this->Count() != l.Count())
+  {
+    return false;
+  }
+  for (std::size_t i = 0; i < this->Count(); i++)
+  {
+    if (elems[i] != l[i])
     {
-        return false;
+      return false;
     }
-    for (std::size_t i = 0; i < this->Count(); i++)
-    {
-        if (elems[i] != l[i])
-        {
-            return false;
-        }
-    }
-    return true;
+  }
+  return true;
 }
 } // namespace gpcu
 

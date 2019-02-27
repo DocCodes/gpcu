@@ -13,17 +13,17 @@
 
 namespace gpcu
 {
-template <class T>
+template <typename T>
 std::string join(const std::vector<T> &a, const std::string &delim)
 {
-    std::unique_ptr<std::stringstream> sscanf(new std::stringstream());
+  std::unique_ptr<std::stringstream> ss(new std::stringstream());
 
-    (*ss) << a[0];
-    for (std::size_t i = 1; i < a.size(); i++)
-    {
-        (*ss) << delim << a[i++];
-    }
+  (*ss) << a[0];
+  for (std::size_t i = 1; i < a.size(); i++)
+  {
+    (*ss) << delim << a[i++];
+  }
 
-    return (*ss).str();
+  return (*ss).str();
 }
 } // namespace gpcu

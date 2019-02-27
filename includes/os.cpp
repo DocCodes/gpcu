@@ -22,8 +22,8 @@ namespace gpcu
 */
 std::string getEnvVar(const std::string &key)
 {
-    char const *val = std::getenv(key.c_str());
-    return val == NULL ? std::string() : std::string(val);
+  char const *val = std::getenv(key.c_str());
+  return val == NULL ? std::string() : std::string(val);
 }
 
 /**
@@ -34,17 +34,17 @@ std::string getEnvVar(const std::string &key)
 OperatingSystemFamily getOSFamily()
 {
 #if defined(MSDOS) || defined(__MSDOS__) || defined(_MSDOS) || defined(__DOS__)
-    return OperatingSystemFamily::DOS;
+  return OperatingSystemFamily::DOS;
 #elif defined(__linux__)
-    return OperatingSystemFamily::linux;
+  return OperatingSystemFamily::linux;
 #elif defined(macintosh) || defined(Macintosh) || defined(__APPLE__)
-    return OperatingSystemFamily::darwin;
+  return OperatingSystemFamily::darwin;
 #elif defined(sun) || defined(__sun) || defined(__SVR4) || defined(__svr4__)
-    return OperatingSystemFamily::solaris;
+  return OperatingSystemFamily::solaris;
 #elif defined(_WIN16) || defined(__TOS_WIN__) || defined(_WIN32) || defined(__WIN32__) || defined(__WINDOWS__) || defined(_WIN64)
-    return OperatingSystemFamily::win;
+  return OperatingSystemFamily::win;
 #else
-    return OperatingSystemFamily::other;
+  return OperatingSystemFamily::other;
 #endif
 }
 
@@ -56,27 +56,27 @@ OperatingSystemFamily getOSFamily()
 OperatingSystem getOS()
 {
 #if defined(MSDOS) || defined(__MSDOS__) || defined(_MSDOS) || defined(__DOS__)
-    return OperatingSystem::DOS;
+  return OperatingSystem::DOS;
 #elif defined(__linux__)
-    return OperatingSystem::linux;
+  return OperatingSystem::linux;
 #elif defined(macintosh) || defined(Macintosh)
-    return OperatingSystem::macOS9;
+  return OperatingSystem::macOS9;
 #elif defined(__APPLE__)
-    return OperatingSystem::macOSX;
+  return OperatingSystem::macOSX;
 #elif defined(sun) || defined(__sun)
 #if defined(__SVR4) || defined(__svr4__)
-    return OperatingSystem::solaris;
+  return OperatingSystem::solaris;
 #else
-    return OperatingSystem::sunOS;
+  return OperatingSystem::sunOS;
 #endif
 #elif defined(_WIN16) || defined(__TOS_WIN__)
-    return OperatingSystem::win16;
+  return OperatingSystem::win16;
 #elif defined(_WIN32) || defined(__WIN32__) || defined(__WINDOWS__)
-    return OperatingSystem::win32;
+  return OperatingSystem::win32;
 #elif defined(_WIN64)
-    return OperatingSystem::win64;
+  return OperatingSystem::win64;
 #else
-    return OperatingSystem::other;
+  return OperatingSystem::other;
 #endif
 }
 
@@ -88,15 +88,15 @@ OperatingSystem getOS()
 */
 std::string joinPath(const std::vector<std::string> &a)
 {
-    std::unique_ptr<OperatingSystemFamily> osFamily(new OperatingSystemFamily(getOSFamily()));
-    std::unique_ptr<char> pathSep(new char('/'));
+  std::unique_ptr<OperatingSystemFamily> osFamily(new OperatingSystemFamily(getOSFamily()));
+  std::unique_ptr<char> pathSep(new char('/'));
 
-    if ((*osFamily) == OperatingSystemFamily::win || (*osFamily) == OperatingSystemFamily::DOS)
-    {
-        (*pathSep) = '\\';
-    }
+  if ((*osFamily) == OperatingSystemFamily::win || (*osFamily) == OperatingSystemFamily::DOS)
+  {
+    (*pathSep) = '\\';
+  }
 
-    return join(a, (*pathSep));
+  return join(a, std::to_string((*pathSep)));
 }
 
 /**
@@ -108,15 +108,15 @@ std::string joinPath(const std::vector<std::string> &a)
 */
 std::string joinPath(const std::string &a, const std::string &b)
 {
-    std::unique_ptr<OperatingSystemFamily> osFamily(new OperatingSystemFamily(getOSFamily()));
-    std::unique_ptr<char> pathSep(new char('/'));
+  std::unique_ptr<OperatingSystemFamily> osFamily(new OperatingSystemFamily(getOSFamily()));
+  std::unique_ptr<char> pathSep(new char('/'));
 
-    if ((*osFamily) == OperatingSystemFamily::win || (*osFamily) == OperatingSystemFamily::DOS)
-    {
-        (*pathSep) = '\\';
-    }
+  if ((*osFamily) == OperatingSystemFamily::win || (*osFamily) == OperatingSystemFamily::DOS)
+  {
+    (*pathSep) = '\\';
+  }
 
-    return a + (*pathSep) + b;
+  return a + (*pathSep) + b;
 }
 
 /**
@@ -126,39 +126,39 @@ std::string joinPath(const std::string &a, const std::string &b)
 */
 std::string getTempDir()
 {
-    std::unique_ptr<OperatingSystemFamily> osFamily(new OperatingSystemFamily(getOSFamily()));
-    std::unique_ptr<OperatingSystem> os(new OperatingSystem(getOS()));
-    std::unique_ptr<std::string> tempDir(new std::string());
+  std::unique_ptr<OperatingSystemFamily> osFamily(new OperatingSystemFamily(getOSFamily()));
+  std::unique_ptr<OperatingSystem> os(new OperatingSystem(getOS()));
+  std::unique_ptr<std::string> tempDir(new std::string());
 
-    if ((*os) == OperatingSystem::other)
-    {
-        return (*tempDir);
-    }
-    if ((*tempDir).empty())
-    {
-        (*tempDir) = getEnvVar("TMP");
-    }
-    if ((*tempDir).empty())
-    {
-        (*tempDir) = getEnvVar("TEMP");
-    }
-    if ((*tempDir).empty())
-    {
-        (*tempDir) = getEnvVar("TMPDIR");
-    }
-    if ((*tempDir).empty())
-    {
-        (*tempDir) = getEnvVar("TEMPDIR");
-    }
-    if ((*tempDir).empty())
-    {
-        if (!((*osFamily) == OperatingSystemFamily::win || (*osFamily) == OperatingSystemFamily::DOS))
-        {
-            (*tempDir) = "/tmp";
-        }
-    }
-
+  if ((*os) == OperatingSystem::other)
+  {
     return (*tempDir);
+  }
+  if ((*tempDir).empty())
+  {
+    (*tempDir) = getEnvVar("TMP");
+  }
+  if ((*tempDir).empty())
+  {
+    (*tempDir) = getEnvVar("TEMP");
+  }
+  if ((*tempDir).empty())
+  {
+    (*tempDir) = getEnvVar("TMPDIR");
+  }
+  if ((*tempDir).empty())
+  {
+    (*tempDir) = getEnvVar("TEMPDIR");
+  }
+  if ((*tempDir).empty())
+  {
+    if (!((*osFamily) == OperatingSystemFamily::win || (*osFamily) == OperatingSystemFamily::DOS))
+    {
+      (*tempDir) = "/tmp";
+    }
+  }
+
+  return (*tempDir);
 }
 
 /**
@@ -168,7 +168,7 @@ std::string getTempDir()
 */
 std::string getTempFile()
 {
-    return joinPath(getTempDir(), "gpcu.txt");
+  return joinPath(getTempDir(), "gpcu.txt");
 }
 
 /**
@@ -178,43 +178,43 @@ std::string getTempFile()
 */
 std::string getOSVer()
 {
-    std::unique_ptr<OperatingSystemFamily> osFamily(new OperatingSystemFamily(getOSFamily()));
-    std::unique_ptr<std::string> verPath(new std::string(getTempFile()));
-    std::unique_ptr<std::string> ver(new std::string());
-    std::unique_ptr<std::ifstream> verFile(new std::ifstream(*verPath));
-    std::unique_ptr<std::stringstream> buffer(new std::stringstream());
+  std::unique_ptr<OperatingSystemFamily> osFamily(new OperatingSystemFamily(getOSFamily()));
+  std::unique_ptr<std::string> verPath(new std::string(getTempFile()));
+  std::unique_ptr<std::string> ver(new std::string());
+  std::unique_ptr<std::ifstream> verFile(new std::ifstream(*verPath));
+  std::unique_ptr<std::stringstream> buffer(new std::stringstream());
 
-    if ((*osFamily) == OperatingSystemFamily::DOS || (*osFamily) == OperatingSystemFamily::win)
-    {
-        std::system(("ver > " + (*verPath)).c_str());
-        (*buffer) << (*verFile).rdbuf();
-        (*ver) = (*buffer).str();
-        (*ver) = std::regex_replace((*ver), std::regex("\\]?[^\\]]+(\\[|$)"), "");
-        (*ver) = (*ver).substr(8, (*ver).length() - 8);
-    }
+  if ((*osFamily) == OperatingSystemFamily::DOS || (*osFamily) == OperatingSystemFamily::win)
+  {
+    std::system(("ver > " + (*verPath)).c_str());
+    (*buffer) << (*verFile).rdbuf();
+    (*ver) = (*buffer).str();
+    (*ver) = std::regex_replace((*ver), std::regex("\\]?[^\\]]+(\\[|$)"), "");
+    (*ver) = (*ver).substr(8, (*ver).length() - 8);
+  }
 
-    if ((*osFamily) == OperatingSystemFamily::darwin)
-    {
-        std::system(("sw_vers -productVersion > " + (*verPath)).c_str());
-        (*buffer) << (*verFile).rdbuf();
-        (*ver) = (*buffer).str();
-    }
+  if ((*osFamily) == OperatingSystemFamily::darwin)
+  {
+    std::system(("sw_vers -productVersion > " + (*verPath)).c_str());
+    (*buffer) << (*verFile).rdbuf();
+    (*ver) = (*buffer).str();
+  }
 
-    if ((*osFamily) == OperatingSystemFamily::linux)
-    {
-        std::system(("lsb_release -r > " + (*verPath)).c_str());
-        (*buffer) << (*verFile).rdbuf();
-        (*ver) = (*buffer).str();
-        (*ver) = (*ver).substr(9, (*ver).length() - 9);
-    }
+  if ((*osFamily) == OperatingSystemFamily::linux)
+  {
+    std::system(("lsb_release -r > " + (*verPath)).c_str());
+    (*buffer) << (*verFile).rdbuf();
+    (*ver) = (*buffer).str();
+    (*ver) = (*ver).substr(9, (*ver).length() - 9);
+  }
 
-    if ((*osFamily) == OperatingSystemFamily::solaris)
-    {
-        std::system(("uname -r > " + (*verPath)).c_str());
-        (*buffer) << (*verFile).rdbuf();
-        (*ver) = (*buffer).str();
-    }
+  if ((*osFamily) == OperatingSystemFamily::solaris)
+  {
+    std::system(("uname -r > " + (*verPath)).c_str());
+    (*buffer) << (*verFile).rdbuf();
+    (*ver) = (*buffer).str();
+  }
 
-    return (*ver);
+  return (*ver);
 }
 } // namespace gpcu

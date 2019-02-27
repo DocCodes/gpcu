@@ -17,22 +17,22 @@ namespace gpcu::colors
 {
 enum Support : std::uint32_t
 {
-    none = 1,
-    basic = 16,
-    color = 256,
-    full = 16777216
+  none = 1,
+  basic = 16,
+  color = 256,
+  full = 16777216
 };
 
 enum Ansi : std::uint8_t
 {
-    black,
-    red,
-    green,
-    yellow,
-    blue,
-    magenta,
-    cyan,
-    white
+  black,
+  red,
+  green,
+  yellow,
+  blue,
+  magenta,
+  cyan,
+  white
 };
 
 Support getSupport();

@@ -19,7 +19,7 @@ namespace gpcu::console
 */
 void beep()
 {
-    std::cout << '\a';
+  std::cout << '\a';
 }
 
 /**
@@ -28,7 +28,7 @@ void beep()
 */
 void clear()
 {
-    std::cout << std::string(100, '\n');
+  std::cout << std::string(100, '\n');
 }
 
 /**
@@ -38,9 +38,9 @@ void clear()
 */
 std::string getline()
 {
-    std::unique_ptr<std::string> temp(new std::string());
-    std::getline(std::cin, (*temp));
-    return (*temp);
+  std::unique_ptr<std::string> temp(new std::string());
+  std::getline(std::cin, (*temp));
+  return (*temp);
 }
 
 /**
@@ -51,10 +51,10 @@ std::string getline()
 */
 std::string getline(const std::string &s)
 {
-    std::unique_ptr<std::string> temp(new std::string());
-    std::cout << s;
-    std::getline(std::cin, (*temp));
-    return (*temp);
+  std::unique_ptr<std::string> temp(new std::string());
+  std::cout << s;
+  std::getline(std::cin, (*temp));
+  return (*temp);
 }
 
 /**
@@ -64,7 +64,7 @@ std::string getline(const std::string &s)
 */
 void write(const std::string &s)
 {
-    std::cout << s;
+  std::cout << s;
 }
 
 /**
@@ -74,6 +74,6 @@ void write(const std::string &s)
 */
 void writeline(const std::string &s)
 {
-    std::cout << s << std::endl;
+  std::cout << s << std::endl;
 }
 } // namespace gpcu::console
