@@ -26,6 +26,18 @@ void upper(std::string *s)
 }
 
 /**
+* @brief  Transforms a string to uppercase.
+* @since  2.7.0-64 (0x0207000040)
+* @param  s The string to make uppercase.
+* @return The uppercase string
+*/
+std::string upper_copy(std::string s)
+{
+  std::transform(s.begin(), s.end(), s.begin(), ::toupper);
+  return s;
+}
+
+/**
 * @brief Transforms a string to lowercase.
 * @since 2.2.0-37 (0x0202000025)
 * @param s The string to make lowercase.
@@ -36,11 +48,22 @@ void lower(std::string *s)
 }
 
 /**
-* @brief  Trims away whitespace from the left edge of a string.
-* @since  2.2.0-37 (0x0202000025)
-* @param  s     The string to trim.
-* @param  chars The characters to trim away.
-* @return       The string without the trimmed characters.
+* @brief  Transforms a string to lowercase.
+* @since  2.7.0-64 (0x0207000040)
+* @param  s The string to make lowercase.
+* @return The lowercase string
+*/
+std::string lower_copy(std::string s)
+{
+  std::transform(s.begin(), s.end(), s.begin(), ::tolower);
+  return s;
+}
+
+/**
+* @brief Trims away whitespace from the left edge of a string.
+* @since 2.2.0-37 (0x0202000025)
+* @param s     The string to trim.
+* @param chars The characters to trim away.
 */
 void ltrim(std::string *s, const std::string &chars)
 {
@@ -48,11 +71,23 @@ void ltrim(std::string *s, const std::string &chars)
 }
 
 /**
-* @brief  Trims away whitespace from the right edge of a string.
-* @since  2.2.0-37 (0x0202000025)
+* @brief  Trims away whitespace from the left edge of a string.
+* @since  2.7.0-64 (0x0207000040)
 * @param  s     The string to trim.
 * @param  chars The characters to trim away.
 * @return       The string without the trimmed characters.
+*/
+std::string ltrim_copy(std::string s, const std::string &chars)
+{
+  s.erase(0, s.find_first_not_of(chars));
+  return s;
+}
+
+/**
+* @brief Trims away whitespace from the right edge of a string.
+* @since 2.2.0-37 (0x0202000025)
+* @param s     The string to trim.
+* @param chars The characters to trim away.
 */
 void rtrim(std::string *s, const std::string &chars)
 {
@@ -60,16 +95,40 @@ void rtrim(std::string *s, const std::string &chars)
 }
 
 /**
-* @brief  Trims away whitespace from both edges of a string.
-* @since  2.2.0-37 (0x0202000025)
+* @brief  Trims away whitespace from the right edge of a string.
+* @since  2.7.0-64 (0x0207000040)
 * @param  s     The string to trim.
 * @param  chars The characters to trim away.
 * @return       The string without the trimmed characters.
+*/
+std::string rtrim_copy(std::string s, const std::string &chars)
+{
+  s.erase(s.find_last_not_of(chars) + 1);
+  return s;
+}
+
+/**
+* @brief Trims away whitespace from both edges of a string.
+* @since 2.2.0-37 (0x0202000025)
+* @param s     The string to trim.
+* @param chars The characters to trim away.
 */
 void trim(std::string *s, const std::string &chars)
 {
   rtrim(s, chars);
   ltrim(s, chars);
+}
+
+/**
+* @brief  Trims away whitespace from both edges of a string.
+* @since  2.7.0-64 (0x0207000040)
+* @param  s     The string to trim.
+* @param  chars The characters to trim away.
+* @return       The string without the trimmed characters.
+*/
+std::string trim_copy(std::string s, const std::string &chars)
+{
+  return rtrim_copy(ltrim_copy(s));
 }
 
 /**

@@ -18,10 +18,15 @@ namespace gpcu
 namespace string
 {
 void upper(std::string *s);
+std::string upper_copy(std::string s);
 void lower(std::string *s);
+std::string lower_copy(std::string s);
 void ltrim(std::string *s, const std::string &chars = "\t\n\v\f\r ");
+std::string ltrim_copy(std::string s, const std::string &chars = "\t\n\v\f\r ");
 void rtrim(std::string *s, const std::string &chars = "\t\n\v\f\r ");
+std::string rtrim_copy(std::string s, const std::string &chars = "\t\n\v\f\r ");
 void trim(std::string *s, const std::string &chars = "\t\n\v\f\r ");
+std::string trim_copy(std::string s, const std::string &chars = "\t\n\v\f\r ");
 std::size_t count(const std::string &s, const std::string &t);
 std::size_t count(const std::string &s, const char &t);
 bool split(std::string *a, const std::string &s, const std::string &delim);
