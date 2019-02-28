@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-02-27
-*  @date      2019-02-27
+*  @date      2019-02-28
 *  @copyright Copyright 2019 Evan Elias Young. All rights reserved.
 */
 
@@ -66,9 +66,19 @@ std::string test_string_count_char()
   return std::to_string(gpcu::string::count("Evan Elias Young", 'E'));
 }
 
+std::string test_string_startswith()
+{
+  return std::to_string(gpcu::string::startswith("Kansas City/Hey-Hey-Hey-Hey!", "Hey"));
+}
+
+std::string test_string_endswith()
+{
+  return std::to_string(gpcu::string::endswith("Evan Elias Young", "g"));
+}
+
 bool test_string(int *passing, int *total)
 {
-  std::size_t const localTotal = 7;
+  std::size_t const localTotal = 9;
   std::string testNames[localTotal] = {
       "upper(string* s)",
       "lower(string* s)",
@@ -76,7 +86,9 @@ bool test_string(int *passing, int *total)
       "rtrim(string& s, const string& chars)",
       "trim(string& s, const string& chars)",
       "count(string s, string delim)",
-      "count(string s, char delim)"};
+      "count(string s, char delim)",
+      "startswith(string a, string b)",
+      "endswith(string a, string b)"};
   std::string (*testFuncs[localTotal])() = {
       test_string_upper,
       test_string_lower,
@@ -84,7 +96,9 @@ bool test_string(int *passing, int *total)
       test_string_rtrim,
       test_string_trim,
       test_string_count_string,
-      test_string_count_char};
+      test_string_count_char,
+      test_string_startswith,
+      test_string_endswith};
   std::string testExps[localTotal] = {
       "DAY TRIPPER",
       "day tripper",
@@ -92,7 +106,9 @@ bool test_string(int *passing, int *total)
       "Underflow",
       "Botherflow",
       "4",
-      "2"};
+      "2",
+      "0",
+      "1"};
 
   return etest::TEST_CATEGORY_EQ("String", localTotal, passing, total, testNames, testFuncs, testExps);
 }

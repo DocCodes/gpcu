@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-02-26
-*  @date      2019-02-27
+*  @date      2019-02-28
 *  @copyright Copyright 2019 Evan Elias Young. All rights reserved.
 */
 
@@ -237,6 +237,38 @@ bool split(std::string *a, const std::string &s, const char &delim, const std::s
   }
 
   return true;
+}
+
+/**
+* @brief  Checks if a string starts with a different string.
+* @since  2.7.0-65 (0x0207000041)
+* @param  a     The string to check against.
+* @param  b     The string to check for.
+* @return       Whether or not the string starts with the other string.
+*/
+bool startswith(const std::string &a, const std::string &b)
+{
+  if (b.length() > a.length())
+  {
+    return false;
+  }
+  return a.substr(0, b.length()) == b;
+}
+
+/**
+* @brief  Checks if a string ends with a different string.
+* @since  2.7.0-65 (0x0207000041)
+* @param  a     The string to check against.
+* @param  b     The string to check for.
+* @return       Whether or not the string ends with the other string.
+*/
+bool endswith(const std::string &a, const std::string &b)
+{
+  if (b.length() > a.length())
+  {
+    return false;
+  }
+  return a.substr(a.length() - b.length()) == b;
 }
 } // namespace string
 } // namespace gpcu

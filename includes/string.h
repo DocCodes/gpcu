@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-02-26
-*  @date      2019-02-27
+*  @date      2019-02-28
 *  @copyright Copyright 2019 Evan Elias Young. All rights reserved.
 */
 
@@ -31,6 +31,8 @@ std::size_t count(const std::string &s, const std::string &t);
 std::size_t count(const std::string &s, const char &t);
 bool split(std::string *a, const std::string &s, const std::string &delim);
 bool split(std::string *a, const std::string &s, const char &delim);
+bool startswith(const std::string& a, const std::string& b);
+bool endswith(const std::string &a, const std::string &b);
 } // namespace string
 } // namespace gpcu
 
