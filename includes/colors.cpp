@@ -78,7 +78,7 @@ gpcu::colors::Support getSupport()
 * @param  off The offset value.
 * @return     The wrapped Ansi sequence.
 */
-std::string wrapAnsi16(const int &col, const int &off)
+std::string wrapAnsi16(const std::uint8_t &col, const int &off)
 {
   return "\033[" + std::to_string(30 + col + off) + "m";
 }
@@ -90,7 +90,7 @@ std::string wrapAnsi16(const int &col, const int &off)
 * @param  off The offset value.
 * @return     The wrapped Ansi sequence.
 */
-std::string wrapAnsi256(const int &col, const int &off)
+std::string wrapAnsi256(const std::uint32_t &col, const int &off)
 {
   return "\033[" + std::to_string(38 + (off % 60)) + ";5;" + std::to_string(off >= 60 ? col + 8 : col) + "m";
 }
@@ -105,7 +105,7 @@ namespace wrap
 * @param  term The terminator value.
 * @return      The complete wrapped Ansi sequence with the terminator.
 */
-std::string wrapper(const std::string &txt, const int &col, const int &off, const int &term)
+std::string wrapper(const std::string &txt, const uint32_t &col, const int &off, const int &term)
 {
   colors::Support supportLevel = getSupport();
   bool isColor = true;

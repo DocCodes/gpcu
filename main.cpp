@@ -10,6 +10,7 @@
 
 #include "includes/stdafx.h"
 #include "includes/all.h"
+#include "tests/all.h"
 
 void printVersion()
 {
@@ -27,9 +28,8 @@ int main(int argc, const char *argv[])
 
   printVersion();
 
-  // test_colors(passing, total);
-  // test_join(passing, total);
-  // test_string(passing, total);
+  test_colors(passing.get(), total.get());
+  test_string(passing.get(), total.get());
 
   std::cout << (*passing) << "/" << (*total) << " total tests passing" << std::endl;
 
