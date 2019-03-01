@@ -24,7 +24,7 @@ mt32 randGen = mt32();
 */
 std::uint32_t next()
 {
-  return next(std::pow(2, 32) - 1);
+  return next(UINT32_MAX);
 }
 
 /**
@@ -65,7 +65,7 @@ std::int32_t next(int32_t min, int32_t max)
 */
 double nextdouble()
 {
-  return randGen() / (std::pow(2, 32) - 1);
+  return randGen() / (UINT32_MAX);
 }
 } // namespace random
 namespace random64
@@ -79,7 +79,7 @@ mt64 randGen = mt64();
 */
 std::uint64_t next()
 {
-  return next(std::pow(2, 64) - 1);
+  return next(UINT64_MAX);
 }
 
 /**
@@ -121,7 +121,7 @@ std::int64_t next(int64_t min, int64_t max)
 */
 double nextdouble()
 {
-  return randGen() / (std::pow(2, 64) - 1);
+  return randGen() / (UINT64_MAX);
 }
 } // namespace random64
 } // namespace gpcu
