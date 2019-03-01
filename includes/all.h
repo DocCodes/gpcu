@@ -20,7 +20,7 @@
 * the next four contain the patch number,
 * and the last eight contain the revision number.
 */
-#define GPCU_VERSION_ 0x0207000041
+#define GPCU_VERSION_ 0x0208000042
 
 #include "stdafx.h"
 
@@ -32,6 +32,7 @@
 #include "list.h"
 #include "os.h"
 #include "pause.h"
+#include "random.h"
 #include "string.h"
 
 #endif // GPCU_H_

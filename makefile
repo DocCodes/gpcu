@@ -3,8 +3,8 @@ FLAGS = -g -c -Wall -std=c++11
 INCL  = includes
 TEST  = tests
 
-main.exe: $(INCL)/stdafx.h.gch $(INCL)/all.h.gch $(TEST)/all.h.gch $(INCL)/exits.h.gch $(INCL)/color.o $(INCL)/colors.o $(INCL)/console.o $(INCL)/join.o $(INCL)/list.o $(INCL)/os.o $(INCL)/pause.o $(INCL)/string.o $(TEST)/etest.o $(TEST)/colors.o $(TEST)/string.o
-	$(CC) -g -Wall -std=c++11 -o main.exe main.cpp $(INCL)/color.o $(INCL)/colors.o $(INCL)/console.o $(INCL)/join.o $(INCL)/list.o $(INCL)/os.o $(INCL)/pause.o $(INCL)/string.o $(TEST)/etest.o $(TEST)/colors.o $(TEST)/string.o
+main.exe: $(INCL)/stdafx.h.gch $(INCL)/all.h.gch $(TEST)/all.h.gch $(INCL)/exits.h.gch $(INCL)/color.o $(INCL)/colors.o $(INCL)/console.o $(INCL)/join.o $(INCL)/list.o $(INCL)/os.o $(INCL)/pause.o $(INCL)/random.o $(INCL)/string.o $(TEST)/etest.o $(TEST)/colors.o $(TEST)/string.o
+	$(CC) -g -Wall -std=c++11 -o main.exe main.cpp $(INCL)/color.o $(INCL)/colors.o $(INCL)/console.o $(INCL)/join.o $(INCL)/list.o $(INCL)/os.o $(INCL)/pause.o $(INCL)/random.o $(INCL)/string.o $(TEST)/etest.o $(TEST)/colors.o $(TEST)/string.o
 
 $(INCL)/stdafx.h.gch:
 	$(CC) $(FLAGS) -o $(INCL)/stdafx.h.gch $(INCL)/stdafx.h
@@ -38,6 +38,9 @@ $(INCL)/os.o: $(INCL)/stdafx.h.gch $(INCL)/join.o
 
 $(INCL)/pause.o: $(INCL)/stdafx.h.gch
 	$(CC) $(FLAGS) -o $(INCL)/pause.o $(INCL)/pause.cpp
+
+$(INCL)/random.o: $(INCL)/stdafx.h.gch
+	$(CC) $(FLAGS) -o $(INCL)/random.o $(INCL)/random.cpp
 
 $(INCL)/string.o: $(INCL)/stdafx.h.gch
 	$(CC) $(FLAGS) -o $(INCL)/string.o $(INCL)/string.cpp
