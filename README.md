@@ -1,6 +1,6 @@
 # GPCU
 
-[![Code Style](https://img.shields.io/badge/code_style-google-brightgreen.svg?style=flat)](https://google.github.io/styleguide/cppguide.html)
+![Code Style](https://img.shields.io/badge/code_style-c++_core-blue.svg?style=flat)
 [![Versioning](https://img.shields.io/badge/versioning-semantic-brightgreen.svg?style=flat)](https://semver.org/)
 [![Commit Style](https://img.shields.io/badge/commit_style-gitmoji-yellow.svg?style=flat)](https://gitmoji.carloscuesta.me/)
 ![Top Language](https://img.shields.io/github/languages/top/doccodes/gpcu.svg?style=flat)
