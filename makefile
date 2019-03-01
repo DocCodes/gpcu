@@ -3,7 +3,7 @@ FLAGS = -g -c -Wall -std=c++11
 INCL  = includes
 TEST  = tests
 
-main.exe: $(INCL)/stdafx.h.gch $(INCL)/all.h.gch $(TEST)/all.h.gch $(INCL)/exits.h.gch $(INCL)/color.o $(INCL)/colors.o $(INCL)/console.o $(INCL)/join.o $(INCL)/list.o $(INCL)/os.o $(INCL)/pause.o $(INCL)/random.o $(INCL)/string.o $(TEST)/etest.o $(TEST)/colors.o $(TEST)/string.o
+main.exe: $(INCL)/stdafx.h.gch $(INCL)/all.h.gch $(TEST)/all.h.gch $(INCL)/exits.h.gch $(INCL)/limits.h.gch $(INCL)/color.o $(INCL)/colors.o $(INCL)/console.o $(INCL)/join.o $(INCL)/list.o $(INCL)/os.o $(INCL)/pause.o $(INCL)/random.o $(INCL)/string.o $(TEST)/etest.o $(TEST)/colors.o $(TEST)/string.o
 	$(CC) -g -Wall -std=c++11 -o main.exe main.cpp $(INCL)/color.o $(INCL)/colors.o $(INCL)/console.o $(INCL)/join.o $(INCL)/list.o $(INCL)/os.o $(INCL)/pause.o $(INCL)/random.o $(INCL)/string.o $(TEST)/etest.o $(TEST)/colors.o $(TEST)/string.o
 
 $(INCL)/stdafx.h.gch:
@@ -17,6 +17,9 @@ $(TEST)/all.h.gch:
 
 $(INCL)/exits.h.gch:
 	$(CC) $(FLAGS) -o $(INCL)/exits.h.gch $(INCL)/exits.h
+
+$(INCL)/limits.h.gch:
+	$(CC) $(FLAGS) -o $(INCL)/limits.h.gch $(INCL)/limits.h
 
 $(INCL)/color.o: $(INCL)/stdafx.h.gch
 	$(CC) $(FLAGS) -o $(INCL)/color.o $(INCL)/color.cpp
