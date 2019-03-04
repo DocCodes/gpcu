@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-03-01
-*  @date      2019-03-01
+*  @date      2019-03-04
 *  @copyright Copyright 2019 Evan Elias Young. All rights reserved.
 */
 
@@ -16,6 +16,14 @@ namespace gpcu
 namespace random
 {
 mt32 randGen = mt32();
+
+/**
+* @brief  Seeds the random number generator.
+* @since  2.8.0-70 (0x0208000046)
+*/
+void seed(int32_t s) {
+  randGen.seed(s);
+}
 
 /**
 * @brief  Returns a non-negative random integer.
@@ -71,6 +79,15 @@ double nextdouble()
 namespace random64
 {
 mt64 randGen = mt64();
+
+/**
+* @brief  Seeds the random number generator.
+* @since  2.8.0-70 (0x0208000046)
+*/
+void seed(int64_t s)
+{
+  randGen.seed(s);
+}
 
 /**
 * @brief  Returns a non-negative random 64-bit integer.

@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-03-01
-*  @date      2019-03-01
+*  @date      2019-03-04
 *  @copyright Copyright 2019 Evan Elias Young. All rights reserved.
 */
 
@@ -20,6 +20,7 @@ namespace gpcu
 {
 namespace random
 {
+void seed(int32_t s);
 std::uint32_t next();
 std::uint32_t next(uint32_t max);
 std::int32_t next(int32_t min, int32_t max);
@@ -27,6 +28,7 @@ double nextdouble();
 } // namespace random
 namespace random64
 {
+void seed(int64_t s);
 std::uint64_t next();
 std::uint64_t next(uint64_t max);
 std::int64_t next(int64_t min, int64_t max);
