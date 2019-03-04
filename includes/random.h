@@ -26,6 +26,7 @@ std::uint32_t next(uint32_t max);
 std::int32_t next(int32_t min, int32_t max);
 double nextdouble();
 } // namespace random
+
 namespace random64
 {
 void seed(int64_t s);
